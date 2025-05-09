@@ -1,0 +1,1 @@
+<?php echo $body; ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\email.blade.php ENDPATH**/ ?>
