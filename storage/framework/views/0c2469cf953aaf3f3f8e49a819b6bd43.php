@@ -32,7 +32,7 @@
                                                 <div class="d-flex align-items-start mt-3 mt-sm-0">
                                                     <div class="flex-shrink-0">
                                                         <div class="avatar-xl me-3">
-                                                            <img src="<?php echo e((!empty($profileData->phone)) ? url('upload/admin_images/'.$profileData->phone) : url('upload/no_image.jpg')); ?>" alt="" class="img-fluid rounded-circle d-block">
+                                                            <img src="<?php echo e((!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="img-fluid rounded-circle d-block">
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -59,7 +59,9 @@
 
 
                                 <div class="card-body p-4">
-        <form action="">
+        <form action="<?php echo e(route('admin.profile.store')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
+
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div>
@@ -82,7 +84,7 @@
                                             </div>
 
                                             <div class="col-lg-6">
-                                                < class="mt-3 mt-lg-0">
+                                                <div class="mt-3 mt-lg-0">
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Address</label>
                                                         <input class="form-control" name="address" type="address" value="<?php echo e($profileData->address); ?>" id="example-text-input">

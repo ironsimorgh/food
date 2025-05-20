@@ -23,7 +23,7 @@
         <link href="<?php echo e(asset('backend/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="<?php echo e(asset('backend/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css" />
-
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     </head>
 
     <body>
@@ -86,6 +86,30 @@
         <script src="<?php echo e(asset('backend/assets/js/pages/dashboard.init.js')); ?>"></script>
 
         <script src="<?php echo e(asset('backend/assets/js/app.js')); ?>"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ <?php if(Session::has('message')): ?>
+ var type = "<?php echo e(Session::get('alert-type','info')); ?>"
+ switch(type){
+    case 'info':
+    toastr.info(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'success':
+    toastr.success(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'warning':
+    toastr.warning(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'error':
+    toastr.error(" <?php echo e(Session::get('message')); ?> ");
+    break; 
+ }
+ <?php endif; ?> 
+</script>
 
     </body>
 
