@@ -4,22 +4,24 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Admin Login </title>
+        <title>Client Login </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo e(asset('backend/assets/images/favicon.ico')); ?>">
+        <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}">
 
         <!-- preloader css -->
-        <link rel="stylesheet" href="<?php echo e(asset('backend/assets/css/preloader.min.css')); ?>" type="text/css" />
+        <link rel="stylesheet" href="{{asset('backend/assets/css/preloader.min.css')}}" type="text/css" />
 
         <!-- Bootstrap Css -->
-        <link href="<?php echo e(asset('backend/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="<?php echo e(asset('backend/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="<?php echo e(asset('backend/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 
     </head>
 
@@ -35,29 +37,29 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="28"> <span class="logo-txt">Admin Login</span>
+                                            <img src="{{asset('backend/assets/images/logo-sm.svg')}}" alt="" height="28"> <span class="logo-txt">Client Login</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
                                             <h5 class="mb-0">Welcome Back !</h5>
-                                            <p class="text-muted mt-2">Sign in to continue to Admin.</p>
+                                            <p class="text-muted mt-2">Sign in to continue to Client.</p>
                                         </div>
-                                        <?php if($errors->any()): ?>
-                                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <li><?php echo e($error); ?></li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <?php endif; ?>
+                                        @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{$error}}</li>
+                                        @endforeach
+                                    @endif
                             
-                                    <?php if(Session::has('error')): ?>
-                                        <li><?php echo e(Session::get('error')); ?></li>
-                                    <?php endif; ?>  
+                                    @if (Session::has('error'))
+                                        <li>{{Session::get('error')}}</li>
+                                    @endif  
                                     
-                                    <?php if(Session::has('success')): ?>
-                                        <li><?php echo e(Session::get('success')); ?></li>
-                                    <?php endif; ?> 
-                                        <form class="mt-4 pt-2" action="<?php echo e(route('admin.login_submit')); ?>" method="post">
-                                            <?php echo csrf_field(); ?>
+                                    @if (Session::has('success'))
+                                        <li>{{Session::get('success')}}</li>
+                                    @endif 
+                                        <form class="mt-4 pt-2" action="{{route('client.login_submit')}}" method="post">
+                                            @csrf
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
                                                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
@@ -69,7 +71,7 @@
                                                     </div>
                                                     <div class="flex-shrink-0">
                                                         <div class="">
-                                                            <a href="<?php echo e(route('admin.forget_password')); ?>" class="text-muted">Forgot password?</a>
+                                                            <a href="{{route('admin.forget_password')}}" class="text-muted">Forgot password?</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,7 +176,7 @@
                                                         <div class="mt-4 pt-3 pb-5">
                                                             <div class="d-flex align-items-start">
                                                                 <div class="flex-shrink-0">
-                                                                    <img src="<?php echo e(asset('backend/assets/images/users/avatar-1.jpg')); ?>" class="avatar-md img-fluid rounded-circle" alt="...">
+                                                                    <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" class="avatar-md img-fluid rounded-circle" alt="...">
                                                                 </div>
                                                                 <div class="flex-grow-1 ms-3 mb-4">
                                                                     <h5 class="font-size-18 text-white">Richard Drews
@@ -199,7 +201,7 @@
                                                         <div class="mt-4 pt-3 pb-5">
                                                             <div class="d-flex align-items-start">
                                                                 <div class="flex-shrink-0">
-                                                                    <img src="<?php echo e(asset('backend/assets/images/users/avatar-1.jpg')); ?>" class="avatar-md img-fluid rounded-circle" alt="...">
+                                                                    <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" class="avatar-md img-fluid rounded-circle" alt="...">
                                                                 </div>
                                                                 <div class="flex-grow-1 ms-3 mb-4">
                                                                     <h5 class="font-size-18 text-white">Rosanna French
@@ -223,7 +225,7 @@
                                                             feel.”</h4>
                                                         <div class="mt-4 pt-3 pb-5">
                                                             <div class="d-flex align-items-start">
-                                                                <img src="<?php echo e(asset('backend/assets/images/users/avatar-1.jpg')); ?>"
+                                                                <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}"
                                                                     class="avatar-md img-fluid rounded-circle" alt="...">
                                                                 <div class="flex-1 ms-3 mb-4">
                                                                     <h5 class="font-size-18 text-white">Ilse R. Eaton</h5>
@@ -252,17 +254,42 @@
 
 
         <!-- JAVASCRIPT -->
-        <script src="<?php echo e(asset('backend/assets/libs/jquery/jquery.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('backend/assets/libs/metismenu/metisMenu.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('backend/assets/libs/simplebar/simplebar.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('backend/assets/libs/node-waves/waves.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('backend/assets/libs/feather-icons/feather.min.js')); ?>"></script>
+        <script src="{{asset('backend/assets/libs/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/metismenu/metisMenu.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/simplebar/simplebar.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
+        <script src="{{asset('backend/assets/libs/feather-icons/feather.min.js')}}"></script>
         <!-- pace js -->
-        <script src="<?php echo e(asset('backend/assets/libs/pace-js/pace.min.js')); ?>"></script>
+        <script src="{{asset('backend/assets/libs/pace-js/pace.min.js')}}"></script>
         <!-- password addon init -->
-        <script src="<?php echo e(asset('backend/assets/js/pages/pass-addon.init.js')); ?>"></script>
+        <script src="{{asset('backend/assets/js/pages/pass-addon.init.js')}}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ @if(Session::has('message'))
+ var type = "{{ Session::get('alert-type','info') }}"
+ switch(type){
+    case 'info':
+    toastr.info(" {{ Session::get('message') }} ");
+    break;
+
+    case 'success':
+    toastr.success(" {{ Session::get('message') }} ");
+    break;
+
+    case 'warning':
+    toastr.warning(" {{ Session::get('message') }} ");
+    break;
+
+    case 'error':
+    toastr.error(" {{ Session::get('message') }} ");
+    break; 
+ }
+ @endif 
+</script>
+
 
     </body>
 
-</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\login.blade.php ENDPATH**/ ?>
+</html>

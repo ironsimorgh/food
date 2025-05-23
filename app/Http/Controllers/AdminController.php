@@ -39,6 +39,7 @@ class AdminController extends Controller
         }
 
     }
+    //end method
     public function AdminLogout(){
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login')->with('success','Logout success');
@@ -121,6 +122,7 @@ class AdminController extends Controller
             }
         }
         $data->save();
+
         $notification = array(
             'message' => 'Profile Updated Successfully',
             'alert-type'=> 'success'

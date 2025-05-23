@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Admin Login </title>
+        <title>Client Register </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -35,13 +35,13 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="28"> <span class="logo-txt">Admin Login</span>
+                                            <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="28"> <span class="logo-txt">Client Register</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
                                             <h5 class="mb-0">Welcome Back !</h5>
-                                            <p class="text-muted mt-2">Sign in to continue to Admin.</p>
+                                            <p class="text-muted mt-2">Sign in to continue to Client.</p>
                                         </div>
                                         <?php if($errors->any()): ?>
                                         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -56,8 +56,24 @@
                                     <?php if(Session::has('success')): ?>
                                         <li><?php echo e(Session::get('success')); ?></li>
                                     <?php endif; ?> 
-                                        <form class="mt-4 pt-2" action="<?php echo e(route('admin.login_submit')); ?>" method="post">
+                                        <form class="mt-4 pt-2" action="<?php echo e(route('client.register.submit')); ?>" method="post">
                                             <?php echo csrf_field(); ?>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Restaurant Name</label>
+                                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Phone</label>
+                                                <input type="text" name="phone" class="form-control" id="name" placeholder="Enter Phone">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Address</label>
+                                                <input type="text" name="address" class="form-control" id="address" placeholder="Enter Address">
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
                                                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
@@ -88,7 +104,7 @@
                                                 
                                             </div>
                                             <div class="mb-3">
-                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log In</button>
+                                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
                                             </div>
                                         </form>
 
@@ -265,4 +281,4 @@
 
     </body>
 
-</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\login.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\client\client_register.blade.php ENDPATH**/ ?>

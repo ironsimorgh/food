@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Admin Login </title>
+        <title>Client Login </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -20,6 +20,8 @@
         <link href="<?php echo e(asset('backend/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="<?php echo e(asset('backend/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 
     </head>
 
@@ -35,13 +37,13 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="index.html" class="d-block auth-logo">
-                                            <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="28"> <span class="logo-txt">Admin Login</span>
+                                            <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="28"> <span class="logo-txt">Client Login</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">
                                         <div class="text-center">
                                             <h5 class="mb-0">Welcome Back !</h5>
-                                            <p class="text-muted mt-2">Sign in to continue to Admin.</p>
+                                            <p class="text-muted mt-2">Sign in to continue to Client.</p>
                                         </div>
                                         <?php if($errors->any()): ?>
                                         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -56,7 +58,7 @@
                                     <?php if(Session::has('success')): ?>
                                         <li><?php echo e(Session::get('success')); ?></li>
                                     <?php endif; ?> 
-                                        <form class="mt-4 pt-2" action="<?php echo e(route('admin.login_submit')); ?>" method="post">
+                                        <form class="mt-4 pt-2" action="<?php echo e(route('client.login_submit')); ?>" method="post">
                                             <?php echo csrf_field(); ?>
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
@@ -262,7 +264,32 @@
         <script src="<?php echo e(asset('backend/assets/libs/pace-js/pace.min.js')); ?>"></script>
         <!-- password addon init -->
         <script src="<?php echo e(asset('backend/assets/js/pages/pass-addon.init.js')); ?>"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ <?php if(Session::has('message')): ?>
+ var type = "<?php echo e(Session::get('alert-type','info')); ?>"
+ switch(type){
+    case 'info':
+    toastr.info(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'success':
+    toastr.success(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'warning':
+    toastr.warning(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'error':
+    toastr.error(" <?php echo e(Session::get('message')); ?> ");
+    break; 
+ }
+ <?php endif; ?> 
+</script>
+
 
     </body>
 
-</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\login.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/client_login.blade.php ENDPATH**/ ?>

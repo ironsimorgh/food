@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Clientcontroller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +36,19 @@ Route::get('/admin/forget_password', [AdminController::class, 'AdminForgetPasswo
 Route::post('/admin/password_submit', [AdminController::class, 'AdminPasswordSubmit'])->name('admin.password_submit');
 Route::get('/admin/reset-password/{token}/{email}', [AdminController::class, 'AdminResetPassword']);
 Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminResetPasswordSubmit'])->name('admin.reset_password_submit');
+
+
+
+
+
+///route for client
+
+Route ::middleware('client')->group(function(){
+    Route::get('/client/dashboard', [ClientController::class, 'ClientDashboard'])->name('client.dashboard');
+    
+});
+
+Route::get('/client/login', [Clientcontroller::class, 'ClientLogin'])->name('client.login');
+Route::get('/client/register', [Clientcontroller::class, 'ClientRegister'])->name('client.register');
+Route::post('/client/register/submit', [Clientcontroller::class, 'ClientRegisterSubmit'])->name('client.register.submit');
+Route::post('/client/login_submit', [Clientcontroller::class, 'ClientLoginSubmit'])->name('client.login_submit');
