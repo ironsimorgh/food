@@ -45,6 +45,7 @@ Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminReset
 
 Route ::middleware('client')->group(function(){
     Route::get('/client/dashboard', [ClientController::class, 'ClientDashboard'])->name('client.dashboard');
+    Route::get('/client/profile', [ClientController::class, 'ClientProfile'])->name('client.profile');
     
 });
 
@@ -52,3 +53,7 @@ Route::get('/client/login', [Clientcontroller::class, 'ClientLogin'])->name('cli
 Route::get('/client/register', [Clientcontroller::class, 'ClientRegister'])->name('client.register');
 Route::post('/client/register/submit', [Clientcontroller::class, 'ClientRegisterSubmit'])->name('client.register.submit');
 Route::post('/client/login_submit', [Clientcontroller::class, 'ClientLoginSubmit'])->name('client.login_submit');
+Route::get('/client/logout', [Clientcontroller::class, 'ClientLogout'])->name('client.logout');
+Route::post('/client/profile/store', [Clientcontroller::class, 'ClientProfileStore'])->name('client.profile.store');
+Route::get('/client/change/password', [Clientcontroller::class, 'ClientChangePassword'])->name('client.change.password');
+Route::post('/client/password/update', [ClientController::class, 'ClientPasswordUpdate'])->name('client.password.update');
