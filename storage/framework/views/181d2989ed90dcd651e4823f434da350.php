@@ -8,17 +8,17 @@
       <meta name="author" content="Askbootstrap">
       <title>User Register - Online Food Ordering Website</title>
       <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="{{asset('frontend/img/favicon.png')}}">
+      <link rel="icon" type="image/png" href="<?php echo e(asset('frontend/img/favicon.png')); ?>">
       <!-- Bootstrap core CSS-->
-      <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+      <link href="<?php echo e(asset('frontend/vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
       <!-- Font Awesome-->
-      <link href="{{asset('frontend/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet">
+      <link href="<?php echo e(asset('frontend/vendor/fontawesome/css/all.min.css')); ?>" rel="stylesheet">
       <!-- Font Awesome-->
-      <link href="{{asset('frontend/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+      <link href="<?php echo e(asset('frontend/vendor/icofont/icofont.min.css')); ?>" rel="stylesheet">
       <!-- Select2 CSS-->
-      <link href="{{asset('frontend/vendor/select2/css/select2.min.css')}}" rel="stylesheet">
+      <link href="<?php echo e(asset('frontend/vendor/select2/css/select2.min.css')); ?>" rel="stylesheet">
       <!-- Custom styles for this template-->
-      <link href="{{asset('frontend/css/osahan.css')}}" rel="stylesheet">
+      <link href="<?php echo e(asset('frontend/css/osahan.css')); ?>" rel="stylesheet">
    </head>
    <body class="bg-white">
       <div class="container-fluid">
@@ -30,21 +30,21 @@
                      <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
                            <h3 class="login-heading mb-4">Welcome back!</h3>
-                           @if ($errors->any())
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                        @endforeach
-                                    @endif
+                           <?php if($errors->any()): ?>
+                                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <li><?php echo e($error); ?></li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
                             
-                                    @if (Session::has('error'))
-                                        <li>{{Session::get('error')}}</li>
-                                    @endif  
+                                    <?php if(Session::has('error')): ?>
+                                        <li><?php echo e(Session::get('error')); ?></li>
+                                    <?php endif; ?>  
                                     
-                                    @if (Session::has('success'))
-                                        <li>{{Session::get('success')}}</li>
-                                    @endif
-                           <form method="POST" action="{{ route('register') }}">
-        @csrf
+                                    <?php if(Session::has('success')): ?>
+                                        <li><?php echo e(Session::get('success')); ?></li>
+                                    <?php endif; ?>
+                           <form method="POST" action="<?php echo e(route('register')); ?>">
+        <?php echo csrf_field(); ?>
                                 <div class="form-label-group">
                                  <input type="text" name="name" id="ptext" class="form-control" placeholder="Email address">
                                  <label for="ptext">Name</label>
@@ -66,7 +66,7 @@
                               </div>
                               <button type="submit" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Sign Up</button>
                               <div class="text-center pt-3">
-                                 Don’t have an account? <a class="font-weight-bold" href="{{route('register')}}">Sign Up</a>
+                                 Don’t have an account? <a class="font-weight-bold" href="<?php echo e(route('register')); ?>">Sign Up</a>
                               </div>
                            </form>
                            <hr class="my-4">
@@ -87,12 +87,12 @@
          </div>
       </div>
       <!-- jQuery -->
-      <script src="{{asset('frontend/vendor/jquery/jquery-3.3.1.slim.min.js')}}"></script>
+      <script src="<?php echo e(asset('frontend/vendor/jquery/jquery-3.3.1.slim.min.js')); ?>"></script>
       <!-- Bootstrap core JavaScript-->
-      <script src="{{asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="<?php echo e(asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
       <!-- Select2 JavaScript-->
-      <script src="{{asset('frontend/vendor/select2/js/select2.min.js')}}"></script>
+      <script src="<?php echo e(asset('frontend/vendor/select2/js/select2.min.js')); ?>"></script>
       <!-- Custom scripts for all pages-->
-      <script src="{{asset('frontend/js/custom.js')}}"></script>
+      <script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
    </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/auth/register.blade.php ENDPATH**/ ?>
