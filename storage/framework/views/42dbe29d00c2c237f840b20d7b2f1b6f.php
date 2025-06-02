@@ -1,4 +1,4 @@
-      <section class="section pt-5 pb-5 text-center bg-white">
+<section class="section pt-5 pb-5 text-center bg-white">
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
@@ -35,7 +35,7 @@
                </div>
                <div class="col-md-1 col-sm-6 mobile-none">
                </div>
-               <div class="col-md-2 col-6 col-sm-4">
+               <div class="col-md-2 col-4 col-sm-4">
                   <h6 class="mb-3">About OE</h6>
                   <ul>
                      <li><a href="#">About Us</a></li>
@@ -45,7 +45,7 @@
                      <li><a href="#">Contact</a></li>
                   </ul>
                </div>
-               <div class="col-md-2 col-6 col-sm-4">
+               <div class="col-md-2 col-4 col-sm-4">
                   <h6 class="mb-3">For Foodies</h6>
                   <ul>
                      <li><a href="#">Community</a></li>
@@ -55,7 +55,7 @@
                      <li><a href="#">Code of Conduct</a></li>
                   </ul>
                </div>
-               <div class="col-md-2 m-none col-4 col-sm-4">
+               <div class="col-md-2 col-4 col-sm-4">
                   <h6 class="mb-3">For Restaurants</h6>
                   <ul>
                      <li><a href="#">Advertise</a></li>
@@ -91,4 +91,14 @@
             <a class="text-danger" target="_blank" href="https://www.instagram.com/iamgurdeeposahan/">Gurdeep Osahan</a> - <a class="text-primary" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
             </small>
          </div>
-      </footer><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/layouts/footer.blade.php ENDPATH**/ ?>
+      </footer>
+      <!-- jQuery -->
+      <script src="<?php echo e(asset('frontend/vendor/jquery/jquery-3.3.1.slim.min.js')); ?>"></script>
+      <!-- Bootstrap core JavaScript-->
+      <script src="<?php echo e(asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+      <!-- Select2 JavaScript-->
+      <script src="<?php echo e(asset('frontend/vendor/select2/js/select2.min.js')); ?>"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
+   </body>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\footer.blade.php ENDPATH**/ ?>

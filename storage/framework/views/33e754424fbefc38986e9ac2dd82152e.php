@@ -1,0 +1,1 @@
+<?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\sidebar.blade.php ENDPATH**/ ?>
