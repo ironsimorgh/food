@@ -15,7 +15,7 @@
                      </div>
                      <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                         <li class="nav-item">
-                           <a class="nav-link active" href="{{route('dashboard')}}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i>Profile</a>
+                           <a class="nav-link active" href="<?php echo e(route('dashboard')); ?>" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i>Profile</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Orders</a>
@@ -34,4 +34,4 @@
                         </li>
                      </ul>
                   </div>
-               </div>
+               </div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/dashboard/sidebar.blade.php ENDPATH**/ ?>
