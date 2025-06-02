@@ -1,4 +1,6 @@
 <?php echo $__env->make('frontend.dashboard.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 <?php
 $id = Auth::user()->id;
@@ -15,12 +17,12 @@ $profileData = App\Models\User::find($id);
                   <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
                      <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                           <h4 class="font-weight-bold mt-0 mb-4">Past Orders</h4>
+                           <h4 class="font-weight-bold mt-0 mb-4">User Profile</h4>
                            
                            
                            <div class="bg-white card mb-4 order-list shadow-sm">
                               <div class="gold-members p-4">
-                                 <form action="<?php echo e(route('client.profile.store')); ?>" method="post" enctype="multipart/form-data">
+                                 <form action="<?php echo e(route('profile.store')); ?>" method="post" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
 
                                         <div class="row">
@@ -78,6 +80,44 @@ $profileData = App\Models\User::find($id);
             </div>
          </div>
       </section>
+      <script type="text/javascript">
+$(document).ready(function(){
+    $('#image').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+            $('#showImage').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+    })
+})
+
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ <?php if(Session::has('message')): ?>
+ var type = "<?php echo e(Session::get('alert-type','info')); ?>"
+ switch(type){
+    case 'info':
+    toastr.info(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'success':
+    toastr.success(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'warning':
+    toastr.warning(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'error':
+    toastr.error(" <?php echo e(Session::get('message')); ?> ");
+    break; 
+ }
+ <?php endif; ?> 
+</script>
+
 
 
       <?php echo $__env->make('frontend.dashboard.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/dashboard/dashboard.blade.php ENDPATH**/ ?>
