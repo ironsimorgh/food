@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark osahan-nav">
          <div class="container">
-            <a class="navbar-brand" href="{{route('index')}}"><img alt="logo" src="{{asset('frontend/img/logo.png')}}"></a>
+            <a class="navbar-brand" href="<?php echo e(route('index')); ?>"><img alt="logo" src="<?php echo e(asset('frontend/img/logo.png')); ?>"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,33 +20,33 @@
                   </li>
 
                   
-                  @auth
-                  @php
+                  <?php if(auth()->guard()->check()): ?>
+                  <?php
                      $id = Auth::user()->id;
                      $profileData = App\Models\User::find($id);
-                  @endphp
+                  ?>
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <img alt="Generic placeholder image" src="{{(!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" class="nav-osahan-pic rounded-pill"> My Account
+                     <img alt="Generic placeholder image" src="<?php echo e((!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" class="nav-osahan-pic rounded-pill"> My Account
                      </a>
                      <div class="dropdown-menu dropdown-menu-right shadow-sm border-0">
-                        <a class="dropdown-item" href="{{route('dashboard')}}"><i class="icofont-food-cart"></i> Dashboard</a>
-                        <a class="dropdown-item" href="{{route('user.logout')}}"><i class="icofont-sale-discount"></i> Logout</a>
+                        <a class="dropdown-item" href="<?php echo e(route('dashboard')); ?>"><i class="icofont-food-cart"></i> Dashboard</a>
+                        <a class="dropdown-item" href="<?php echo e(route('user.logout')); ?>"><i class="icofont-sale-discount"></i> Logout</a>
                         
                      </div>
                   </li>
-                  @else
+                  <?php else: ?>
                    <li class="nav-item dropdown">
-                     <a class="nav-link" href="{{route('login')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link" href="<?php echo e(route('login')); ?>" role="button" aria-haspopup="true" aria-expanded="false">
                      Login
                      </a>
                    </li>
                    <li class="nav-item dropdown">
-                     <a class="nav-link" href="{{route('register')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link" href="<?php echo e(route('register')); ?>" role="button" aria-haspopup="true" aria-expanded="false">
                      Register
                      </a>
                    </li>
-                  @endauth  
+                  <?php endif; ?>  
                   
 
                   <li class="nav-item dropdown dropdown-cart">
@@ -80,4 +80,4 @@
                </ul>
             </div>
          </div>
-      </nav>
+      </nav><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/layouts/header.blade.php ENDPATH**/ ?>
