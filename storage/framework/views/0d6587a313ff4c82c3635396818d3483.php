@@ -1,30 +1,6 @@
-<!doctype html>
-<html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Askbootstrap">
-      <meta name="author" content="Askbootstrap">
-      <title>User Dashboard - Online Food Ordering Website</title>
-      <!-- Favicon Icon -->
-      <link rel="icon" type="image/png" href="<?php echo e(asset('frontend/img/favicon.png')); ?>">
-      <!-- Bootstrap core CSS-->
-      <link href="<?php echo e(asset('frontend/vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
-      <!-- Font Awesome-->
-      <link href="<?php echo e(asset('frontend/vendor/fontawesome/css/all.min.css')); ?>" rel="stylesheet">
-      <!-- Font Awesome-->
-      <link href="<?php echo e(asset('frontend/vendor/icofont/icofont.min.css')); ?>" rel="stylesheet">
-      <!-- Select2 CSS-->
-      <link href="<?php echo e(asset('frontend/vendor/select2/css/select2.min.css')); ?>" rel="stylesheet">
-      <!-- Custom styles for this template-->
-      <link href="<?php echo e(asset('frontend/css/osahan.css')); ?>" rel="stylesheet">
-   </head>
-   <body>
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark osahan-nav">
          <div class="container">
-            <a class="navbar-brand" href="index.html"><img alt="logo" src="<?php echo e(asset('frontend/img/logo.png')); ?>"></a>
+            <a class="navbar-brand" href="<?php echo e(route('index')); ?>"><img alt="logo" src="<?php echo e(asset('frontend/img/logo.png')); ?>"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,7 +10,7 @@
                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="offers.html"><i class="icofont-sale-discount"></i> Offers <span class="badge badge-danger">New</span></a>
+                     <a class="nav-link" href="offers.html"><i class="icofont-sale-discount"></i> Offers <span class="badge badge-warning">New</span></a>
                   </li>
                   <li class="nav-item dropdown">
                      <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,10 +18,12 @@
                      </a>
                      
                   </li>
+
                   <?php
 $id = Auth::user()->id;
 $profileData = App\Models\User::find($id);
 ?>
+
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <img alt="Generic placeholder image" src="<?php echo e((!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" class="nav-osahan-pic rounded-pill"> My Account
@@ -87,4 +65,4 @@ $profileData = App\Models\User::find($id);
                </ul>
             </div>
          </div>
-      </nav><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\header.blade.php ENDPATH**/ ?>
+      </nav><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/layouts/header.blade.php ENDPATH**/ ?>

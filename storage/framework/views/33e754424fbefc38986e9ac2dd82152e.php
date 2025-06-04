@@ -7,7 +7,7 @@ $profileData = App\Models\User::find($id);
                      <div class="border-bottom p-4">
                         <div class="osahan-user text-center">
                            <div class="osahan-user-media">
-                              <img class="mb-3 rounded-pill shadow-sm mt-1" src="<?php echo e((!empty($profileData->phone)) ? url('upload/user_images/'.$profileData->phone) : url('upload/no_image.jpg')); ?>" alt="gurdeep singh osahan">
+                              <img class="mb-3 rounded-pill shadow-sm mt-1" src="<?php echo e((!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="gurdeep singh osahan">
                               <div class="osahan-user-media-body">
                                  <h6 class="mb-2"><?php echo e($profileData->name); ?></h6>
                                  <p class="mb-1"><?php echo e($profileData->phone); ?></p>
