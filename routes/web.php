@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Clientcontroller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -27,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
 Route ::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
@@ -35,7 +36,7 @@ Route ::middleware('admin')->group(function(){
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 });
-
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::post('/admin/login_submit', [AdminController::class, 'AdminLoginSubmit'])->name('admin.login_submit');
 Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 Route::get('/admin/forget_password', [AdminController::class, 'AdminForgetPassword'])->name('admin.forget_password');
@@ -63,3 +64,13 @@ Route::get('/client/logout', [Clientcontroller::class, 'ClientLogout'])->name('c
 Route::post('/client/profile/store', [Clientcontroller::class, 'ClientProfileStore'])->name('client.profile.store');
 Route::get('/client/change/password', [Clientcontroller::class, 'ClientChangePassword'])->name('client.change.password');
 Route::post('/client/password/update', [ClientController::class, 'ClientPasswordUpdate'])->name('client.password.update');
+
+//All admin Category
+
+Route ::middleware('admin')->group(function(){
+    Route::controller(CategoryController::class)->group(function(){
+        Route::get('/all/category','AllCategory')->name('all.category');
+    });
+    
+    
+});//End admin Middleware
