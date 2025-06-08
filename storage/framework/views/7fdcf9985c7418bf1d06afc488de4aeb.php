@@ -10,10 +10,9 @@
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0 font-size-18">All Category</h4>
-
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <a href="" class="btn btn-primary waves-effect waves-light">Add Category</a>
+                                            <a href="<?php echo e(route('add.category')); ?>" class="btn btn-primary waves-effect waves-light">Add Category</a>
                                         </ol>
                                     </div>
 

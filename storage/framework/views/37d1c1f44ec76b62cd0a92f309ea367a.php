@@ -29,7 +29,7 @@
                         </li>
 
                         <li>
-                            <a href="apps-chat.html">
+                            <a href="<?php echo e(route('add.category')); ?>">
                                 <span data-key="t-chat">Add Category</span>
                             </a>
                         </li>
