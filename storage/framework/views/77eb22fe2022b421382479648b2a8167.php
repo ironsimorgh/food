@@ -1,6 +1,6 @@
 
 <?php $__env->startSection('admin'); ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
                     <div class="container-fluid">
@@ -9,10 +9,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">All Category</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Add Category</h4>
+
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <a href="<?php echo e(route('add.category')); ?>" class="btn btn-primary waves-effect waves-light">Add Category</a>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                            <li class="breadcrumb-item active">Add Category</li>
                                         </ol>
                                     </div>
 
@@ -22,47 +24,100 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    
-                                    <div class="card-body">
-        
-                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                            <thead>
-                                            <tr>
-                                                <th>Sl</th>
-                                                <th>Category Name</th>
-                                                <th>Image</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            </thead>
-        
-        
-                                            <tbody>
-                                                <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                
-                                                
-                                            <tr>
-                                                <td><?php echo e($key+1); ?></td>
-                                                <td><?php echo e($item->category_name); ?></td>
-                                                <td><img src="<?php echo e(asset($item->image)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
-                                                <td><a href="" class="btn btn-info waves-effect waves-light">Edit</a></td>
-                                                <td><a href="" class="btn btn-info waves-effect waves-light">Delete</a></td>
-                                            </tr>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </tbody>
-                                        </table>
-        
+                            <div class="col-xl-9 col-lg-8">
+
+                                <div class="card">                
+                                <div class="card-body p-4">
+                                <form id="myForm" action="<?php echo e(route('admin.profile.store')); ?>" method="post" enctype="multipart/form-data">
+                                 <?php echo csrf_field(); ?>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Category Name</label>
+                                                        <input class="form-control" name="category_name" type="text" id="example-text-input">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mt-3 mt-lg-0">
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="example-text-input" class="form-label">Category Image</label>
+                                                        <input class="form-control" name="photo" type="file" id="image">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        
+                                                        <img id="showImage" src="<?php echo e(url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                    </div>
+                                                <div class="mt-4">
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row --> 
-         
+                               
+                                <!-- end tab content -->
+                            </div>
+                            <!-- end col -->
+
+                            
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
                         
                     </div> <!-- container-fluid -->
                 </div>
-                <!-- End Page-content -->
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#image').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+            $('#showImage').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+    })
+})
 
+</script>
 
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                fcategory_name: {
+                    required : true,
+                }, 
+                
+            },
+            messages :{
+                category_name: {
+                    required : 'Please Enter Category Name',
+                }, 
+                 
+
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
+</script>
+                
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.admin_dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\backend\category\add_category.blade.php ENDPATH**/ ?>

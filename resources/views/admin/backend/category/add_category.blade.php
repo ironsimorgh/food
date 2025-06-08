@@ -28,13 +28,13 @@
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form action="{{route('admin.profile.store')}}" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="{{route('admin.profile.store')}}" method="post" enctype="multipart/form-data">
                                  @csrf
 
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div>
-                                                    <div class="mb-3">
+                                                    <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Category Name</label>
                                                         <input class="form-control" name="category_name" type="text" id="example-text-input">
                                                     </div>
@@ -45,9 +45,9 @@
                                             <div class="col-lg-6">
                                                 <div class="mt-3 mt-lg-0">
                                                     
-                                                    <div class="mb-3">
+                                                    <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Category Image</label>
-                                                        <input class="form-control" name="photo" type="file" id="image">
+                                                        <input class="form-control" name="image" type="file" id="image">
                                                     </div>
                                                     <div class="mb-3">
                                                         
@@ -85,6 +85,44 @@ $(document).ready(function(){
     })
 })
 
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                category_name: {
+                    required : true,
+                }, 
+                image: {
+                    required : true,
+                }, 
+                
+            },
+            messages :{
+                category_name: {
+                    required : 'Please Enter Category Name',
+                },
+                image: {
+                    required : 'Please Select Image',
+                }, 
+                 
+
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
 </script>
                 
 @endsection
