@@ -2,7 +2,68 @@
 <?php $__env->startSection('admin'); ?>
 
 
+<div class="page-content">
+                    <div class="container-fluid">
 
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">All Category</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                                            <li class="breadcrumb-item active">All Category</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    
+                                    <div class="card-body">
+        
+                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>S1</th>
+                                                <th>Category Name</th>
+                                                <th>Image</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+        
+        
+                                            <tbody>
+                                                <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                
+                                                
+                                            <tr>
+                                                <td><?php echo e($key+1); ?></td>
+                                                <td><?php echo e($item->category_name); ?></td>
+                                                <td><img src="<?php echo e(asset($item->image)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
+                                                <td><a href="" class="btn btn-info waves-effect waves-light">Edit</a></td>
+                                                <td><a href="" class="btn btn-info waves-effect waves-light">Delete</a></td>
+                                            </tr>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </tbody>
+                                        </table>
+        
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row --> 
+         
+                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
 
 
 <?php $__env->stopSection(); ?>
