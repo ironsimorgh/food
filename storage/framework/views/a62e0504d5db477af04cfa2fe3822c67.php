@@ -34,10 +34,10 @@
         <div id="layout-wrapper">
 
             
-            <?php echo $__env->make('client.body.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('client.body.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
             <!-- ========== Left Sidebar Start ========== -->
-            <?php echo $__env->make('client.body.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('client.body.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             <!-- Left Sidebar End -->
 
             
@@ -51,7 +51,7 @@
                 <!-- End Page-content -->
 
 
-                <?php echo $__env->make('client.body.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('client.body.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             </div>
             <!-- end main content-->
 
@@ -60,7 +60,7 @@
 
         
         <!-- Right Sidebar -->
-        <?php echo $__env->make('client.body.rightside', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('client.body.rightside', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->

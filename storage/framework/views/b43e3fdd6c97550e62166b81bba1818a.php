@@ -140,4 +140,4 @@ unset($__errorArgs, $__bag); ?>
 
                 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('client.client_dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\client\client_change_password.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\client\client_change_password.blade.php ENDPATH**/ ?>

@@ -28,7 +28,7 @@
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form id="myForm" action="<?php echo e(route('admin.profile.store')); ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo e(route('category.store')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
 
                                         <div class="row">
@@ -45,9 +45,9 @@
                                             <div class="col-lg-6">
                                                 <div class="mt-3 mt-lg-0">
                                                     
-                                                    <div class="mb-3">
+                                                    <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Category Image</label>
-                                                        <input class="form-control" name="photo" type="file" id="image">
+                                                        <input class="form-control" name="image" type="file" id="image">
                                                     </div>
                                                     <div class="mb-3">
                                                         
@@ -91,7 +91,10 @@ $(document).ready(function(){
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                fcategory_name: {
+                category_name: {
+                    required : true,
+                }, 
+                image: {
                     required : true,
                 }, 
                 
@@ -99,6 +102,9 @@ $(document).ready(function(){
             messages :{
                 category_name: {
                     required : 'Please Enter Category Name',
+                },
+                image: {
+                    required : 'Please Select Image',
                 }, 
                  
 
@@ -120,4 +126,4 @@ $(document).ready(function(){
 </script>
                 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.admin_dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\backend\category\add_category.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\backend\category\add_category.blade.php ENDPATH**/ ?>

@@ -27,19 +27,19 @@
       <div class="homepage-header">
       <div class="overlay"></div>
 
-      <?php echo $__env->make('frontend.layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('frontend.layouts.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
-      <?php echo $__env->make('frontend.layouts.banner', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('frontend.layouts.banner', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
       </div>
       
-      <?php echo $__env->make('frontend.layouts.ads', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('frontend.layouts.ads', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
       <?php echo $__env->yieldContent('content'); ?>
       
-      <?php echo $__env->make('frontend.layouts.member', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('frontend.layouts.member', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
-      <?php echo $__env->make('frontend.layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <?php echo $__env->make('frontend.layouts.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
       <!-- jQuery -->
       <script src="<?php echo e(asset('frontend/vendor/jquery/jquery-3.3.1.slim.min.js')); ?>"></script>

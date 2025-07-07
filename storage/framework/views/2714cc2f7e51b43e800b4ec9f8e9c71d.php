@@ -40,10 +40,10 @@
         <div id="layout-wrapper">
 
             
-            <?php echo $__env->make('admin.body.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('admin.body.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
             <!-- ========== Left Sidebar Start ========== -->
-            <?php echo $__env->make('admin.body.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('admin.body.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             <!-- Left Sidebar End -->
 
             
@@ -57,7 +57,7 @@
                 <!-- End Page-content -->
 
 
-                <?php echo $__env->make('admin.body.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('admin.body.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             </div>
             <!-- end main content-->
 
@@ -66,7 +66,7 @@
 
         
         <!-- Right Sidebar -->
-        <?php echo $__env->make('admin.body.rightside', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('admin.body.rightside', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->

@@ -1,4 +1,4 @@
-<?php echo $__env->make('frontend.dashboard.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('frontend.dashboard.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
@@ -10,7 +10,7 @@ $profileData = App\Models\User::find($id);
          <div class="container">
             <div class="row">
                
-               <?php echo $__env->make('frontend.dashboard.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+               <?php echo $__env->make('frontend.dashboard.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 
                <div class="col-md-9">
@@ -120,4 +120,4 @@ $(document).ready(function(){
 
 
 
-      <?php echo $__env->make('frontend.dashboard.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\dashboard.blade.php ENDPATH**/ ?>
+      <?php echo $__env->make('frontend.dashboard.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\dashboard.blade.php ENDPATH**/ ?>
