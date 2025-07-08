@@ -48,6 +48,8 @@ class CategoryController extends Controller
 
     }
 
+    //end method 
+
     public function UpdateCategory(Request $request){
 
         $cat_id = $request->id;
@@ -84,5 +86,24 @@ class CategoryController extends Controller
             
     }
         }
+
+    //end method 
+
+        public function DeleteCategory($id) {
+        $item = Category::find($id);
+        $img = $item->image;
+        unlink($img);
+
+        Category::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Category Delete Successfully',
+            'alert-type'=> 'success'
+        );
         
+        return redirect()->back()->with($notification);
+        
+
+    }
+    //end method 
 }
