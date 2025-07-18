@@ -16,6 +16,11 @@
 
         <!-- preloader css -->
         <link rel="stylesheet" href="<?php echo e(asset('backend/assets/css/preloader.min.css')); ?>" type="text/css" />
+        
+        <!-- DataTabels -->
+        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
+
+        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
         <link href="<?php echo e(asset('backend/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -79,13 +84,27 @@
         <!-- apexcharts -->
         <script src="<?php echo e(asset('backend/assets/libs/apexcharts/apexcharts.min.js')); ?>"></script>
 
+        <!-- Required datatable js -->
+        <script src="<?php echo e(asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')); ?>"></script>
+
+        <!-- Datatable init js -->
+        <script src="<?php echo e(asset('backend/assets/js/pages/datatables.init.js')); ?>"></script> 
+
         <!-- Plugins js-->
         <script src="<?php echo e(asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')); ?>"></script>
         <script src="<?php echo e(asset('backend/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')); ?>"></script>
+
+        
         <!-- dashboard init -->
         <script src="<?php echo e(asset('backend/assets/js/pages/dashboard.init.js')); ?>"></script>
 
         <script src="<?php echo e(asset('backend/assets/js/app.js')); ?>"></script>
+        <script src="<?php echo e(asset('backend/assets/js/validate.min.js')); ?>"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="<?php echo e(asset('backend/assets/js/code.js')); ?>"></script>
+        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>

@@ -11,4 +11,4 @@
             </div>
         </div>
     </div>
-</footer><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/footer.blade.php ENDPATH**/ ?>
+</footer><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/footer.blade.php ENDPATH**/ ?>

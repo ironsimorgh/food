@@ -118,13 +118,13 @@
                                                         <div class="modal-body">
                                                             <form id="myForm" action="<?php echo e(route('city.store')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
-
+<input type="hidden" name="cat_id" id="cat_id">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div>
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">City Name</label>
-                                                        <input class="form-control" name="city_name" type="text" >
+                                                        <input class="form-control" name="city_name" type="text" id="cat">
                                                     </div>
 
                                                 </div>
@@ -151,7 +151,9 @@
                                                         url: '/edit/city/'+id,
                                                         dataType: 'json',
                                                         success:function(data){
-                                                            console.log(data)
+                                                            //console.log(data)
+                                                            $('#cat').val(data.city_name);
+                                                            $('#cat_id').val(data.id);
                                                         }
                                                     })
                                                 }

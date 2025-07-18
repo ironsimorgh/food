@@ -1,5 +1,6 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
+
     <div data-simplebar class="h-100">
 
         <!--- Sidemenu -->
@@ -18,33 +19,18 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="grid"></i>
-                        <span data-key="t-apps">Category</span>
+                        <span data-key="t-apps">Menu</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="<?php echo e(route('all.category')); ?>">
-                                <span data-key="t-calendar">All Category</span>
+                            <a href="<?php echo e(route('all.menu')); ?>">
+                                <span data-key="t-calendar">All Menu</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo e(route('add.category')); ?>">
-                                <span data-key="t-chat">Add Category</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="grid"></i>
-                        <span data-key="t-apps">City</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="<?php echo e(route('all.city')); ?>">
-                                <span data-key="t-calendar">All City</span>
+                            <a href="apps-chat.html">
+                                <span data-key="t-chat">Add Menu</span>
                             </a>
                         </li>
 
@@ -105,4 +91,4 @@
         </div>
         <!-- Sidebar -->
     </div>
-</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/sidebar.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/sidebar.blade.php ENDPATH**/ ?>

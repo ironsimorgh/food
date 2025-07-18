@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Admin Dashboard</title>
+        <title>Client Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -16,12 +16,11 @@
 
         <!-- preloader css -->
         <link rel="stylesheet" href="<?php echo e(asset('backend/assets/css/preloader.min.css')); ?>" type="text/css" />
-
-        <!-- DataTables -->
-        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
-
         
+        <!-- DataTabels -->
+        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
+
+        <link href="<?php echo e(asset('backend/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')); ?>" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
         <link href="<?php echo e(asset('backend/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -40,10 +39,10 @@
         <div id="layout-wrapper">
 
             
-            <?php echo $__env->make('admin.body.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <?php echo $__env->make('client.body.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
             <!-- ========== Left Sidebar Start ========== -->
-            <?php echo $__env->make('admin.body.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <?php echo $__env->make('client.body.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             <!-- Left Sidebar End -->
 
             
@@ -53,11 +52,11 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                <?php echo $__env->yieldContent('admin'); ?>
+                <?php echo $__env->yieldContent('client'); ?>
                 <!-- End Page-content -->
 
 
-                <?php echo $__env->make('admin.body.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                <?php echo $__env->make('client.body.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
             </div>
             <!-- end main content-->
 
@@ -66,7 +65,7 @@
 
         
         <!-- Right Sidebar -->
-        <?php echo $__env->make('admin.body.rightside', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+        <?php echo $__env->make('client.body.rightside', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -95,6 +94,8 @@
         <!-- Plugins js-->
         <script src="<?php echo e(asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')); ?>"></script>
         <script src="<?php echo e(asset('backend/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')); ?>"></script>
+
+        
         <!-- dashboard init -->
         <script src="<?php echo e(asset('backend/assets/js/pages/dashboard.init.js')); ?>"></script>
 
@@ -103,8 +104,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="<?php echo e(asset('backend/assets/js/code.js')); ?>"></script>
-
-
+        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -132,4 +132,4 @@
 
     </body>
 
-</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/admin_dashboard.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/client_dashboard.blade.php ENDPATH**/ ?>

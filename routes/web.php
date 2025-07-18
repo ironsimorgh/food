@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Clientcontroller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Client\RestaurantController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -53,6 +54,9 @@ Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminReset
 Route ::middleware('client')->group(function(){
     Route::get('/client/dashboard', [ClientController::class, 'ClientDashboard'])->name('client.dashboard');
     Route::get('/client/profile', [ClientController::class, 'ClientProfile'])->name('client.profile');
+    Route::post('/client/profile/store', [Clientcontroller::class, 'ClientProfileStore'])->name('client.profile.store');
+    Route::get('/client/change/password', [Clientcontroller::class, 'ClientChangePassword'])->name('client.change.password');
+    Route::post('/client/password/update', [ClientController::class, 'ClientPasswordUpdate'])->name('client.password.update');
     
 });
 
@@ -61,9 +65,7 @@ Route::get('/client/register', [Clientcontroller::class, 'ClientRegister'])->nam
 Route::post('/client/register/submit', [Clientcontroller::class, 'ClientRegisterSubmit'])->name('client.register.submit');
 Route::post('/client/login_submit', [Clientcontroller::class, 'ClientLoginSubmit'])->name('client.login_submit');
 Route::get('/client/logout', [Clientcontroller::class, 'ClientLogout'])->name('client.logout');
-Route::post('/client/profile/store', [Clientcontroller::class, 'ClientProfileStore'])->name('client.profile.store');
-Route::get('/client/change/password', [Clientcontroller::class, 'ClientChangePassword'])->name('client.change.password');
-Route::post('/client/password/update', [ClientController::class, 'ClientPasswordUpdate'])->name('client.password.update');
+
 
 //All admin Category
 
@@ -90,3 +92,17 @@ Route ::middleware('admin')->group(function(){
     
 });
 //End admin Middleware
+
+Route ::middleware('client')->group(function(){
+    Route::controller(RestaurantController::class)->group(function(){
+        Route::get('/all/menu','AllMenu')->name('all.menu');
+        Route::get('/add/menu','AddMenu')->name('add.menu');
+        Route::post('/store/menu','StoreMenu')->name('city.menu');
+        Route::get('/edit/menu/{id}','EditMenu')->name('edit.menu');
+        Route::post('/update/menu','UpdateMenu')->name('menu.update');
+        Route::get('/delete/menu/{id}','DeleteMenu')->name('delete.menu');
+    });
+    
+});
+
+//End client Middleware
