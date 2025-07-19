@@ -18,9 +18,36 @@ use App\Models\Gllery;
 class RestaurantController extends Controller
 {
     public function AllMenu(){
-        $id = Auth::guard('client')->id();
-        $menu = Menu::where('id',$id)->orderBy('id','desc')->get();
+        $menu = Menu::latest()->get();
         return view('client.backend.menu.all_menu',compact('menu'));
     }
+    //end method
+    public function AddMenu(){
+        
+        return view('client.backend.menu.add_menu');
+    }
+    //end method
+
+    public function StoreMenu(Request $request){
+        if($request->file('image')){
+            $image = $request->file('image');
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(300,300)->save(public_path('upload/menu/'.$name_gen));
+            $save_url = 'upload/menu/'.$name_gen;
+
+            Menu::create([
+                'menu_name' => $request->menu_name,'image' => $save_url,
+            ]);
+        }
+        $notification = array(
+            'message' => 'Menu Insert Successfully',
+            'alert-type'=> 'success'
+        );
+        
+        return redirect()->route('all.menu')->with($notification);
+    }
+
     //end method
 }
