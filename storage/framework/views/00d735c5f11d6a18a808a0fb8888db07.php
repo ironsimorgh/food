@@ -28,7 +28,7 @@
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form id="myForm" action="<?php echo e(route('menu.store')); ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo e(route('product.store')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
 
                                         <div class="row">

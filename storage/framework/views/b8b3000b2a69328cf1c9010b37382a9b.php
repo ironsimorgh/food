@@ -24,40 +24,118 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xl-9 col-lg-8">
+                            <div class="col-xl-12 col-lg-12">
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form id="myForm" action="<?php echo e(route('menu.store')); ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo e(route('product.store')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
 
                                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <div>
+                                            <div class="col-xl-4 col-md-6">          
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Category Name</label>
+                                                        <select name="category_id" class="form-select">
+                                                            <option>Select</option>
+                                                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
+                                                    </div>
+                                            </div>
+
+
+                                            <div class="col-xl-4 col-md-6">          
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Menu Name</label>
-                                                        <input class="form-control" name="menu_name" type="text" id="example-text-input">
+                                                        <select name="menu_id" class="form-select">
+                                                            <option selected="" disabled="">Select</option>
+                                                            <?php $__currentLoopData = $menu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $men): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($men->id); ?>"><?php echo e($men->menu_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
                                                     </div>
-
-                                                </div>
                                             </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="mt-3 mt-lg-0">
-                                                    
+                                            <div class="col-xl-4 col-md-6">          
                                                     <div class="form-group mb-3">
-                                                        <label for="example-text-input" class="form-label">Menu Image</label>
+                                                        <label for="example-text-input" class="form-label">City Name</label>
+                                                        <select name="city_id"class="form-select">
+                                                            <option>Select</option>
+                                                            <?php $__currentLoopData = $city; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cit->id); ?>"><?php echo e($cit->city_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-4 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Product Name</label>
+                                                        <input class="form-control" name="name" type="text" id="example-text-input">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-4 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Price</label>
+                                                        <input class="form-control" name="price" type="text" id="example-text-input">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-4 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Discount Price</label>
+                                                        <input class="form-control" name="discount_price" type="text" id="example-text-input">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Size</label>
+                                                        <input class="form-control" name="size" type="text" id="example-text-input">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Product QTY</label>
+                                                        <input class="form-control" name="qty" type="text" id="example-text-input">
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-md-6">   
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Product Image</label>
                                                         <input class="form-control" name="image" type="file" id="image">
                                                     </div>
-                                                    <div class="mb-3">
-                                                        
+                                            </div>
+
+                                            <div class="col-xl-6 col-md-6">   
+                                                    <div class="form-group mb-3">
                                                         <img id="showImage" src="<?php echo e(url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
-                                                <div class="mt-4">
+                                            </div>
+
+                                            <div class="form-check mt-2">
+                                                        <input class="form-check-input" name="best_seller" type="checkbox" id="formCheck2" value="1">
+                                                        <label class="form-check-label" for="formCheck2">
+                                                            Best Seller
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="form-check mt-2">
+                                                        <input class="form-check-input" name="most_populer" type="checkbox" id="formCheck2" value="1">
+                                                        <label class="form-check-label" for="formCheck2">
+                                                            Most Populer
+                                                        </label>
+                                                    </div>
+
+                                            <div class="mt-4">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
                                                 </div>
-                                                </div>
-                                            </div>
+
+                                            
                                             </div>
                                         </form>
                                         </div>
@@ -91,20 +169,26 @@ $(document).ready(function(){
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                name: {
                     required : true,
                 }, 
                 image: {
+                    required : true,
+                }, 
+                menu_id: {
                     required : true,
                 }, 
                 
             },
             messages :{
-                category_name: {
-                    required : 'Please Enter Category Name',
+                name: {
+                    required : 'Please Enter Name',
                 },
                 image: {
                     required : 'Please Select Image',
+                }, 
+                menu_id: {
+                    required : 'Please Select menu',
                 }, 
                  
 

@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '09b6f108245c569274ab63a72d9c1f716844ac6a',
+        'reference' => '250e1b2bba1b40f7890fdfbe5c918114491e2619',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -165,6 +165,15 @@
             'install_path' => __DIR__ . '/../hamcrest/hamcrest-php',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'haruncpi/laravel-id-generator' => array(
+            'pretty_version' => 'v1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => 'b227dc2391ea45e9d070f19d35dc0a5f7a8f4185',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../haruncpi/laravel-id-generator',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -415,7 +424,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '09b6f108245c569274ab63a72d9c1f716844ac6a',
+            'reference' => '250e1b2bba1b40f7890fdfbe5c918114491e2619',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

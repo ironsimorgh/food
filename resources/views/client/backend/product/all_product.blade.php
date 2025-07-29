@@ -56,7 +56,6 @@
                                                 <td>{{$item->price }}</td>
                                                 <td>{{$item->qty }}</td>
                                                 <td>{{$item->discount_price }}</td>
-                                                <td>{{$item->status }}</td>
                                                 <td>
                                                     @if ($item->status == 1)
                                                     <span class="text-success"><b>Active</b></span>
