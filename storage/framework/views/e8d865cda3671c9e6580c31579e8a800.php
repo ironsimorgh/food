@@ -34,8 +34,8 @@
                                                 <th>Image</th>
                                                 <th>Name</th>
                                                 <th>Menu</th>
-                                                <th>Price</th>
                                                 <th>QTY</th>
+                                                <th>Price</th>
                                                 <th>Discount</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -52,10 +52,21 @@
                                                 <td><?php echo e($key+1); ?></td>
                                                 <td><img src="<?php echo e(asset($item->image)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
                                                 <td><?php echo e($item->name); ?></td>
-                                                <td><?php echo e($item->menu_id); ?></td>
-                                                <td><?php echo e($item->price); ?></td>
+                                                <td><?php echo e($item['menu']['menu_name']); ?></td>
                                                 <td><?php echo e($item->qty); ?></td>
-                                                <td><?php echo e($item->discount_price); ?></td>
+                                                <td><?php echo e($item->price); ?></td>
+                                                <td>
+                                                <?php if($item->discount_price == NULL): ?>
+                                                    <span class="badeg bg-danger">No Discount</span>
+                                                    <?php else: ?>
+                                                    <?php
+                                                        $amount = $item->price - $item->discount_price;
+                                                        $discount = ($amount / $item->price) * 100; 
+                                                    ?>
+                                                    <span class="badeg bg-danger"><?php echo e(round($discount)); ?>%</span>
+                                                <?php endif; ?>
+
+                                                </td>
                                                 <td>
                                                     <?php if($item->status == 1): ?>
                                                     <span class="text-success"><b>Active</b></span>
@@ -67,7 +78,7 @@
                                                 </td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('edit.menu',$item->id)); ?>" class="btn btn-info waves-effect waves-light">Edit</a><a href="<?php echo e(route('delete.menu',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
+                                                <td><a href="<?php echo e(route('edit.menu',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('delete.menu',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a></td>
                                                 
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
