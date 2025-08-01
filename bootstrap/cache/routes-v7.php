@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::PRCJOMG1JgCrMZZe',
+            '_route' => 'generated::ploLfwDGqryVKrZd',
           ),
           1 => NULL,
           2 => 
@@ -168,7 +168,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::nuoz37q7JngkgzPI',
+            '_route' => 'generated::2qkVecsgUULcSBkO',
           ),
           1 => NULL,
           2 => 
@@ -204,7 +204,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::iOVicbt7TT7cZM0u',
+            '_route' => 'generated::gePjjXvjnA1wkleP',
           ),
           1 => NULL,
           2 => 
@@ -334,7 +334,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::heJcheMKMvW7MGkt',
+            '_route' => 'generated::JPIbpQYvOaKOPckL',
           ),
           1 => NULL,
           2 => 
@@ -1050,10 +1050,29 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/update/product' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'product.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/verify\\-email/([^/]++)/([^/]++)(*:71)|/admin/reset\\-password/([^/]++)/([^/]++)(*:118)|/edit/(?|c(?|ategory/([^/]++)(*:155)|ity/([^/]++)(*:175))|menu/([^/]++)(*:197)|product/([^/]++)(*:221))|/delete/(?|category/([^/]++)(*:258)|menu/([^/]++)(*:279))|/storage/(.*)(*:301))/?$}sDu',
+      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/verify\\-email/([^/]++)/([^/]++)(*:71)|/admin/reset\\-password/([^/]++)/([^/]++)(*:118)|/edit/(?|c(?|ategory/([^/]++)(*:155)|ity/([^/]++)(*:175))|menu/([^/]++)(*:197)|product/([^/]++)(*:221))|/delete/(?|category/([^/]++)(*:258)|menu/([^/]++)(*:279)|product/([^/]++)(*:303))|/storage/(.*)(*:325))/?$}sDu',
     ),
     3 => 
     array (
@@ -1110,7 +1129,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::YeWgviZnj6pOBbKe',
+            '_route' => 'generated::eFmUL7ZPgpYCHgZ3',
           ),
           1 => 
           array (
@@ -1157,7 +1176,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::88AfljJqfR1mxhvw',
+            '_route' => 'generated::G2y2EjF8aRy4WaVs',
           ),
           1 => 
           array (
@@ -1266,7 +1285,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      301 => 
+      303 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete.product',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      325 => 
       array (
         0 => 
         array (
@@ -1304,7 +1346,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::PRCJOMG1JgCrMZZe' => 
+    'generated::ploLfwDGqryVKrZd' => 
     array (
       'methods' => 
       array (
@@ -1333,7 +1375,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004c30000000000000000";}}',
-        'as' => 'generated::PRCJOMG1JgCrMZZe',
+        'as' => 'generated::ploLfwDGqryVKrZd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1614,7 +1656,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::nuoz37q7JngkgzPI' => 
+    'generated::2qkVecsgUULcSBkO' => 
     array (
       'methods' => 
       array (
@@ -1635,7 +1677,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::nuoz37q7JngkgzPI',
+        'as' => 'generated::2qkVecsgUULcSBkO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1689,7 +1731,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::iOVicbt7TT7cZM0u' => 
+    'generated::gePjjXvjnA1wkleP' => 
     array (
       'methods' => 
       array (
@@ -1710,7 +1752,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::iOVicbt7TT7cZM0u',
+        'as' => 'generated::gePjjXvjnA1wkleP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2030,7 +2072,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::heJcheMKMvW7MGkt' => 
+    'generated::JPIbpQYvOaKOPckL' => 
     array (
       'methods' => 
       array (
@@ -2051,7 +2093,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::heJcheMKMvW7MGkt',
+        'as' => 'generated::JPIbpQYvOaKOPckL',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2512,7 +2554,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::YeWgviZnj6pOBbKe' => 
+    'generated::eFmUL7ZPgpYCHgZ3' => 
     array (
       'methods' => 
       array (
@@ -2533,7 +2575,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::YeWgviZnj6pOBbKe',
+        'as' => 'generated::eFmUL7ZPgpYCHgZ3',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3257,7 +3299,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::88AfljJqfR1mxhvw' => 
+    'generated::G2y2EjF8aRy4WaVs' => 
     array (
       'methods' => 
       array (
@@ -3279,7 +3321,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::88AfljJqfR1mxhvw',
+        'as' => 'generated::G2y2EjF8aRy4WaVs',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3657,6 +3699,81 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'edit.product',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'product.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'update/product',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'client',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateProduct',
+        'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateProduct',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'product.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'delete.product' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'delete/product/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'client',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteProduct',
+        'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteProduct',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'delete.product',
       ),
       'fallback' => false,
       'defaults' => 

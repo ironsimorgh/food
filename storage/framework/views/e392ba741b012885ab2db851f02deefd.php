@@ -28,9 +28,9 @@
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form id="myForm" action="<?php echo e(route('product.store')); ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo e(route('product.update')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
-
+<input type="hidden" name="id" value="<?php echo e($product->id); ?>" >
                                         <div class="row">
                                             <div class="col-xl-4 col-md-6">          
                                                     <div class="form-group mb-3">
@@ -38,7 +38,7 @@
                                                         <select name="category_id" class="form-select">
                                                             <option>Select</option>
                                                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category_name); ?></option>
+                                                            <option value="<?php echo e($cat->id); ?>" <?php echo e($cat->id == $product->category_id ? 'selected' : ''); ?>><?php echo e($cat->category_name); ?></option>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
@@ -51,7 +51,7 @@
                                                         <select name="menu_id" class="form-select">
                                                             <option selected="" disabled="">Select</option>
                                                             <?php $__currentLoopData = $menu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $men): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($men->id); ?>"><?php echo e($men->menu_name); ?></option>
+                                                            <option value="<?php echo e($men->id); ?>" <?php echo e($men->id == $product->menu_id ? 'selected' : ''); ?>><?php echo e($men->menu_name); ?></option>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
@@ -63,7 +63,7 @@
                                                         <select name="city_id"class="form-select">
                                                             <option>Select</option>
                                                             <?php $__currentLoopData = $city; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($cit->id); ?>"><?php echo e($cit->city_name); ?></option>
+                                                            <option value="<?php echo e($cit->id); ?>" <?php echo e($cit->id == $product->city_id ? 'selected' : ''); ?>><?php echo e($cit->city_name); ?></option>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
@@ -79,28 +79,28 @@
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Price</label>
-                                                        <input class="form-control" name="price" type="text" id="example-text-input">
+                                                        <input class="form-control" name="price" type="text" id="example-text-input" value="<?php echo e($product->price); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Discount Price</label>
-                                                        <input class="form-control" name="discount_price" type="text" id="example-text-input">
+                                                        <input class="form-control" name="discount_price" type="text" id="example-text-input" value="<?php echo e($product->discount_price); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Size</label>
-                                                        <input class="form-control" name="size" type="text" id="example-text-input">
+                                                        <input class="form-control" name="size" type="text" id="example-text-input" value="<?php echo e($product->size); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Product QTY</label>
-                                                        <input class="form-control" name="qty" type="text" id="example-text-input">
+                                                        <input class="form-control" name="qty" type="text" id="example-text-input" value="<?php echo e($product->qty); ?>">
                                                     </div>
                                             </div>
 
@@ -113,19 +113,19 @@
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
-                                                        <img id="showImage" src="<?php echo e(url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e(asset($product->image)); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                             </div>
 
                                             <div class="form-check mt-2">
-                                                        <input class="form-check-input" name="best_seller" type="checkbox" id="formCheck2" value="1">
+                                                        <input class="form-check-input" name="best_seller" type="checkbox" id="formCheck2" value="1" <?php echo e($product->best_seller == 1 ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="formCheck2">
                                                             Best Seller
                                                         </label>
                                                     </div>
 
                                                     <div class="form-check mt-2">
-                                                        <input class="form-check-input" name="most_populer" type="checkbox" id="formCheck2" value="1">
+                                                        <input class="form-check-input" name="most_populer" type="checkbox" id="formCheck2" value="1" <?php echo e($product->most_populer == 1 ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="formCheck2">
                                                             Most Populer
                                                         </label>
