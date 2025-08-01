@@ -177,4 +177,14 @@ class RestaurantController extends Controller
     //end method
 
 
+    public function EditProduct($id){
+        $category = Category::latest()->get();
+        $city = City::latest()->get();
+        $menu = Menu::latest()->get();
+        $product = Product::find($id);
+        return view('client.backend.product.edit_product',compact('category' , 'city','menu','product'));
+    }
+    //end method
+
+
 }

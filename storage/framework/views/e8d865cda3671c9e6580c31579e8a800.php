@@ -78,7 +78,7 @@
                                                 </td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('edit.menu',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('delete.menu',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a></td>
+                                                <td><a href="<?php echo e(route('edit.product',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('delete.menu',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a></td>
                                                 
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

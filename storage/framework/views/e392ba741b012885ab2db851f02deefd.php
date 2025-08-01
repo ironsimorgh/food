@@ -9,12 +9,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Add Product</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Edit Product</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                            <li class="breadcrumb-item active">Add Product</li>
+                                            <li class="breadcrumb-item active">Edit Product</li>
                                         </ol>
                                     </div>
 
@@ -72,7 +72,7 @@
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Product Name</label>
-                                                        <input class="form-control" name="name" type="text" id="example-text-input">
+                                                        <input class="form-control" name="name" type="text" id="example-text-input" value="<?php echo e($product->name); ?>">
                                                     </div>
                                             </div>
 
@@ -172,9 +172,6 @@ $(document).ready(function(){
                 name: {
                     required : true,
                 }, 
-                image: {
-                    required : true,
-                }, 
                 menu_id: {
                     required : true,
                 }, 
@@ -184,9 +181,6 @@ $(document).ready(function(){
                 name: {
                     required : 'Please Enter Name',
                 },
-                image: {
-                    required : 'Please Select Image',
-                }, 
                 menu_id: {
                     required : 'Please Select menu',
                 }, 
@@ -210,4 +204,4 @@ $(document).ready(function(){
 </script>
                 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/product/add_product.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\client\backend\product\edit_product.blade.php ENDPATH**/ ?>
