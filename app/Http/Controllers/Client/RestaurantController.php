@@ -14,6 +14,7 @@ use App\Models\City;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
 use App\Models\Gllery;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Carbon as SupportCarbon;
 
 class RestaurantController extends Controller
@@ -267,6 +268,13 @@ class RestaurantController extends Controller
 
     }
     //end method
+
+    public function ChangeStatus(Request $request){
+        $product = Product::find($request->product_id);
+        $product->status = $request->status;
+        $product->save();
+        return response()->json(['success'=>'Status Change Successfully']);
+    }
 
 
 }

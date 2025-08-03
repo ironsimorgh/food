@@ -1,5 +1,6 @@
 
 <?php $__env->startSection('client'); ?>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 
 <div class="page-content">
@@ -79,7 +80,7 @@
                                                 
                                                 
                                                 <td><a href="<?php echo e(route('edit.product',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('delete.product',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a></td>
-                                                
+                                                <input data-id="<?php echo e($item->id); ?>" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggel" data-on="Active" data-off="Inactive" <?php echo e($item->status ? 'checked' : ''); ?>>
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </tbody>
@@ -94,6 +95,53 @@
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
+
+                <script type="text/javascript">
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var product_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatus',
+            data: {'status': status, 'product_id': product_id},
+            success: function(data){
+              // console.log(data.success)
+
+                // Start Message 
+
+            const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  icon: 'success', 
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success',
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error',
+                    title: data.error, 
+                    })
+                }
+
+              // End Message   
+
+
+            }
+        });
+    })
+  })
+</script>
 
 
 <?php $__env->stopSection(); ?>
