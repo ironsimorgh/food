@@ -277,4 +277,21 @@ class RestaurantController extends Controller
     }
 
 
+    ////////All Gallery Method
+
+    public function AllGallery(){
+        $gallery = Gllery::latest()->get();
+        return view('client.backend.gallery.all_gallery',compact('gallery'));
+    }
+    //end method
+
+
+    public function AddGallery(){
+        $category = Category::latest()->get();
+        $city = City::latest()->get();
+        $menu = Menu::latest()->get();
+        return view('client.backend.product.add_product',compact('category' , 'city','menu'));
+    }
+    //end method
+
 }
