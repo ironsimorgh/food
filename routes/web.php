@@ -117,7 +117,7 @@ Route ::middleware('client')->group(function(){
     Route::controller(RestaurantController::class)->group(function(){
         Route::get('/all/gallery','AllGallery')->name('all.gallery');
         Route::get('/add/gallery','AddGallery')->name('add.gallery');
-        Route::post('/store/product','StoreProduct')->name('product.store');
+        Route::post('/store/gallery','StoreGallery')->name('gallery.store');
         Route::get('/edit/product/{id}','EditProduct')->name('edit.product');
         Route::post('/update/product','UpdateProduct')->name('product.update');
         Route::get('/delete/product/{id}','DeleteProduct')->name('delete.product');
