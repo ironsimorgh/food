@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zMsF2xsfh2TmVu9V',
+            '_route' => 'generated::53wVkiiS3qFEWVwY',
           ),
           1 => NULL,
           2 => 
@@ -168,7 +168,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SEwB7REQ6Y32FO9A',
+            '_route' => 'generated::BxcRS3kW5Lc5oPX6',
           ),
           1 => NULL,
           2 => 
@@ -204,7 +204,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cSmIj4S6vm1UChzQ',
+            '_route' => 'generated::hhfXhmtHfBffMjcE',
           ),
           1 => NULL,
           2 => 
@@ -334,7 +334,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::uZh9YUQGMVr0y5JV',
+            '_route' => 'generated::NbqzkpYp172GmpVM',
           ),
           1 => NULL,
           2 => 
@@ -1075,7 +1075,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Za2d58qpZjI4m9rb',
+            '_route' => 'generated::iMNMuDO7l3zbRnVJ',
           ),
           1 => NULL,
           2 => 
@@ -1148,10 +1148,29 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/update/gallery' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'gallery.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/verify\\-email/([^/]++)/([^/]++)(*:71)|/admin/reset\\-password/([^/]++)/([^/]++)(*:118)|/edit/(?|c(?|ategory/([^/]++)(*:155)|ity/([^/]++)(*:175))|menu/([^/]++)(*:197)|product/([^/]++)(*:221))|/delete/(?|category/([^/]++)(*:258)|menu/([^/]++)(*:279)|product/([^/]++)(*:303))|/storage/(.*)(*:325))/?$}sDu',
+      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/verify\\-email/([^/]++)/([^/]++)(*:71)|/admin/reset\\-password/([^/]++)/([^/]++)(*:118)|/edit/(?|c(?|ategory/([^/]++)(*:155)|ity/([^/]++)(*:175))|menu/([^/]++)(*:197)|product/([^/]++)(*:221)|gallery/([^/]++)(*:245))|/delete/(?|category/([^/]++)(*:282)|menu/([^/]++)(*:303)|product/([^/]++)(*:327)|gallery/([^/]++)(*:351))|/storage/(.*)(*:373))/?$}sDu',
     ),
     3 => 
     array (
@@ -1208,7 +1227,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::EdC3EFlzCZwgZPT0',
+            '_route' => 'generated::yrNazooJyjaGvxSf',
           ),
           1 => 
           array (
@@ -1255,7 +1274,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CWLoeC57aRY3Ez0a',
+            '_route' => 'generated::ngUNySUZdDezdNvQ',
           ),
           1 => 
           array (
@@ -1318,7 +1337,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      258 => 
+      245 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit.gallery',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      282 => 
       array (
         0 => 
         array (
@@ -1341,7 +1383,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      279 => 
+      303 => 
       array (
         0 => 
         array (
@@ -1364,7 +1406,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      303 => 
+      327 => 
       array (
         0 => 
         array (
@@ -1387,7 +1429,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      325 => 
+      351 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete.gallery',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      373 => 
       array (
         0 => 
         array (
@@ -1425,7 +1490,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::zMsF2xsfh2TmVu9V' => 
+    'generated::53wVkiiS3qFEWVwY' => 
     array (
       'methods' => 
       array (
@@ -1454,7 +1519,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004c30000000000000000";}}',
-        'as' => 'generated::zMsF2xsfh2TmVu9V',
+        'as' => 'generated::53wVkiiS3qFEWVwY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1735,7 +1800,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SEwB7REQ6Y32FO9A' => 
+    'generated::BxcRS3kW5Lc5oPX6' => 
     array (
       'methods' => 
       array (
@@ -1756,7 +1821,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SEwB7REQ6Y32FO9A',
+        'as' => 'generated::BxcRS3kW5Lc5oPX6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1810,7 +1875,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::cSmIj4S6vm1UChzQ' => 
+    'generated::hhfXhmtHfBffMjcE' => 
     array (
       'methods' => 
       array (
@@ -1831,7 +1896,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cSmIj4S6vm1UChzQ',
+        'as' => 'generated::hhfXhmtHfBffMjcE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2151,7 +2216,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::uZh9YUQGMVr0y5JV' => 
+    'generated::NbqzkpYp172GmpVM' => 
     array (
       'methods' => 
       array (
@@ -2172,7 +2237,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::uZh9YUQGMVr0y5JV',
+        'as' => 'generated::NbqzkpYp172GmpVM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2633,7 +2698,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::EdC3EFlzCZwgZPT0' => 
+    'generated::yrNazooJyjaGvxSf' => 
     array (
       'methods' => 
       array (
@@ -2654,7 +2719,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::EdC3EFlzCZwgZPT0',
+        'as' => 'generated::yrNazooJyjaGvxSf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3378,7 +3443,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CWLoeC57aRY3Ez0a' => 
+    'generated::ngUNySUZdDezdNvQ' => 
     array (
       'methods' => 
       array (
@@ -3400,7 +3465,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::CWLoeC57aRY3Ez0a',
+        'as' => 'generated::ngUNySUZdDezdNvQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3868,7 +3933,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Za2d58qpZjI4m9rb' => 
+    'generated::iMNMuDO7l3zbRnVJ' => 
     array (
       'methods' => 
       array (
@@ -3890,7 +3955,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Za2d58qpZjI4m9rb',
+        'as' => 'generated::iMNMuDO7l3zbRnVJ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4004,6 +4069,119 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'gallery.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'edit.gallery' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'edit/gallery/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'client',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditGallery',
+        'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditGallery',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'edit.gallery',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'gallery.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'update/gallery',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'client',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateGallery',
+        'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateGallery',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'gallery.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'delete.gallery' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'delete/gallery/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'client',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteGallery',
+        'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteGallery',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'delete.gallery',
       ),
       'fallback' => false,
       'defaults' => 

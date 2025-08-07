@@ -45,7 +45,7 @@
                                             <tr>
                                                 <td><?php echo e($key+1); ?></td>
                                                 <td><img src="<?php echo e(asset($item->gallery_img)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
-                                                <td><a href="<?php echo e(route('edit.menu',$item->id)); ?>" class="btn btn-info waves-effect waves-light">Edit</a><a href="<?php echo e(route('delete.menu',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
+                                                <td><a href="<?php echo e(route('edit.gallery',$item->id)); ?>" class="btn btn-info waves-effect waves-light">Edit</a><a href="<?php echo e(route('delete.gallery',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
                                                 
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
