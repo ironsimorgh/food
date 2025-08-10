@@ -1,5 +1,5 @@
-@extends('client.client_dashboard')
-@section('client')
+
+<?php $__env->startSection('client'); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -32,17 +32,17 @@
                                                 <div class="d-flex align-items-start mt-3 mt-sm-0">
                                                     <div class="flex-shrink-0">
                                                         <div class="avatar-xl me-3">
-                                                            <img src="{{(!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="" class="img-fluid rounded-circle d-block">
+                                                            <img src="<?php echo e((!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="img-fluid rounded-circle d-block">
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">
                                                         <div>
-                                                            <h5 class="font-size-16 mb-1">{{$profileData->name}}</h5>
-                                                            <p class="text-muted font-size-13">{{$profileData->email}}</p>
+                                                            <h5 class="font-size-16 mb-1"><?php echo e($profileData->name); ?></h5>
+                                                            <p class="text-muted font-size-13"><?php echo e($profileData->email); ?></p>
 
                                                             <div class="d-flex flex-wrap align-items-start gap-2 gap-lg-3 text-muted font-size-13">
-                                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>{{$profileData->phone}}</div>
-                                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>{{$profileData->address}}</div>
+                                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i><?php echo e($profileData->phone); ?></div>
+                                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i><?php echo e($profileData->address); ?></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -59,47 +59,47 @@
 
 
                                 <div class="card-body p-4">
-        <form action="{{route('client.profile.store')}}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form action="<?php echo e(route('client.profile.store')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
 
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div>
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Name</label>
-                                                        <input class="form-control" name="name" type="text" value="{{$profileData->name}}" id="example-text-input">
+                                                        <input class="form-control" name="name" type="text" value="<?php echo e($profileData->name); ?>" id="example-text-input">
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Email</label>
-                                                        <input class="form-control" name="email" type="email" value="{{$profileData->email}}" id="example-text-input">
+                                                        <input class="form-control" name="email" type="email" value="<?php echo e($profileData->email); ?>" id="example-text-input">
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Phone</label>
-                                                        <input class="form-control" name="phone" type="text" value="{{$profileData->phone}}" id="example-text-input">
+                                                        <input class="form-control" name="phone" type="text" value="<?php echo e($profileData->phone); ?>" id="example-text-input">
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">City</label>
                                                         <select name="city_id"class="form-select">
                                                             <option>Select</option>
-                                                            @foreach ($city as $cit )
-                                                            <option value="{{ $cit->id }}" {{$cit->id == $profileData->city_id ? 'selected' : ''}}>{{ $cit->city_name }}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $city; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cit->id); ?>" <?php echo e($cit->id == $profileData->city_id ? 'selected' : ''); ?>><?php echo e($cit->city_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Restaurant Info</label>
-                                                        <textarea id="basicpill-address-input" name="shop_info" class="form-control" rows="2" placeholder="Enter your Address">{{$profileData->shop_info}}</textarea>
+                                                        <textarea id="basicpill-address-input" name="shop_info" class="form-control" rows="2" placeholder="Enter your Address"><?php echo e($profileData->shop_info); ?></textarea>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Cover Photo</label>
                                                         <input class="form-control" name="cover_photo" type="file" id="image">
                                                     </div>
-                                                    <img id="showImage" src="{{(!empty($profileData->cover_photo)) ? url('upload/client_images/'.$profileData->cover_photo) : url('upload/no_image.jpg')}}" alt="" class="p-1 bg-primary" width="210" height="100">
+                                                    <img id="showImage" src="<?php echo e((!empty($profileData->cover_photo)) ? url('upload/client_images/'.$profileData->cover_photo) : url('upload/no_image.jpg')); ?>" alt="" class="p-1 bg-primary" width="210" height="100">
                                                     
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                                 <div class="mt-3 mt-lg-0">
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Address</label>
-                                                        <input class="form-control" name="address" type="address" value="{{$profileData->address}}" id="example-text-input">
+                                                        <input class="form-control" name="address" type="address" value="<?php echo e($profileData->address); ?>" id="example-text-input">
                                                     </div>
                                                     
                                                     <div class="mb-3">
@@ -117,7 +117,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         
-                                                        <img id="showImage" src="{{(!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e((!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                                 <div class="mt-4">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
@@ -152,4 +152,5 @@ $(document).ready(function(){
 
 </script>
                 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/client_profile.blade.php ENDPATH**/ ?>
