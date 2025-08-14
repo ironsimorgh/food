@@ -79,6 +79,27 @@
                                                         <label for="example-text-input" class="form-label">Phone</label>
                                                         <input class="form-control" name="phone" type="text" value="<?php echo e($profileData->phone); ?>" id="example-text-input">
                                                     </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="example-text-input" class="form-label">City</label>
+                                                        <select name="city_id"class="form-select">
+                                                            <option>Select</option>
+                                                            <?php $__currentLoopData = $city; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cit->id); ?>" <?php echo e($cit->id == $profileData->city_id ? 'selected' : ''); ?>><?php echo e($cit->city_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="example-text-input" class="form-label">Restaurant Info</label>
+                                                        <textarea id="basicpill-address-input" name="shop_info" class="form-control" rows="2" placeholder="Enter your Address"><?php echo e($profileData->shop_info); ?></textarea>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="example-text-input" class="form-label">Cover Photo</label>
+                                                        <input class="form-control" name="cover_photo" type="file" id="image">
+                                                    </div>
+                                                    <img id="showImage" src="<?php echo e((!empty($profileData->cover_photo)) ? url('upload/client_images/'.$profileData->cover_photo) : url('upload/no_image.jpg')); ?>" alt="" class="p-1 bg-primary" width="210" height="100">
                                                     
                                                 </div>
                                             </div>
@@ -96,7 +117,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         
-                                                        <img id="showImage" src="<?php echo e((!empty($profileData->phone)) ? url('upload/client_images/'.$profileData->phone) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e((!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                                 <div class="mt-4">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
