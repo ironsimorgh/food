@@ -1,5 +1,5 @@
-@extends('client.client_dashboard')
-@section('client')
+
+<?php $__env->startSection('client'); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -28,18 +28,18 @@
 
                                 <div class="card">                
                                 <div class="card-body p-4">
-                                <form id="myForm" action="{{route('product.update')}}" method="post" enctype="multipart/form-data">
-                                 @csrf
-                                    <input type="hidden" name="id" value="{{$product->id}}">
+                                <form id="myForm" action="<?php echo e(route('product.update')); ?>" method="post" enctype="multipart/form-data">
+                                 <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
                                         <div class="row">
                                             <div class="col-xl-4 col-md-6">          
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Category Name</label>
                                                         <select name="category_id" class="form-select">
                                                             <option>Select</option>
-                                                            @foreach ($category as $cat )
-                                                            <option value="{{ $cat->id }}" {{ $cat->id == $product->category_id ? 'selected' : ''}}>{{ $cat->category_name }}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cat->id); ?>" <?php echo e($cat->id == $product->category_id ? 'selected' : ''); ?>><?php echo e($cat->category_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
                                             </div>
@@ -50,9 +50,9 @@
                                                         <label for="example-text-input" class="form-label">Menu Name</label>
                                                         <select name="menu_id" class="form-select">
                                                             <option selected="" disabled="">Select</option>
-                                                            @foreach ($menu as $men )
-                                                            <option value="{{ $men->id }}" {{ $men->id == $product->menu_id ? 'selected' : ''}}>{{ $men->menu_name }}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $menu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $men): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($men->id); ?>" <?php echo e($men->id == $product->menu_id ? 'selected' : ''); ?>><?php echo e($men->menu_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
                                             </div>
@@ -62,9 +62,9 @@
                                                         <label for="example-text-input" class="form-label">City Name</label>
                                                         <select name="city_id"class="form-select">
                                                             <option>Select</option>
-                                                            @foreach ($city as $cit )
-                                                            <option value="{{ $cit->id }}" {{ $cit->id == $product->city_id ? 'selected' : ''}}>{{ $cit->city_name }}</option>
-                                                            @endforeach
+                                                            <?php $__currentLoopData = $city; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($cit->id); ?>" <?php echo e($cit->id == $product->city_id ? 'selected' : ''); ?>><?php echo e($cit->city_name); ?></option>
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>
                                             </div>
@@ -72,35 +72,35 @@
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Product Name</label>
-                                                        <input class="form-control" name="name" type="text" id="example-text-input" value="{{$product->name}}">
+                                                        <input class="form-control" name="name" type="text" id="example-text-input" value="<?php echo e($product->name); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Price</label>
-                                                        <input class="form-control" name="price" type="text" id="example-text-input" value="{{$product->price}}">
+                                                        <input class="form-control" name="price" type="text" id="example-text-input" value="<?php echo e($product->price); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-4 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Discount Price</label>
-                                                        <input class="form-control" name="discount_price" type="text" id="example-text-input" value="{{$product->discount_price}}">
+                                                        <input class="form-control" name="discount_price" type="text" id="example-text-input" value="<?php echo e($product->discount_price); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Size</label>
-                                                        <input class="form-control" name="size" type="text" id="example-text-input" value="{{$product->size}}">
+                                                        <input class="form-control" name="size" type="text" id="example-text-input" value="<?php echo e($product->size); ?>">
                                                     </div>
                                             </div>
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
                                                         <label for="example-text-input" class="form-label">Product QTY</label>
-                                                        <input class="form-control" name="qty" type="text" id="example-text-input" value="{{$product->qty}}">
+                                                        <input class="form-control" name="qty" type="text" id="example-text-input" value="<?php echo e($product->qty); ?>">
                                                     </div>
                                             </div>
 
@@ -113,19 +113,19 @@
 
                                             <div class="col-xl-6 col-md-6">   
                                                     <div class="form-group mb-3">
-                                                        <img id="showImage" src="{{ asset($product->image)}}" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e(asset($product->image)); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                             </div>
 
                                             <div class="form-check mt-2">
-                                                        <input class="form-check-input" name="best_seller" type="checkbox" id="formCheck2" value="1" {{ $product->best_seller == 1 ? 'checked' : ''}}>
+                                                        <input class="form-check-input" name="best_seller" type="checkbox" id="formCheck2" value="1" <?php echo e($product->best_seller == 1 ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="formCheck2">
                                                             Best Seller
                                                         </label>
                                                     </div>
 
                                                     <div class="form-check mt-2">
-                                                        <input class="form-check-input" name="most_populer" type="checkbox" id="formCheck2" value="1" {{ $product->most_populer == 1 ? 'checked' : ''}}>
+                                                        <input class="form-check-input" name="most_populer" type="checkbox" id="formCheck2" value="1" <?php echo e($product->most_populer == 1 ? 'checked' : ''); ?>>
                                                         <label class="form-check-label" for="formCheck2">
                                                             Most Populer
                                                         </label>
@@ -203,4 +203,5 @@ $(document).ready(function(){
     
 </script>
                 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/product/edit_product.blade.php ENDPATH**/ ?>
