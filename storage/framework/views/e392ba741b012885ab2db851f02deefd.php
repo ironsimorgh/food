@@ -30,7 +30,7 @@
                                 <div class="card-body p-4">
                                 <form id="myForm" action="<?php echo e(route('product.update')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
-<input type="hidden" name="id" value="<?php echo e($product->id); ?>" >
+                                    <input type="hidden" name="id" value="<?php echo e($product->id); ?>">
                                         <div class="row">
                                             <div class="col-xl-4 col-md-6">          
                                                     <div class="form-group mb-3">

@@ -1,6 +1,5 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
-
     <div data-simplebar class="h-100">
 
         <!--- Sidemenu -->
@@ -19,33 +18,46 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="grid"></i>
-                        <span data-key="t-apps">Menu</span>
+                        <span data-key="t-apps">Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="<?php echo e(route('all.menu')); ?>">
-                                <span data-key="t-calendar">All Menu</span>
+                            <a href="<?php echo e(route('all.category')); ?>">
+                                <span data-key="t-calendar">All Category</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="<?php echo e(route('add.menu')); ?>">
-                                <span data-key="t-chat">Add Menu</span>
+                            <a href="<?php echo e(route('add.category')); ?>">
+                                <span data-key="t-chat">Add Category</span>
                             </a>
                         </li>
 
                     </ul>
                 </li>
 
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="grid"></i>
-                        <span data-key="t-apps">Product</span>
+                        <span data-key="t-apps">City</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="<?php echo e(route('all.product')); ?>">
+                            <a href="<?php echo e(route('all.city')); ?>">
+                                <span data-key="t-calendar">All City</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="grid"></i>
+                        <span data-key="t-apps">Manage Product</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo e(route('admin.all.product')); ?>">
                                 <span data-key="t-calendar">All Product</span>
                             </a>
                         </li>
@@ -53,48 +65,6 @@
                         <li>
                             <a href="<?php echo e(route('add.product')); ?>">
                                 <span data-key="t-chat">Add Product</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="grid"></i>
-                        <span data-key="t-apps">Gallery</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="<?php echo e(route('all.gallery')); ?>">
-                                <span data-key="t-calendar">All Gallery</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo e(route('add.gallery')); ?>">
-                                <span data-key="t-chat">Add Gallery</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="grid"></i>
-                        <span data-key="t-apps">Coupon</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li>
-                            <a href="<?php echo e(route('all.coupon')); ?>">
-                                <span data-key="t-calendar">All Coupon</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo e(route('add.coupon')); ?>">
-                                <span data-key="t-chat">Add Coupon</span>
                             </a>
                         </li>
 
@@ -155,4 +125,4 @@
         </div>
         <!-- Sidebar -->
     </div>
-</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/sidebar.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/sidebar.blade.php ENDPATH**/ ?>

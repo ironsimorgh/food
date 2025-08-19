@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Client\RestaurantController;
 use App\Http\Controllers\Client\CouponController;
+use App\Http\Controllers\Admin\ManageController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -89,6 +90,11 @@ Route ::middleware('admin')->group(function(){
         Route::get('/edit/city/{id}','EditCity');
         Route::post('/update/category','UpdateCategory')->name('category.update');
         Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+    });
+
+    Route::controller(ManageController::class)->group(function(){
+        Route::get('/admin/all/product','AdminAllProduct')->name('admin.all.product');
+
     });
     
 });
