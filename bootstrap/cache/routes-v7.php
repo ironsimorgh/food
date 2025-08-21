@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::n8M5k7d9u4dye5hv',
+            '_route' => 'generated::klB3HVQYoz7LHe0q',
           ),
           1 => NULL,
           2 => 
@@ -168,7 +168,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FH29bicSBBawrOz2',
+            '_route' => 'generated::7904cSawECpxg1Xn',
           ),
           1 => NULL,
           2 => 
@@ -204,7 +204,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::LeEbZj1WAmONO23b',
+            '_route' => 'generated::Yp4XddlE3aHrK7YH',
           ),
           1 => NULL,
           2 => 
@@ -334,7 +334,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::p8fO0zVYWIOcQzOs',
+            '_route' => 'generated::BS0VOy64uV1eFyER',
           ),
           1 => NULL,
           2 => 
@@ -1017,7 +1017,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::R1bqCTKMgXD3lHLO',
+            '_route' => 'generated::QpQF9WQYQI7dnh4v',
           ),
           1 => NULL,
           2 => 
@@ -1369,7 +1369,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TjreoxPcUxU6RDwT',
+            '_route' => 'generated::0zwZ5H1GSNXtQCfQ',
           ),
           1 => NULL,
           2 => 
@@ -1443,7 +1443,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::XyZ1Jba1K5Rqq9S8',
+            '_route' => 'generated::YVat6tGUmWmsxwpq',
           ),
           1 => 
           array (
@@ -1536,7 +1536,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ISfWt7QKkNuAq1qU',
+            '_route' => 'generated::r6M8DXdRfzH0MCCD',
           ),
           1 => 
           array (
@@ -1798,7 +1798,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::n8M5k7d9u4dye5hv' => 
+    'generated::klB3HVQYoz7LHe0q' => 
     array (
       'methods' => 
       array (
@@ -1827,7 +1827,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004c30000000000000000";}}',
-        'as' => 'generated::n8M5k7d9u4dye5hv',
+        'as' => 'generated::klB3HVQYoz7LHe0q',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2108,7 +2108,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FH29bicSBBawrOz2' => 
+    'generated::7904cSawECpxg1Xn' => 
     array (
       'methods' => 
       array (
@@ -2129,7 +2129,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::FH29bicSBBawrOz2',
+        'as' => 'generated::7904cSawECpxg1Xn',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2183,7 +2183,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::LeEbZj1WAmONO23b' => 
+    'generated::Yp4XddlE3aHrK7YH' => 
     array (
       'methods' => 
       array (
@@ -2204,7 +2204,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::LeEbZj1WAmONO23b',
+        'as' => 'generated::Yp4XddlE3aHrK7YH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2524,7 +2524,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::p8fO0zVYWIOcQzOs' => 
+    'generated::BS0VOy64uV1eFyER' => 
     array (
       'methods' => 
       array (
@@ -2545,7 +2545,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::p8fO0zVYWIOcQzOs',
+        'as' => 'generated::BS0VOy64uV1eFyER',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3006,7 +3006,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::XyZ1Jba1K5Rqq9S8' => 
+    'generated::YVat6tGUmWmsxwpq' => 
     array (
       'methods' => 
       array (
@@ -3027,7 +3027,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::XyZ1Jba1K5Rqq9S8',
+        'as' => 'generated::YVat6tGUmWmsxwpq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3751,7 +3751,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ISfWt7QKkNuAq1qU' => 
+    'generated::r6M8DXdRfzH0MCCD' => 
     array (
       'methods' => 
       array (
@@ -3773,7 +3773,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ISfWt7QKkNuAq1qU',
+        'as' => 'generated::r6M8DXdRfzH0MCCD',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4053,7 +4053,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::R1bqCTKMgXD3lHLO' => 
+    'generated::QpQF9WQYQI7dnh4v' => 
     array (
       'methods' => 
       array (
@@ -4075,7 +4075,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::R1bqCTKMgXD3lHLO',
+        'as' => 'generated::QpQF9WQYQI7dnh4v',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4143,6 +4143,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllMenu',
@@ -4181,6 +4182,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddMenu',
@@ -4218,6 +4220,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreMenu',
@@ -4256,6 +4259,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditMenu',
@@ -4293,6 +4297,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateMenu',
@@ -4331,6 +4336,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteMenu',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteMenu',
@@ -4369,6 +4375,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllProduct',
@@ -4407,6 +4414,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddProduct',
@@ -4444,6 +4452,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreProduct',
@@ -4482,6 +4491,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditProduct',
@@ -4519,6 +4529,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateProduct',
@@ -4557,6 +4568,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteProduct',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteProduct',
@@ -4595,6 +4607,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AllGallery',
@@ -4633,6 +4646,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@AddGallery',
@@ -4670,6 +4684,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@StoreGallery',
@@ -4708,6 +4723,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@EditGallery',
@@ -4745,6 +4761,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@UpdateGallery',
@@ -4783,6 +4800,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteGallery',
         'controller' => 'App\\Http\\Controllers\\Client\\RestaurantController@DeleteGallery',
@@ -4821,6 +4839,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@AllCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@AllCoupon',
@@ -4859,6 +4878,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@AddCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@AddCoupon',
@@ -4896,6 +4916,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@StoreCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@StoreCoupon',
@@ -4934,6 +4955,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@EditCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@EditCoupon',
@@ -4971,6 +4993,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@UpdateCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@UpdateCoupon',
@@ -5009,6 +5032,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'client',
+          2 => 'status',
         ),
         'uses' => 'App\\Http\\Controllers\\Client\\CouponController@DeleteCoupon',
         'controller' => 'App\\Http\\Controllers\\Client\\CouponController@DeleteCoupon',
@@ -5033,7 +5057,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TjreoxPcUxU6RDwT' => 
+    'generated::0zwZ5H1GSNXtQCfQ' => 
     array (
       'methods' => 
       array (
@@ -5054,7 +5078,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::TjreoxPcUxU6RDwT',
+        'as' => 'generated::0zwZ5H1GSNXtQCfQ',
       ),
       'fallback' => false,
       'defaults' => 

@@ -126,4 +126,4 @@ $status = $client->status;
         </div>
         <!-- Sidebar -->
     </div>
-</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\client\body\sidebar.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/sidebar.blade.php ENDPATH**/ ?>
