@@ -63,7 +63,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo e(route('add.product')); ?>">
+                            <a href="<?php echo e(route('admin.add.product')); ?>">
                                 <span data-key="t-chat">Add Product</span>
                             </a>
                         </li>

@@ -14,7 +14,7 @@
                                     <h4 class="mb-sm-0 font-size-18">All Product</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <a href="<?php echo e(route('add.product')); ?>" class="btn btn-primary waves-effect waves-light">Add Product</a>
+                                            <a href="<?php echo e(route('admin.add.product')); ?>" class="btn btn-primary waves-effect waves-light">Add Product</a>
                                         </ol>
                                     </div>
 
@@ -54,7 +54,7 @@
                                                 <td><?php echo e($key+1); ?></td>
                                                 <td><img src="<?php echo e(asset($item->image)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
                                                 <td><?php echo e($item->name); ?></td>
-                                                <td><?php echo e($item['menu']['menu_name']); ?></td>
+                                                <td><?php echo e($item['client']['name']); ?></td>
                                                 <td><?php echo e($item->qty); ?></td>
                                                 <td><?php echo e($item->price); ?></td>
                                                 <td>
@@ -80,7 +80,8 @@
                                                 </td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('edit.product',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('delete.product',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a>
+                                                
+                                                <td><a href="<?php echo e(route('admin.edit.product',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a><a href="<?php echo e(route('admin.delete.product',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete"><i class="fas fa-trash"></i></a>
                                                 <input data-id="<?php echo e($item->id); ?>" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive" <?php echo e($item->status ? 'checked' : ''); ?>>
                                                     </td>
                                             </tr>

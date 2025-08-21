@@ -63,7 +63,7 @@
                         </li>
 
                         <li>
-                            <a href="{{route('add.product')}}">
+                            <a href="{{route('admin.add.product')}}">
                                 <span data-key="t-chat">Add Product</span>
                             </a>
                         </li>
