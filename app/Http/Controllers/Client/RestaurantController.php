@@ -281,7 +281,7 @@ class RestaurantController extends Controller
         $product->save();
         return response()->json(['success'=>'Status Change Successfully']);
     }
-
+//end method
 
     ////////All Gallery Method
 

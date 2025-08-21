@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::QT7CfCA4Y2b7spIP',
+            '_route' => 'generated::n8M5k7d9u4dye5hv',
           ),
           1 => NULL,
           2 => 
@@ -168,7 +168,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4gJfqBvQ6z6CBy6y',
+            '_route' => 'generated::FH29bicSBBawrOz2',
           ),
           1 => NULL,
           2 => 
@@ -204,7 +204,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SCArNGBFilCpzKPe',
+            '_route' => 'generated::LeEbZj1WAmONO23b',
           ),
           1 => NULL,
           2 => 
@@ -334,7 +334,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::376R20wsz1zgUfO7',
+            '_route' => 'generated::p8fO0zVYWIOcQzOs',
           ),
           1 => NULL,
           2 => 
@@ -991,6 +991,66 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/pending/restaurant' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'pending.restaurant',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/clientchangeStatus' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::R1bqCTKMgXD3lHLO',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/approve/restaurant' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'approve.restaurant',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/all/menu' => 
       array (
         0 => 
@@ -1309,7 +1369,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ppcT4W0oc6w9wE7L',
+            '_route' => 'generated::TjreoxPcUxU6RDwT',
           ),
           1 => NULL,
           2 => 
@@ -1383,7 +1443,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::jnmFh6WdhBL9Y11Q',
+            '_route' => 'generated::XyZ1Jba1K5Rqq9S8',
           ),
           1 => 
           array (
@@ -1476,7 +1536,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::hVXCSLs902PKCL4c',
+            '_route' => 'generated::ISfWt7QKkNuAq1qU',
           ),
           1 => 
           array (
@@ -1738,7 +1798,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::QT7CfCA4Y2b7spIP' => 
+    'generated::n8M5k7d9u4dye5hv' => 
     array (
       'methods' => 
       array (
@@ -1767,7 +1827,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004c30000000000000000";}}',
-        'as' => 'generated::QT7CfCA4Y2b7spIP',
+        'as' => 'generated::n8M5k7d9u4dye5hv',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2048,7 +2108,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4gJfqBvQ6z6CBy6y' => 
+    'generated::FH29bicSBBawrOz2' => 
     array (
       'methods' => 
       array (
@@ -2069,7 +2129,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4gJfqBvQ6z6CBy6y',
+        'as' => 'generated::FH29bicSBBawrOz2',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2123,7 +2183,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SCArNGBFilCpzKPe' => 
+    'generated::LeEbZj1WAmONO23b' => 
     array (
       'methods' => 
       array (
@@ -2144,7 +2204,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SCArNGBFilCpzKPe',
+        'as' => 'generated::LeEbZj1WAmONO23b',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2464,7 +2524,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::376R20wsz1zgUfO7' => 
+    'generated::p8fO0zVYWIOcQzOs' => 
     array (
       'methods' => 
       array (
@@ -2485,7 +2545,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::376R20wsz1zgUfO7',
+        'as' => 'generated::p8fO0zVYWIOcQzOs',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2946,7 +3006,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::jnmFh6WdhBL9Y11Q' => 
+    'generated::XyZ1Jba1K5Rqq9S8' => 
     array (
       'methods' => 
       array (
@@ -2967,7 +3027,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::jnmFh6WdhBL9Y11Q',
+        'as' => 'generated::XyZ1Jba1K5Rqq9S8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3691,7 +3751,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::hVXCSLs902PKCL4c' => 
+    'generated::ISfWt7QKkNuAq1qU' => 
     array (
       'methods' => 
       array (
@@ -3713,7 +3773,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::hVXCSLs902PKCL4c',
+        'as' => 'generated::ISfWt7QKkNuAq1qU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3940,6 +4000,120 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'admin.delete.product',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'pending.restaurant' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pending/restaurant',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\ManageController@PendingRestaurant',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ManageController@PendingRestaurant',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'pending.restaurant',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::R1bqCTKMgXD3lHLO' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'clientchangeStatus',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\ManageController@ClientChangeStatus',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ManageController@ClientChangeStatus',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::R1bqCTKMgXD3lHLO',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'approve.restaurant' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'approve/restaurant',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\ManageController@ApproveRestaurant',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ManageController@ApproveRestaurant',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'approve.restaurant',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4859,7 +5033,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ppcT4W0oc6w9wE7L' => 
+    'generated::TjreoxPcUxU6RDwT' => 
     array (
       'methods' => 
       array (
@@ -4880,7 +5054,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ppcT4W0oc6w9wE7L',
+        'as' => 'generated::TjreoxPcUxU6RDwT',
       ),
       'fallback' => false,
       'defaults' => 
