@@ -50,7 +50,7 @@
                                                 <td>
                                                     <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myEdit" id="<?php echo e($item->id); ?>" onclick="bannerEdit(this.id)">Edit</button>
 
-                                                    <a href="<?php echo e(route('delete.category',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
+                                                    <a href="<?php echo e(route('delete.banner',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
                                                 
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -68,7 +68,7 @@
                 <!-- End Page-content -->
 
 <!-- sample modal content -->
-                                            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-scroll="true">
+                     <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" data-bs-scroll="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -123,9 +123,9 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="<?php echo e(route('banner.store')); ?>" method="post" enctype="multipart/form-data">
+                                                            <form action="<?php echo e(route('banner.update')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
-
+<input type="hidden" name="banner_id" id="banner_id">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div>
