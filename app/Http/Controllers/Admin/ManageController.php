@@ -12,6 +12,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\Menu;
 use App\Models\Product;
 use App\Models\City;
+use App\Models\Banner;
 use App\Models\Client;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
@@ -191,6 +192,33 @@ class ManageController extends Controller
 
     }
 //end method
+///// All banner method
+public function AllBanner(){
+    $banner = Banner::latest()->get();
+    return view('admin.backend.banner.all_banner',compact('banner'));
+}
+//end method
 
+public function BannerStore(Request $request){
+        if($request->file('image')){
+            $image = $request->file('image');
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(400,400)->save(public_path('upload/banner/'.$name_gen));
+            $save_url = 'upload/banner/'.$name_gen;
+
+            Banner::create([
+                'url' => $request->url,'image' => $save_url,
+            ]);
+        }
+        $notification = array(
+            'message' => 'banner Insert Successfully',
+            'alert-type'=> 'success'
+        );
+        
+        return redirect()->back()->with($notification);
+    }
+//end method
 
 }
