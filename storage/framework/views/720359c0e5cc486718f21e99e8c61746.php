@@ -48,7 +48,7 @@
                                                 <td><img src="<?php echo e(asset($item->image)); ?>" alt="" style="width: 70px; height: 40px;" ></td>
                                                 <td><?php echo e($item->url); ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myEdit" id="<?php echo e($item->id); ?>" onclick="cityEdit(this.id)">Edit</button>
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myEdit" id="<?php echo e($item->id); ?>" onclick="bannerEdit(this.id)">Edit</button>
 
                                                     <a href="<?php echo e(route('delete.category',$item->id)); ?>" class="btn btn-danger waves-effect waves-light" id="delete">Delete</a></td>
                                                 
@@ -123,15 +123,22 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="myForm" action="<?php echo e(route('city.store')); ?>" method="post" enctype="multipart/form-data">
+                                                            <form action="<?php echo e(route('banner.store')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
-<input type="hidden" name="cat_id" id="cat_id">
+
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div>
                                                     <div class="form-group mb-3">
-                                                        <label for="example-text-input" class="form-label">City Name</label>
-                                                        <input class="form-control" name="city_name" type="text" id="cat">
+                                                        <label for="example-text-input" class="form-label">Banner Url</label>
+                                                        <input class="form-control" name="url" type="text" id="banner_url" >
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="example-text-input" class="form-label">Banner Image</label>
+                                                        <input class="form-control" name="image" type="file" id="image">
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                       <img id="bannerImage" src="" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
 
                                                 </div>
@@ -152,15 +159,16 @@
                                             
                                             
                                             <script>
-                                                function cityEdit(id){
+                                                function bannerEdit(id){
                                                     $.ajax({
                                                         type: 'GET',
-                                                        url: '/edit/city/'+id,
+                                                        url: '/edit/banner/'+id,
                                                         dataType: 'json',
                                                         success:function(data){
-                                                            //console.log(data)
-                                                            $('#cat').val(data.city_name);
-                                                            $('#cat_id').val(data.id);
+                                                          //  console.log(data)
+                                                            $('#banner_url').val(data.url);
+                                                            $('#bannerImage').attr('src',data.image);
+                                                            $('#banner_id').val(data.id);
                                                         }
                                                     })
                                                 }
