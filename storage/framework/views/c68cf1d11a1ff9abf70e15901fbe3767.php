@@ -35,7 +35,7 @@ $coupons = App\Models\Coupon::where('client_id',$client->id )->where('status','1
                               <?php else: ?>
                               <?php endif; ?>
                               
-                              <a href="detail.html">
+                              <a href="<?php echo e(route('res.details',$client->id)); ?>">
                               <img src="<?php echo e(asset('upload/client_images/' . $client->photo)); ?>" class="img-fluid item-img" style="width: 300px; height: 200px;">
                               </a>
                            </div>
