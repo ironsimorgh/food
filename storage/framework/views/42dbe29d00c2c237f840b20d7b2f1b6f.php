@@ -98,7 +98,10 @@
       <script src="<?php echo e(asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
       <!-- Select2 JavaScript-->
       <script src="<?php echo e(asset('frontend/vendor/select2/js/select2.min.js')); ?>"></script>
+      <!-- Owl Carousel -->
+      <script src="<?php echo e(asset('frontend/vendor/owl-carousel/owl.carousel.js')); ?>"></script>
       <!-- Custom scripts for all pages-->
       <script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
+      
    </body>
 </html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\footer.blade.php ENDPATH**/ ?>
