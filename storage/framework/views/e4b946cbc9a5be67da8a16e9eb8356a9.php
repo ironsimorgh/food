@@ -106,8 +106,15 @@ $populers = App\Models\Product::where('status',1)->where('client_id',$client->id
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </div>
                            </div>
+
+<?php
+$bestsellers = App\Models\Product::where('status',1)->where('client_id',$client->id)->where('best_seller',1)->orderBy('id','desc')->limit(3)->get();
+?>  
+
                            <div class="row">
                               <h5 class="mb-4 mt-3 col-md-12">Best Sellers</h5>
+<?php $__currentLoopData = $bestsellers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bestseller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
 
                               <div class="col-md-4 col-sm-6 mb-4">
                                  <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -116,14 +123,22 @@ $populers = App\Models\Product::where('status',1)->where('client_id',$client->id
                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
                                        <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                        <a href="#">
-                                       <img src="img/list/7.png" class="img-fluid item-img">
+                                       <img src="<?php echo e(asset($bestseller->image)); ?>" class="img-fluid item-img">
                                        </a>
                                     </div>
                                     <div class="p-3 position-relative">
                                        <div class="list-card-body">
-                                          <h6 class="mb-1"><a href="#" class="text-black">Bite Me Sandwiches</a></h6>
-                                          <p class="text-gray mb-2">North Indian • Indian</p>
-                                          <p class="text-gray time mb-0"><a class="btn btn-link btn-sm text-black" href="#">$550 <span class="badge badge-success">NEW</span></a>  <span class="float-right"> 
+                                          <h6 class="mb-1"><a href="#" class="text-black"><?php echo e($bestseller->name); ?></a></h6>
+                                          <p class="text-gray mb-2"><?php echo e($bestseller['city']['city_name']); ?></p>
+                                          <p class="text-gray time mb-0">
+                                             <?php if($bestseller->discount_price == NULL): ?>
+                                             <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->price); ?> </a>
+                                             
+                                          <?php else: ?>
+                                             $<del><?php echo e($bestseller->price); ?></del>
+                                             <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->discount_price); ?> </a>
+                                          <?php endif; ?>
+                                           <span class="float-right"> 
                                              <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
                                              </span>
                                           </p>
@@ -131,6 +146,7 @@ $populers = App\Models\Product::where('status',1)->where('client_id',$client->id
                                     </div>
                                  </div>
                               </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                            </div>
                            
                            <div class="row">
