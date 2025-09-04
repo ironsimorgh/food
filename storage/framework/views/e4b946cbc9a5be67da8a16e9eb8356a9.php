@@ -209,12 +209,14 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                  </div>
                               </div>
                               <h5 class="mb-4">Restaurant Info</h5>
-                              <p class="mb-3">Jagjit Nagar, Near Railway Crossing, 
-                                 <br> Near Model Town, Ludhiana, PUNJAB
+                              <p class="mb-3"><?php echo e($client->address); ?>
+
+                                 
                               </p>
-                              <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i> +91 01234-56789, +91 01234-56789</p>
-                              <p class="mb-2 text-black"><i class="icofont-email text-primary mr-2"></i> iamosahan@gmail.com, osahaneat@gmail.com</p>
-                              <p class="mb-2 text-black"><i class="icofont-clock-time text-primary mr-2"></i> Today  11am – 5pm, 6pm – 11pm
+                              <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i><?php echo e($client->phone); ?></p>
+                              <p class="mb-2 text-black"><i class="icofont-email text-primary mr-2"></i><?php echo e($client->email); ?></p>
+                              <p class="mb-2 text-black"><i class="icofont-clock-time text-primary mr-2"></i><?php echo e($client->shop_info); ?>
+
                                  <span class="badge badge-success"> OPEN NOW </span>
                               </p>
                               <hr class="clearfix">
