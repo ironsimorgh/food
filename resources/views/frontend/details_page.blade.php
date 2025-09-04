@@ -145,58 +145,59 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               </div>
 @endforeach
                            </div>
-                           
+@foreach ($menus as $menu )
+
+                          
                            <div class="row">
-                              <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3 ITEMS</small></h5>
+                              <h5 class="mb-4 mt-3 col-md-12">{{$menu->menu_name}} <small class="h6 text-black-50">{{$menu->products->count()}} ITEM</small></h5>
                               <div class="col-md-12">
                                  <div class="bg-white rounded border shadow-sm mb-4">
+                                    @foreach ($menu->products as $product )
                                     <div class="menu-list p-3 border-bottom">
                                        
                                        <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
                                        
                                        <div class="media">
-                                          <img class="mr-3 rounded-pill" src="{{asset('frontend/img/5.jpg')}}" alt="Generic placeholder image">
+                                          <img class="mr-3 rounded-pill" src="{{asset($product->image)}}" alt="Generic placeholder image">
                                           <div class="media-body">
-                                             <h6 class="mb-1">Veg Spring Roll</h6>
-                                             <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
+                                             <h6 class="mb-1">{{$product->name}}</h6>
+                                             @if ($product->size == NULL)
+                                             <p class="text-gray mb-0"> </p>
+                                             @else
+                                             <p class="text-gray mb-0">({{$product->size}} cm)</p>
+                                             @endif
+                                             
                                           </div>
                                        </div>
                                     </div>
+                                    @endforeach
                                     
                                     
                                  </div>
                               </div>
                            </div>
-                           
+ @endforeach                           
                         </div>
+
+
+
                         <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
                            <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
                               <div class="restaurant-slider-main position-relative homepage-great-deals-carousel">
                                  <div class="owl-carousel owl-theme homepage-ad">
+@foreach ($gallerys as $index => $gallery)
                                     <div class="item">
-                                       <img class="img-fluid" src="img/gallery/1.png">
+                                       <img class="img-fluid" src="{{asset($gallery->gallery_img)}}">
+                                       <div class="position-absolute restaurant-slider-pics bg-dark text-white">{{$index+1}} of {{$gallerys->count()}} Photos</div>
                                     </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/2.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/3.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/1.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/2.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/3.png">
-                                    </div>
+@endforeach
                                  </div>
-                                 <div class="position-absolute restaurant-slider-pics bg-dark text-white">2 of 14 Photos</div>
-                                 <div class="position-absolute restaurant-slider-view-all"><button type="button" class="btn btn-light bg-white">See all Photos</button></div>
+                                 
                               </div>
                            </div>
                         </div>
+
+
                         <div class="tab-pane fade" id="pills-restaurant-info" role="tabpanel" aria-labelledby="pills-restaurant-info-tab">
                            <div id="restaurant-info" class="bg-white rounded shadow-sm p-4 mb-4">
                               <div class="address-map float-right ml-5">

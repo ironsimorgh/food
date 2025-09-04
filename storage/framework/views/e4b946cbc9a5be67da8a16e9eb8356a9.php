@@ -148,58 +148,59 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                            </div>
-                           
+<?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                          
                            <div class="row">
-                              <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3 ITEMS</small></h5>
+                              <h5 class="mb-4 mt-3 col-md-12"><?php echo e($menu->menu_name); ?> <small class="h6 text-black-50"><?php echo e($menu->products->count()); ?> ITEM</small></h5>
                               <div class="col-md-12">
                                  <div class="bg-white rounded border shadow-sm mb-4">
+                                    <?php $__currentLoopData = $menu->products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="menu-list p-3 border-bottom">
                                        
                                        <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
                                        
                                        <div class="media">
-                                          <img class="mr-3 rounded-pill" src="<?php echo e(asset('frontend/img/5.jpg')); ?>" alt="Generic placeholder image">
+                                          <img class="mr-3 rounded-pill" src="<?php echo e(asset($product->image)); ?>" alt="Generic placeholder image">
                                           <div class="media-body">
-                                             <h6 class="mb-1">Veg Spring Roll</h6>
-                                             <p class="text-gray mb-0">$314 - 12" (30 cm)</p>
+                                             <h6 class="mb-1"><?php echo e($product->name); ?></h6>
+                                             <?php if($product->size == NULL): ?>
+                                             <p class="text-gray mb-0"> </p>
+                                             <?php else: ?>
+                                             <p class="text-gray mb-0">(<?php echo e($product->size); ?> cm)</p>
+                                             <?php endif; ?>
+                                             
                                           </div>
                                        </div>
                                     </div>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     
                                     
                                  </div>
                               </div>
                            </div>
-                           
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                           
                         </div>
+
+
+
                         <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
                            <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
                               <div class="restaurant-slider-main position-relative homepage-great-deals-carousel">
                                  <div class="owl-carousel owl-theme homepage-ad">
+<?php $__currentLoopData = $gallerys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $gallery): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="item">
-                                       <img class="img-fluid" src="img/gallery/1.png">
+                                       <img class="img-fluid" src="<?php echo e(asset($gallery->gallery_img)); ?>">
+                                       <div class="position-absolute restaurant-slider-pics bg-dark text-white"><?php echo e($index+1); ?> of <?php echo e($gallerys->count()); ?> Photos</div>
                                     </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/2.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/3.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/1.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/2.png">
-                                    </div>
-                                    <div class="item">
-                                       <img class="img-fluid" src="img/gallery/3.png">
-                                    </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                  </div>
-                                 <div class="position-absolute restaurant-slider-pics bg-dark text-white">2 of 14 Photos</div>
-                                 <div class="position-absolute restaurant-slider-view-all"><button type="button" class="btn btn-light bg-white">See all Photos</button></div>
+                                 
                               </div>
                            </div>
                         </div>
+
+
                         <div class="tab-pane fade" id="pills-restaurant-info" role="tabpanel" aria-labelledby="pills-restaurant-info-tab">
                            <div id="restaurant-info" class="bg-white rounded shadow-sm p-4 mb-4">
                               <div class="address-map float-right ml-5">
