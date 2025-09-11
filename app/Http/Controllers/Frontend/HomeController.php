@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Menu;
 use App\Models\Gllery;
+use App\Models\Wishlist;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -22,6 +23,27 @@ class HomeController extends Controller
     }
     //End Method
 
+    public function AddWishList(Request $request, $id){
+        if(Auth::check()){
+            $exists = Wishlist::where('user_id',Auth::id())->where('client_id',$id)->first();
+            if (!$exists) {
+                Wishlist::insert([
+                    'user_id'=>Auth::id(),
+                    'client_id' => $id,
+                    'created_at' => Carbon::now(),
+                ]);
+                return response()->json(['success' => 'Your Wishlist Add Successfully']);
+            } else {
+                return response()->json(['error' => 'This Procuct Has Already On Your Wishlist']);
+            }
+        }else{
+            return response()->json(['error' => 'First Login Your Account']);
+            
+            
+        }
+
+    }
+ //End Method
 
 
 }
