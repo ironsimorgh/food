@@ -34,7 +34,7 @@
                                              </a>
                                           </h6>
                                           <div style="float:right; margin-bottom: 10px;">
-                                            <a href="" class="badge badge-danger">
+                                            <a href="{{route('remove.wishlist',$wish->id)}}" class="badge badge-danger">
                                                 <i class="icofont-ui-delete"></i>
                                             </a>
                                           </div>

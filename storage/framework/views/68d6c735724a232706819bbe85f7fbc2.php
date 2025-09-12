@@ -12,85 +12,45 @@
 
                <div class="col-md-9">
                   <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
-                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                           <h4 class="font-weight-bold mt-0 mb-4">Wishlist</h4>
-                           
-                           
-                           <div class="bg-white card mb-4 order-list shadow-sm">
-                              <div class="gold-members p-4">
-<form action="<?php echo e(route('user.password.update')); ?>" method="post" enctype="multipart/form-data">
-            <?php echo csrf_field(); ?>
+                    
+<div class="tab-pane" >
+                           <h4 class="font-weight-bold mt-0 mb-4">Favourites</h4>
+                           <div class="row">
 
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div>
-                                                    <div class="mb-6">
-                                                        <label for="example-text-input" class="form-label">Old Password</label>
-                                                        <input class="form-control <?php $__errorArgs = ['old_password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>"                                      
-                                                        type="password" name="old_password" id="old_password">
-                                                        <?php $__errorArgs = ['old_password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                            <span class="text-danger"><?php echo e($message); ?></span>
-                                                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                    </div>
+<?php $__currentLoopData = $wishlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $wish): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                                    <div class="mb-6">
-                                                        <label for="example-text-input" class="form-label">New Password</label>
-                                                        <input class="form-control <?php $__errorArgs = ['new_password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>"                                      
-                                                        type="password" name="new_password" id="new_password">
-                                                        <?php $__errorArgs = ['old_password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                            <span class="text-danger"><?php echo e($message); ?></span>
-                                                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                    </div>
 
-                                                    <div class="mb-6">
-                                                        <label for="example-text-input" class="form-label">Conform New Password</label>
-                                                        <input class="form-control "                                      
-                                                        type="password" name="new_password_confirmation" id="old_password">
-                                                    </div>
-                                                    <div class="mt-4">
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
-                                                </div>
-                                                </div>
-                                            </div>
+                              <div class="col-md-4 col-sm-6 mb-4 pb-2">
+                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                                    <div class="list-card-image">
+                                       
+                                       <a href="<?php echo e(route('res.details',$wish->client_id)); ?>">
+                                       <img src="<?php echo e(asset('upload/client_images/'. $wish['client']['photo'])); ?>" class="img-fluid item-img " style="width: 300px; height: 200px;">
+                                       </a>
+                                    </div>
+                                    <div class="p-3 position-relative">
+                                       <div class="list-card-body">
+                                          <h6 class="mb-1"><a href="<?php echo e(route('res.details',$wish->client_id)); ?>" class="text-black"><?php echo e($wish['client']['name']); ?>
 
-                                        </form>
+                                             </a>
+                                          </h6>
+                                          <div style="float:right; margin-bottom: 10px;">
+                                            <a href="<?php echo e(route('remove.wishlist',$wish->id)); ?>" class="badge badge-danger">
+                                                <i class="icofont-ui-delete"></i>
+                                            </a>
+                                          </div>
+                                       </div>
+                                       
+                                    </div>
+                                 </div>
                               </div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
                            </div>
+                        </div>                    
 
 
-                           
-                        </div>
-                        
-                     </div>
                   </div>
                </div>
             </div>

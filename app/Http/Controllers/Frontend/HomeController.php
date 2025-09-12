@@ -50,4 +50,16 @@ class HomeController extends Controller
     return view('frontend.dashboard.all_wishlist',compact('wishlist'));
  }
  //End Method
+
+ public function RemoveWishlist($id){
+Wishlist::find($id)->delete();
+
+$notification = array(
+            'message' => 'Wishlist Delete Successfully',
+            'alert-type'=> 'success'
+        );
+        
+        return redirect()->back()->with($notification);
+
+ }
 }
