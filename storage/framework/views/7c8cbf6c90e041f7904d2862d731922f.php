@@ -5,6 +5,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+      
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
       <title>Osahan Eat - Online Food Ordering Website HTML Template</title>
@@ -55,54 +56,59 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-       <script src="<?php echo e(asset('backend/assets/js/code.js')); ?>"></script>
+      
 
 
       
       <script type="text/javascript">
          $.ajaxSetup({
             headers:{
-               'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('csrf_token')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
          });
 
          function addWishList(id){
            // alert(id)
            $.ajax({
-            type = "POST",
+            type : "POST",
             dataType:"json",
             url:"/add-wish-list/"+id,
-            headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('csrf_token')},
+            
             success:function(data){
                // Start Message 
-
-            const Toast = Swal.mixin({
+               const Toast = Swal.mixin({
                   toast: true,
                   position: 'top-end',
-                  
                   showConfirmButton: false,
                   timer: 3000 
-            })
-            if ($.isEmptyObject(data.error)) {
-                    
-                    Toast.fire({
-                    type: 'success',
-                    icon: 'success', 
-                    title: data.success, 
-                    })
+               });
 
-            }else{
-               
-           Toast.fire({
-                    type: 'error',
-                    icon: 'error', 
-                    title: data.error, 
-                    })
-                }
-
-              // End Message
+               if ($.isEmptyObject(data.error)) {
+                 Toast.fire({
+                   icon: 'success', 
+                   title: data.success
+                 });
+               } else {
+                 Toast.fire({
+                   icon: 'error', 
+                   title: data.error
+                 });
+               }
+               // End Message
+            },
+            error: function(xhr, status, error) {
+               const Toast = Swal.mixin({
+                 toast: true,
+                 position: 'top-end',
+                 showConfirmButton: false,
+                 timer: 3000 
+               });
+               Toast.fire({
+                 icon: 'error', 
+                 title: 'An error occurred: ' + error
+               });
             }
-           })
+           });
          }
       </script>
    </body>
