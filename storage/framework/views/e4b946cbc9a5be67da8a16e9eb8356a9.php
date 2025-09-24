@@ -165,11 +165,8 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                           <img class="mr-3 rounded-pill" src="<?php echo e(asset($product->image)); ?>" alt="Generic placeholder image">
                                           <div class="media-body">
                                              <h6 class="mb-1"><?php echo e($product->name); ?></h6>
-                                             <?php if($product->size == NULL): ?>
-                                             <p class="text-gray mb-0"> </p>
-                                             <?php else: ?>
-                                             <p class="text-gray mb-0">(<?php echo e($product->size); ?> cm)</p>
-                                             <?php endif; ?>
+                                             <p class="text-gray mb-0">$<?php echo e($product->price); ?> (<?php echo e($product->size ?? ''); ?> cm)</p>
+                                             
                                              
                                           </div>
                                        </div>

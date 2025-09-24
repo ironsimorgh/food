@@ -10,6 +10,7 @@ use App\Http\Controllers\Client\RestaurantController;
 use App\Http\Controllers\Client\CouponController;
 use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\CartController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -179,5 +180,11 @@ Route::get('/changeStatus', [RestaurantController::class, 'ChangeStatus']);
 Route::controller(HomeController::class)->group(function(){
         Route::get('/restaurant/details/{id}','RestaurantDetails')->name('res.details');
         Route::post('/add-wish-list/{id}','AddWishList');
+        
+    });
+
+    Route::controller(CartController::class)->group(function(){
+        Route::get('/add_to_cart/{id}','AddToCart')->name('add_to_cart');
+        
         
     });
