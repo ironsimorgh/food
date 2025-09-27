@@ -1,4 +1,7 @@
-<?php echo $__env->make('frontend.dashboard.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+<?php $__env->startSection('dashboard'); ?>
+
+
 
 <?php
 $products = App\Models\Product::where('client_id',$client->id )->limit(3)->get();
@@ -98,7 +101,7 @@ $populers = App\Models\Product::where('status',1)->where('client_id',$client->id
 
                                           <?php endif; ?>
                                           <span class="float-right">
-                                          <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
+                                          <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$populer->id)); ?>">ADD</a>
                                           </span>
                                        </a>
                                     </div>
@@ -139,7 +142,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                              <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->discount_price); ?> </a>
                                           <?php endif; ?>
                                            <span class="float-right"> 
-                                             <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
+                                             <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$bestseller->id)); ?>">ADD</a>
                                              </span>
                                           </p>
                                        </div>
@@ -158,17 +161,14 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <?php $__currentLoopData = $menu->products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="menu-list p-3 border-bottom">
                                        
-                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
+                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="<?php echo e(route ('add_to_cart',$product->id)); ?>">ADD</a>
                                        
                                        <div class="media">
                                           <img class="mr-3 rounded-pill" src="<?php echo e(asset($product->image)); ?>" alt="Generic placeholder image">
                                           <div class="media-body">
                                              <h6 class="mb-1"><?php echo e($product->name); ?></h6>
-                                             <?php if($product->size == NULL): ?>
-                                             <p class="text-gray mb-0"> </p>
-                                             <?php else: ?>
-                                             <p class="text-gray mb-0">(<?php echo e($product->size); ?> cm)</p>
-                                             <?php endif; ?>
+                                             <p class="text-gray mb-0">$<?php echo e($product->price); ?> (<?php echo e($product->size ?? ''); ?> cm)</p>
+                                             
                                              
                                           </div>
                                        </div>
@@ -538,4 +538,5 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 
 
 
-<?php echo $__env->make('frontend.dashboard.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\details_page.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.dashboard.dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\details_page.blade.php ENDPATH**/ ?>

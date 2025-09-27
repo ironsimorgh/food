@@ -1,6 +1,8 @@
 
 <?php $__env->startSection('dashboard'); ?>
 
+
+
 <?php
 $products = App\Models\Product::where('client_id',$client->id )->limit(3)->get();
 $menuNames = $products->map(function($product){
@@ -99,7 +101,7 @@ $populers = App\Models\Product::where('status',1)->where('client_id',$client->id
 
                                           <?php endif; ?>
                                           <span class="float-right">
-                                          <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
+                                          <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$populer->id)); ?>">ADD</a>
                                           </span>
                                        </a>
                                     </div>
@@ -140,7 +142,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                              <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->discount_price); ?> </a>
                                           <?php endif; ?>
                                            <span class="float-right"> 
-                                             <a class="btn btn-outline-secondary btn-sm" href="#">ADD</a>
+                                             <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$bestseller->id)); ?>">ADD</a>
                                              </span>
                                           </p>
                                        </div>
@@ -159,7 +161,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <?php $__currentLoopData = $menu->products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="menu-list p-3 border-bottom">
                                        
-                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="#">ADD</a>
+                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="<?php echo e(route ('add_to_cart',$product->id)); ?>">ADD</a>
                                        
                                        <div class="media">
                                           <img class="mr-3 rounded-pill" src="<?php echo e(asset($product->image)); ?>" alt="Generic placeholder image">

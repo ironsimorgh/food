@@ -22,6 +22,10 @@
       <!-- Owl Carousel -->
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.carousel.css')); ?>">
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.theme.css')); ?>">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
    </head>
    <body>
 

@@ -24,6 +24,8 @@
       <!-- Owl Carousel -->
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.carousel.css')); ?>">
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.theme.css')); ?>">
+       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
    </head>
    <body>
       <div class="homepage-header">
@@ -57,6 +59,30 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+ <?php if(Session::has('message')): ?>
+ var type = "<?php echo e(Session::get('alert-type','info')); ?>"
+ switch(type){
+    case 'info':
+    toastr.info(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'success':
+    toastr.success(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'warning':
+    toastr.warning(" <?php echo e(Session::get('message')); ?> ");
+    break;
+
+    case 'error':
+    toastr.error(" <?php echo e(Session::get('message')); ?> ");
+    break; 
+ }
+ <?php endif; ?> 
+</script>
 
 
       
