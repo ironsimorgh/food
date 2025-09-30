@@ -426,96 +426,39 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 				  </div>
                   <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
                      <h5 class="mb-1 text-white">Your Order</h5>
-                     <p class="mb-4 text-white">6 ITEMS</p>
+                     <p class="mb-4 text-white"><?php echo e(count((array) session('cart'))); ?> ITEMS</p>
                      <div class="bg-white rounded shadow-sm mb-2">
+                        <?php
+                        $total = 0
+                        ?>
+                        <?php if(session('cart')): ?>
+                           <?php $__currentLoopData = session('cart'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id=>$details): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                           <?php
+                           $total += $details['price'] * $details['quantity']
+                           ?>
+                        
                         <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">$314</p>
+                           <p class="text-gray mb-0 float-right ml-2">$<?php echo e($details['price'] * $details['quantity']); ?></p>
                            <span class="count-number float-right">
                            <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
                            <input class="count-number-input" type="text" value="1" readonly="">
                            <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
                            </span>
                            <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
+                              <div class="mr-2"><img src="<?php echo e(asset($details['image'])); ?>" alt="" width="25px"></div>
                               <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Chicken Tikka Sub</p>
+                                 <p class="mt-1 mb-0 text-black"><?php echo e($details['name']); ?></p>
                               </div>
                            </div>
                         </div>
-                        <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">$260</p>
-                           <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="1" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                           </span>
-                           <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                              <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Cheese corn Roll</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">$260</p>
-                           <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="1" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                           </span>
-                           <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                              <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Cheese corn Roll</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">$056</p>
-                           <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="1" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                           </span>
-                           <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                              <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Coke [330 ml]</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">$652</p>
-                           <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="1" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                           </span>
-                           <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                              <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Black Dal Makhani</p>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="gold-members p-2">
-                           <p class="text-gray mb-0 float-right ml-2">$122</p>
-                           <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="1" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc"> <i class="icofont-plus"></i> </button>
-                           </span>
-                           <div class="media">
-                              <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                              <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">Mixed Veg</p>
-                              </div>
-                           </div>
-                        </div>
+                        
+                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                     
                      </div>
                      <div class="mb-2 bg-white rounded p-2 clearfix">
-                        <img class="img-fluid float-left" src="img/wallet-icon.png">
-                        <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">$456.4</span></h6>
+                        <img class="img-fluid float-left" src="<?php echo e(asset('frontend/img/wallet-icon.png')); ?>">
+                        <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">$<?php echo e($total); ?></span></h6>
                         <p class="seven-color mb-1 text-right">Extra charges may apply</p>
                         <p class="text-black mb-0 text-right">You have saved $955 on the bill</p>
                      </div>
