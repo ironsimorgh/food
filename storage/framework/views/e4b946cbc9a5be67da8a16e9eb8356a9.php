@@ -480,6 +480,19 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 
 <script>
    $(document).ready(function(){
+      const Toast = Swal.mixin({
+         toast: true,
+         position: 'top-end',
+         showConfirmButton: false,
+         timer: 1500,
+         timerProgressBar: true,
+         didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+         }
+      });
+
+
       $('.inc').on('click',function(){
          var id = $(this).data('id');
          var input = $(this).closest('span').find('input');
@@ -512,7 +525,13 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                quantity: quantity
             },
             success: function(response){
-               location.reload();
+               Toast.fire({
+                  icon: 'success',
+                  title: 'Quantity Updated'
+               }).then(() => {
+                  location.reload();
+               });
+
             }
          })
       }
@@ -527,7 +546,12 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                id: id,
             },
             success: function(response){
-               location.reload();
+               Toast.fire({
+                  icon: 'success',
+                  title: 'Cart Remove Successfully'
+               }).then(() => {
+                  location.reload();
+               });
             }
          });
       }
