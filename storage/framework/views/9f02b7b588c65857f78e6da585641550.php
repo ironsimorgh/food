@@ -497,7 +497,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
       });
 
 
-      $('.remove')on('click',function(){
+      $('.remove').on('click',function(){
          var id = $(this).data('id');
          removeFromCart(id);
       });
