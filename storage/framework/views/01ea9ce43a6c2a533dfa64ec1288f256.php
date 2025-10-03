@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
+      <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
       <title>User Dashboard - Online Food Ordering Website</title>
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="<?php echo e(asset('frontend/img/favicon.png')); ?>">
@@ -22,9 +23,8 @@
       <!-- Owl Carousel -->
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.carousel.css')); ?>">
       <link rel="stylesheet" href="<?php echo e(asset('frontend/vendor/owl-carousel/owl.theme.css')); ?>">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
    </head>
    <body>
@@ -46,7 +46,8 @@
       <script src="<?php echo e(asset('frontend/vendor/owl-carousel/owl.carousel.js')); ?>"></script>
       <!-- Custom scripts for all pages-->
       <script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
-      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -71,6 +72,16 @@
  }
  <?php endif; ?> 
 </script>
+
+<script>
+   <script type="text/javascript">
+         $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+</script>
+
 
    </body>
 </html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\dashboard.blade.php ENDPATH**/ ?>

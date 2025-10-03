@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="Askbootstrap">
       <meta name="author" content="Askbootstrap">
+      <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
       <title>User Dashboard - Online Food Ordering Website</title>
       <!-- Favicon Icon -->
       <link rel="icon" type="image/png" href="<?php echo e(asset('frontend/img/favicon.png')); ?>">
@@ -71,6 +72,16 @@
  }
  <?php endif; ?> 
 </script>
+
+<script>
+   <script type="text/javascript">
+         $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+</script>
+
 
    </body>
 </html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/dashboard/dashboard.blade.php ENDPATH**/ ?>
