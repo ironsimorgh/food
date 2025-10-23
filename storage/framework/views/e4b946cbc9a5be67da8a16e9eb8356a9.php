@@ -414,12 +414,22 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                      </div>
                   </div>
                </div>
+<?php
+   use Carbon\Carbon;
+   $coupon = App\Models\Coupon::where('client_id',$client->id)->where('validity','>=',Carbon::now()->format('Y-m-d'))->latest()->first();
+?>
+
+
                <div class="col-md-4">
                   <div class="pb-2">
 				  <div class="bg-white rounded shadow-sm text-white mb-4 p-4 clearfix restaurant-detailed-earn-pts card-icon-overlap">
-                     <img class="img-fluid float-left mr-3" src="img/earn-score-icon.png">
+                     <img class="img-fluid float-left mr-3" src="<?php echo e(asset('frontend/img/earn-score-icon.png')); ?>">
                      <h6 class="pt-0 text-primary mb-1 font-weight-bold">OFFER</h6>
-                     <p class="mb-0">60% off on orders above $99 | Use coupon <span class="text-danger font-weight-bold">OSAHAN50</span></p>
+                     <?php if($coupon == NULL): ?>
+                        <p class="mb-0">No Coupon is Available </p>
+                        <?php else: ?>
+                        <p class="mb-0"><?php echo e($coupon->discount); ?>% off on orders above $99 | Use coupon <span class="text-danger font-weight-bold"><?php echo e($coupon->coupon_name); ?></span></p>
+                     <?php endif; ?>
                      <div class="icon-overlap">
                         <i class="icofont-sale-discount"></i>
                      </div>
@@ -458,11 +468,23 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                         <?php endif; ?>
                      
                      </div>
+
+<div class="mb-2 bg-white rounded p-2 clearfix">
+                        <div class="input-group input-group-sm mb-2">
+                           <input type="text" class="form-control" placeholder="Enter promo code">
+                           <div class="input-group-append">
+                              <button class="btn btn-primary" type="button" id="button-addon2"><i class="icofont-sale-discount"></i> APPLY</button>
+                           </div>
+                        </div>
+                        
+                     </div>
+
+
+
                      <div class="mb-2 bg-white rounded p-2 clearfix">
                         <img class="img-fluid float-left" src="<?php echo e(asset('frontend/img/wallet-icon.png')); ?>">
                         <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">$<?php echo e($total); ?></span></h6>
                         <p class="seven-color mb-1 text-right">Extra charges may apply</p>
-                        <p class="text-black mb-0 text-right">You have saved $955 on the bill</p>
                      </div>
                      <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
                   </div>
