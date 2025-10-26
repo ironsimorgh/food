@@ -13,12 +13,17 @@ use App\Models\Coupon;
 class CartController extends Controller
 {
     public function AddToCart($id){
+
+        if(Session::has('coupon')){
+            Session::forget('coupon');
+        }
+
         $products = Product::find($id);
         $cart = Session()->get('cart',[]);
         if (isset($cart[$id])){
             $cart[$id]['quantity']++;
         }else{
-            $priceToShow = isset($products->disdiscount_price)? $products->discount_price : $products->price;
+            $priceToShow = isset($products->discount_price)? $products->discount_price : $products->price;
             $cart[$id] =[
                 'id' => $id,
                 'name' => $products->name,
@@ -32,7 +37,7 @@ class CartController extends Controller
 
         //return response()->json($cart);
         $notification = array(
-            'message' => 'Add TO Cat Successfully',
+            'message' => 'Add TO Cart Successfully',
             'alert-type'=> 'success'
         );
         
@@ -78,7 +83,7 @@ class CartController extends Controller
         $clientIds =[];
 
         foreach($cart as $car){
-            $totalAmount += ($car['price']*$car['quantity']);
+            $totalAmount += ($car['price'] * $car['quantity']);
             $pd = Product::find($car['id']);
             $cdid = $pd->client_id;
             array_push($clientIds,$cdid);
@@ -86,7 +91,7 @@ class CartController extends Controller
         }
 
         if ($coupon) {
-            if (count(array_unique($clientIds))===1) {
+            if (count(array_unique($clientIds)) === 1) {
                 $cvendorId = $coupon->client_id;
 
                 if ($cvendorId == $clientIds[0]) {
@@ -103,15 +108,21 @@ class CartController extends Controller
                         'couponData' => $couponData,
                     ));
                 }else{
-                    return response()->json(['errpr'=> 'This Coupon Not Valid for this Restrurant']);
+                    return response()->json(['error'=> 'This Coupon Not Valid for this Restrurant']);
                 }
             }else{
-                return response()->json(['errpr'=> 'This Coupon for one of the selected Restrurant']);
+                return response()->json(['error'=> 'This Coupon for one of the selected Restrurant']);
             }
         }else{
-            return response()->json(['errpr'=> 'Invalid Coupon']);
+            return response()->json(['error'=> 'Invalid Coupon']);
         }
 
+       }
+       //End Method
+
+       public function CouponRemove(){
+        Session::forget('coupon');
+        return response()->json(['success'=> 'Coupon Remove Successfully']);
        }
        //End Method
 

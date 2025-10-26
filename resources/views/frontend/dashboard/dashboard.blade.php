@@ -86,7 +86,7 @@
 
 <script>
    function ApplyCoupon(){
-      var coupon_name $('#coupon_name').val();
+      var coupon_name = $('#coupon_name').val();
       $.ajax({
          type:"POST",
          dataType:"json",
@@ -106,6 +106,7 @@
                    icon: 'success', 
                    title: data.success
                  });
+                 location.reload();
                } else {
                  Toast.fire({
                    icon: 'error', 
@@ -116,6 +117,41 @@
          }
       })
 
+   }
+   </script>
+
+   <script>
+   function couponRemove(){
+      $.ajax({
+         type:"GET",
+         dataType:"json",
+         url:"/remove-coupon",
+         success:function(data){
+// Start Message 
+               const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000 
+               });
+
+               if ($.isEmptyObject(data.error)) {
+                 Toast.fire({
+                   icon: 'success', 
+                   title: data.success
+                 });
+                 location.reload();
+               } else {
+                 Toast.fire({
+                   icon: 'error', 
+                   title: data.error
+                 });
+               }
+               // End Message
+            
+
+         }
+      })
    }
    </script>
 

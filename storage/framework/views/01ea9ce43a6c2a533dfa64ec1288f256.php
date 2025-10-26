@@ -47,6 +47,7 @@
       <!-- Custom scripts for all pages-->
       <script src="<?php echo e(asset('frontend/js/custom.js')); ?>"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -73,7 +74,7 @@
  <?php endif; ?> 
 </script>
 
-<script>
+
    <script type="text/javascript">
          $.ajaxSetup({
             headers:{
@@ -81,6 +82,76 @@
             }
          });
 </script>
+
+
+<script>
+   function ApplyCoupon(){
+      var coupon_name = $('#coupon_name').val();
+      $.ajax({
+         type:"POST",
+         dataType:"json",
+         data:{coupon_name:coupon_name},
+         url:"/apply-coupon",
+         success:function(data){
+            // Start Message 
+               const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000 
+               });
+
+               if ($.isEmptyObject(data.error)) {
+                 Toast.fire({
+                   icon: 'success', 
+                   title: data.success
+                 });
+               } else {
+                 Toast.fire({
+                   icon: 'error', 
+                   title: data.error
+                 });
+               }
+               // End Message
+         }
+      })
+
+   }
+   </script>
+
+   <script>
+   function couponRemove(){
+      $.ajax({
+         type:"GET",
+         dataType:"json",
+         url:"/remove-coupon"
+         success:function(data){
+
+            // Start Message 
+               const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000 
+               });
+
+               if ($.isEmptyObject(data.error)) {
+                 Toast.fire({
+                   icon: 'success', 
+                   title: data.success
+                 });
+               } else {
+                 Toast.fire({
+                   icon: 'error', 
+                   title: data.error
+                 });
+               }
+               // End Message
+
+         }
+      })
+   }
+   </script>
 
 
    </body>
