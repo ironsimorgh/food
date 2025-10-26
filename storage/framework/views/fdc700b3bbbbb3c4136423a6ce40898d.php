@@ -20,10 +20,11 @@
                      </a>
                      
                   </li>
+<?php if(auth()->guard()->check()): ?>
                   <?php
-$id = Auth::user()->id;
-$profileData = App\Models\User::find($id);
-?>
+                     $id = Auth::user()->id;
+                     $profileData = App\Models\User::find($id);
+                  ?>
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <img alt="Generic placeholder image" src="<?php echo e((!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" class="nav-osahan-pic rounded-pill"> My Account
@@ -34,6 +35,20 @@ $profileData = App\Models\User::find($id);
                         
                      </div>
                   </li>
+                  <?php else: ?>
+                   <li class="nav-item dropdown">
+                     <a class="nav-link" href="<?php echo e(route('login')); ?>" role="button" aria-haspopup="true" aria-expanded="false">
+                     Login
+                     </a>
+                   </li>
+                   <li class="nav-item dropdown">
+                     <a class="nav-link" href="<?php echo e(route('register')); ?>" role="button" aria-haspopup="true" aria-expanded="false">
+                     Register
+                     </a>
+                   </li>
+                  <?php endif; ?> 
+
+
                   <li class="nav-item dropdown dropdown-cart">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-shopping-basket"></i> Cart
