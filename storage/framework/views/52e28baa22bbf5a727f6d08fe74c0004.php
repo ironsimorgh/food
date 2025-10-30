@@ -1,15 +1,15 @@
-@extends('frontend.dashboard.dashboard')
-@section('dashboard')
 
-@php
+<?php $__env->startSection('dashboard'); ?>
+
+<?php
 $id = Auth::user()->id;
 $profileData = App\Models\User::find($id);
-@endphp
+?>
 <section class="section pt-4 pb-4 osahan-account-page">
          <div class="container">
             <div class="row">
                
-               @include('frontend.dashboard.sidebar')
+               <?php echo $__env->make('frontend.dashboard.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 
                <div class="col-md-9">
@@ -21,25 +21,25 @@ $profileData = App\Models\User::find($id);
                            
                            <div class="bg-white card mb-4 order-list shadow-sm">
                               <div class="gold-members p-4">
-                                 <form action="{{route('profile.store')}}" method="post" enctype="multipart/form-data">
-            @csrf
+                                 <form action="<?php echo e(route('profile.store')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
 
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div>
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Name</label>
-                                                        <input class="form-control" name="name" type="text" value="{{$profileData->name}}" id="example-text-input">
+                                                        <input class="form-control" name="name" type="text" value="<?php echo e($profileData->name); ?>" id="example-text-input">
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Email</label>
-                                                        <input class="form-control" name="email" type="email" value="{{$profileData->email}}" id="example-text-input">
+                                                        <input class="form-control" name="email" type="email" value="<?php echo e($profileData->email); ?>" id="example-text-input">
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Phone</label>
-                                                        <input class="form-control" name="phone" type="text" value="{{$profileData->phone}}" id="example-text-input">
+                                                        <input class="form-control" name="phone" type="text" value="<?php echo e($profileData->phone); ?>" id="example-text-input">
                                                     </div>
                                                     
                                                 </div>
@@ -49,7 +49,7 @@ $profileData = App\Models\User::find($id);
                                                 <div class="mt-3 mt-lg-0">
                                                     <div class="mb-3">
                                                         <label for="example-text-input" class="form-label">Address</label>
-                                                        <input class="form-control" name="address" type="address" value="{{$profileData->address}}" id="example-text-input">
+                                                        <input class="form-control" name="address" type="address" value="<?php echo e($profileData->address); ?>" id="example-text-input">
                                                     </div>
                                                     
                                                     <div class="mb-3">
@@ -58,7 +58,7 @@ $profileData = App\Models\User::find($id);
                                                     </div>
                                                     <div class="mb-3">
                                                         
-                                                        <img id="showImage" src="{{(!empty($profileData->phone)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e((!empty($profileData->phone)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                                 <div class="mt-4">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
@@ -94,4 +94,5 @@ $(document).ready(function(){
 </script>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.dashboard.dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/dashboard/profile.blade.php ENDPATH**/ ?>

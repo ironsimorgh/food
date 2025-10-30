@@ -425,7 +425,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 				  <div class="bg-white rounded shadow-sm text-white mb-4 p-4 clearfix restaurant-detailed-earn-pts card-icon-overlap">
                      <img class="img-fluid float-left mr-3" src="<?php echo e(asset('frontend/img/earn-score-icon.png')); ?>">
                      <h6 class="pt-0 text-primary mb-1 font-weight-bold">OFFER</h6>
-<pre><?php echo e(print_r(Session::get('coupon'),true)); ?></pre>
+
                      <?php if($coupon == NULL): ?>
                         <p class="mb-0">No Coupon is Available </p>
                         <?php else: ?>
@@ -519,7 +519,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                         <img class="img-fluid float-left" src="<?php echo e(asset('frontend/img/wallet-icon.png')); ?>">
                         <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">
                            <?php if(Session::has('coupon')): ?>
-                                 $<?php echo e($total - Session()->get('coupon')['discount_amount']); ?>
+                                 $<?php echo e(Session()->get('coupon')['discount_amount']); ?>
 
                               <?php else: ?>
                               $<?php echo e($total); ?>   
@@ -527,7 +527,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                            </span></h6>
                         <p class="seven-color mb-1 text-right">Extra charges may apply</p>
                      </div>
-                     <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
+                     <a href="<?php echo e(route('checkout')); ?>" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
                   </div>
 				  
 				  <div class="text-center pt-2 mb-4">

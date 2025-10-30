@@ -106,6 +106,7 @@
                    icon: 'success', 
                    title: data.success
                  });
+                 location.reload();
                } else {
                  Toast.fire({
                    icon: 'error', 
@@ -124,10 +125,9 @@
       $.ajax({
          type:"GET",
          dataType:"json",
-         url:"/remove-coupon"
+         url:"/remove-coupon",
          success:function(data){
-
-            // Start Message 
+// Start Message 
                const Toast = Swal.mixin({
                   toast: true,
                   position: 'top-end',
@@ -140,6 +140,7 @@
                    icon: 'success', 
                    title: data.success
                  });
+                 location.reload();
                } else {
                  Toast.fire({
                    icon: 'error', 
@@ -147,6 +148,7 @@
                  });
                }
                // End Message
+            
 
          }
       })
