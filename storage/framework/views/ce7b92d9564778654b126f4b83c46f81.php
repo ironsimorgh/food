@@ -80,8 +80,13 @@
                 <p>Please keep exact change handy to help us serve you better</p>
                 <hr>
                 <form>
-                    <a href="thanks.html" class="btn btn-success btn-block btn-lg">PAY $1329
-                    <i class="icofont-long-arrow-right"></i></a>
+                    <input type="hidden" name="name" value="<?php echo e(Auth::user()->name); ?>">
+                    <input type="hidden" name="email" value="<?php echo e(Auth::user()->email); ?>">
+                    <input type="hidden" name="phone" value="<?php echo e(Auth::user()->phone); ?>">
+                    <input type="hidden" name="address" value="<?php echo e(Auth::user()->address); ?>">
+
+                    <button type="submit" class="btn btn-success btn-block btn-lg">PAY 
+                    <i class="icofont-long-arrow-right"></i></button>
                 </form>
                   </div>
 
