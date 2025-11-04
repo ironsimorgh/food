@@ -58,7 +58,7 @@ $profileData = App\Models\User::find($id);
                                                     </div>
                                                     <div class="mb-3">
                                                         
-                                                        <img id="showImage" src="<?php echo e((!empty($profileData->phone)) ? url('upload/user_images/'.$profileData->phone) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage" src="<?php echo e((!empty($profileData->phone)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>" alt="" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
                                                 <div class="mt-4">
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>

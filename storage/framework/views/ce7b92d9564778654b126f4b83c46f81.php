@@ -79,7 +79,9 @@
                 <h6 class="mb-3 mt-0 mb-3">Cash</h6>
                 <p>Please keep exact change handy to help us serve you better</p>
                 <hr>
-                <form>
+                <form action="<?php echo e(route('cash_order')); ?>" method="post">
+                  <?php echo csrf_field(); ?>
+                  
                     <input type="hidden" name="name" value="<?php echo e(Auth::user()->name); ?>">
                     <input type="hidden" name="email" value="<?php echo e(Auth::user()->email); ?>">
                     <input type="hidden" name="phone" value="<?php echo e(Auth::user()->phone); ?>">
