@@ -16,7 +16,7 @@ use Illuminate\Contracts\Session\Session as SessionSession;
 class ManageOrderController extends Controller
 {
     public function PendingOrder(){
-        $allData = Order::where('status','pending')->orderBy('id','desc')->get();
+        $allData = Order::where('status','Pending')->orderBy('id','desc')->get();
         return view('admin.backend.order.pending_order',compact('allData'));
     }
     //End Method
