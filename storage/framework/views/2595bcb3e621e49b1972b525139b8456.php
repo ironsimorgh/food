@@ -132,9 +132,91 @@
                                 </div>
                             </div> <!-- end col -->
 
-
-
                         </div> <!-- end row --> 
+
+ <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-1">
+    <div class="col-12">
+        <div class="card">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-1">
+                            <label>Image</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Product Name</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Restruatnt Name</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Product Code</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Quantity</label>
+                        </td>
+                        <td class="col-md-1">
+                            <label>Price</label>
+                        </td>
+                    </tr>
+<?php $__currentLoopData = $orderItem; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<tr>
+    <td class="col-md-1">
+        <label>
+            <img src="<?php echo e(asset($item->product->image)); ?>" style="width:50px; height:50px;">
+        </label>
+    </td>
+    <td class="col-md-2">
+        <label>
+            <?php echo e($item->product->name); ?>
+
+        </label>
+    </td>
+    <?php if($item->client_id == NULL): ?>
+        <td class="col-md-2">
+        <label>
+            Owner
+        </label>
+    </td>
+    <?php else: ?>
+    <td class="col-md-1">
+        <label>
+            <?php echo e($item->product->client->name); ?>
+
+        </label>
+    </td>
+    <?php endif; ?>
+    <td class="col-md-1">
+        <label>
+            <?php echo e($item->product->code); ?>
+
+        </label>
+    </td>
+    <td class="col-md-1">
+        <label>
+            <?php echo e($item->qty); ?>
+
+        </label>
+    </td>
+    <td class="col-md-3">
+        <label>
+            <?php echo e($item->price); ?> <br> Total = $ <?php echo e($item->price * $item->qty); ?>
+
+        </label>
+    </td>
+</tr>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
+            </table>
+<div>
+    <h4>Total Price: $ <?php echo e($totalPrice); ?></h4>
+</div>
+        </div>
+
+        </div>
+    </div>
+</div>                       
          
                         
                     </div> <!-- container-fluid -->
