@@ -56,7 +56,7 @@
                                                 <td><span class="badge bg-primary"><?php echo e($item->status); ?></span></td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('admin.edit.product',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
+                                                <td><a href="<?php echo e(route('admin.order.details',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
                                                     </td>
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
