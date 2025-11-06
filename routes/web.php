@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Clientcontroller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ManageOrderController;
 use App\Http\Controllers\Client\RestaurantController;
 use App\Http\Controllers\Client\CouponController;
 use App\Http\Controllers\Admin\ManageController;
@@ -123,6 +124,14 @@ Route ::middleware('admin')->group(function(){
         Route::get('/edit/banner/{id}','EditBanner');
         Route::post('/banner/update','BannerUpdate')->name('banner.update');
         Route::get('/delete/banner/{id}','DeleteBanner')->name('delete.banner');
+       
+    });
+
+    Route::controller(ManageOrderController::class)->group(function(){
+        Route::get('/pending/order','PendingOrder')->name('pending.order');
+        Route::get('/confirm/order','ConfirmOrder')->name('confirm.order');
+        Route::get('/processing/order','ProcessingOrder')->name('processing.order');
+        Route::get('/deliverd/order','DeliverdOrder')->name('deliverd.order');
        
     });
     
