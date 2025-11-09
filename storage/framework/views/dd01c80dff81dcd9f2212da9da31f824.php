@@ -68,7 +68,7 @@
                                                     </td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('admin.order.details',$order->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
+                                                <td><a href="<?php echo e(route('client.order.details',$order->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
                                                     </td>
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
