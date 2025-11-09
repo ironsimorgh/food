@@ -1,6 +1,5 @@
-
-<?php $__env->startSection('admin'); ?>
-
+@extends('client.client_dashboard')
+@section('client')
 
 
 
@@ -11,7 +10,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Deliverd Order</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Client All Order</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                         </ol>
@@ -44,22 +43,35 @@
         
         
                                             <tbody>
-                                                <?php $__currentLoopData = $allData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                
+                                                @foreach ( $orderItemGroupData as $key=> $orderitem)
+                                            @php
+                                                $firstItem = $orderitem->first();
+                                                $order = $firstItem->order;
+                                            @endphp    
                                                 
                                             <tr>
-                                                <td><?php echo e($key+1); ?></td>
-                                                <td><?php echo e($item->order_data); ?></td>
-                                                <td><?php echo e($item->invoice_no); ?></td>
-                                                <td><?php echo e($item->amount); ?></td>
-                                                <td><?php echo e($item->payment_method); ?></td>
-                                                <td><span class="badge bg-primary"><?php echo e($item->status); ?></span></td>
+                                                <td>{{$key+1}}</td>
+                                                <td>{{$order->order_data }}</td>
+                                                <td>{{$order->invoice_no }}</td>
+                                                <td>${{$order->amount }}</td>
+                                                <td>{{$order->payment_method }}</td>
+                                                <td>
+                                                    @if ($order->status == 'Pending')
+                                                    <span class="badge bg-info">Pending</span>
+                                                    @elseif ($order->status == 'confirm')
+                                                    <span class="badge bg-primary">Confirm</span>
+                                                    @elseif ($order->status == 'processing')
+                                                    <span class="badge bg-warning">Processing</span>
+                                                    @elseif ($order->status == 'deliverd')
+                                                    <span class="badge bg-success">Deliverd</span>
+                                                    @endif
+                                                    </td>
                                                 
                                                 
-                                                <td><a href="<?php echo e(route('admin.order.details',$item->id)); ?>" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
+                                                <td><a href="{{route('admin.order.details',$order->id)}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-eye"></i></a>
                                                     </td>
                                             </tr>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            @endforeach
                                             </tbody>
                                         </table>
         
@@ -75,5 +87,4 @@
 
                 
 
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/backend/order/deliverd_order.blade.php ENDPATH**/ ?>
+@endsection

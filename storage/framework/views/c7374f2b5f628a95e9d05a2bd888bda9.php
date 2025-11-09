@@ -1,8 +1,8 @@
-@php
+<?php
 $id=Auth::guard('client')->id();
 $client = App\Models\Client::find($id);
 $status = $client->status;
-@endphp
+?>
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -14,12 +14,12 @@ $status = $client->status;
                 <li class="menu-title" data-key="t-menu">Menu</li>
 
                 <li>
-                    <a href="{{ route('client.dashboard')}}">
+                    <a href="<?php echo e(route('client.dashboard')); ?>">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
-@if ($status==='1')
+<?php if($status==='1'): ?>
 
 
                 <li>
@@ -29,13 +29,13 @@ $status = $client->status;
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.menu')}}">
+                            <a href="<?php echo e(route('all.menu')); ?>">
                                 <span data-key="t-calendar">All Menu</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('add.menu')}}">
+                            <a href="<?php echo e(route('add.menu')); ?>">
                                 <span data-key="t-chat">Add Menu</span>
                             </a>
                         </li>
@@ -51,13 +51,13 @@ $status = $client->status;
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.product')}}">
+                            <a href="<?php echo e(route('all.product')); ?>">
                                 <span data-key="t-calendar">All Product</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('add.product')}}">
+                            <a href="<?php echo e(route('add.product')); ?>">
                                 <span data-key="t-chat">Add Product</span>
                             </a>
                         </li>
@@ -72,13 +72,13 @@ $status = $client->status;
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.gallery')}}">
+                            <a href="<?php echo e(route('all.gallery')); ?>">
                                 <span data-key="t-calendar">All Gallery</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('add.gallery')}}">
+                            <a href="<?php echo e(route('add.gallery')); ?>">
                                 <span data-key="t-chat">Add Gallery</span>
                             </a>
                         </li>
@@ -93,13 +93,13 @@ $status = $client->status;
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.coupon')}}">
+                            <a href="<?php echo e(route('all.coupon')); ?>">
                                 <span data-key="t-calendar">All Coupon</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('add.coupon')}}">
+                            <a href="<?php echo e(route('add.coupon')); ?>">
                                 <span data-key="t-chat">Add Coupon</span>
                             </a>
                         </li>
@@ -114,7 +114,7 @@ $status = $client->status;
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.client.orders')}}">
+                            <a href="<?php echo e(route('all.client.orders')); ?>">
                                 <span data-key="t-calendar">All Orders</span>
                             </a>
                         </li>
@@ -124,8 +124,8 @@ $status = $client->status;
                 </li>
 
                 
-@else
-@endif
+<?php else: ?>
+<?php endif; ?>
 
        
 
@@ -144,4 +144,4 @@ $status = $client->status;
         </div>
         <!-- Sidebar -->
     </div>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/sidebar.blade.php ENDPATH**/ ?>

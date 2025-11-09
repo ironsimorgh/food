@@ -144,6 +144,9 @@ Route ::middleware('admin')->group(function(){
 
        
     });
+
+
+    
     
 });
 //End admin Middleware
@@ -187,6 +190,11 @@ Route ::middleware(['client','status'])->group(function(){
         Route::post('/update/coupon','UpdateCoupon')->name('coupon.update');
         Route::get('/delete/coupon/{id}','DeleteCoupon')->name('delete.coupon');
         
+    });
+
+    Route::controller(ManageOrderController::class)->group(function(){
+        Route::get('/all/client/orders','AlClientOrders')->name('all.client.orders');
+       
     });
     
 });

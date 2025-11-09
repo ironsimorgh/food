@@ -129,4 +129,4 @@
         </div>
 
     </div> <!-- end slimscroll-menu-->
-</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/rightside.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/rightside.blade.php ENDPATH**/ ?>
