@@ -1,28 +1,28 @@
 
-<?php $__env->startSection('client'); ?>
+<?php $__env->startSection('dashboard'); ?>
 
 
+<?php
+$id = Auth::user()->id;
+$profileData = App\Models\User::find($id);
+?>
+<section class="section pt-4 pb-4 osahan-account-page">
+         <div class="container">
+            <div class="row">
+               
+               <?php echo $__env->make('frontend.dashboard.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 
-<div class="page-content">
-                    <div class="container-fluid">
-
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Order Details</h4>
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                        </ol>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
-
-                        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
+               <div class="col-md-9">
+                  <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                           <h4 class="font-weight-bold mt-0 mb-4">Order Details</h4>
+                           
+                           
+                           <div class="bg-white card mb-4 order-list shadow-sm">
+                              <div class="gold-members p-4">
+<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
                             <div class="col">
                                 <div class="card">
                             <div class="card-header">
@@ -205,14 +205,25 @@
 
         </div>
     </div>
-</div>                       
-         
-                        
-                    </div> <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
+</div>
+                              </div>
+                           </div>
 
-                
+
+                           
+                        </div>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+
+
+
+
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/order/client_order_details.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.dashboard.dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\order\order_details.blade.php ENDPATH**/ ?>
