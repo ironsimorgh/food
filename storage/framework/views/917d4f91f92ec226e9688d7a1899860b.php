@@ -20,8 +20,7 @@ $profileData = App\Models\User::find($id);
                            <h4 class="font-weight-bold mt-0 mb-4">Order Details</h4>
                            
                            
-                           <div class="bg-white card mb-4 order-list shadow-sm">
-                              <div class="gold-members p-4">
+                          
 <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
                             <div class="col">
                                 <div class="card">
@@ -206,8 +205,7 @@ $profileData = App\Models\User::find($id);
         </div>
     </div>
 </div>
-                              </div>
-                           </div>
+                              
 
 
                            

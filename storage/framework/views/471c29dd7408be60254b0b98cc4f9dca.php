@@ -47,7 +47,7 @@
   <table width="100%" style="background: #F7F7F7; padding:0 20px 0 20px;">
     <tr>
         <td valign="top">
-          <!-- {{-- <img src="" alt="" width="150"/> --}} -->
+          <!--  -->
           <h2 style="color: green; font-size: 26px;"><strong>EasyShop</strong></h2>
         </td>
         <td align="right">
@@ -70,20 +70,20 @@
     <tr>
         <td>
           <p class="font" style="margin-left: 20px;">
-           <strong>Name:</strong> {{ $order->name }} <br>
-           <strong>Email:</strong> {{ $order->email }} <br>
-           <strong>Phone:</strong> {{ $order->phone }} <br>
+           <strong>Name:</strong> <?php echo e($order->name); ?> <br>
+           <strong>Email:</strong> <?php echo e($order->email); ?> <br>
+           <strong>Phone:</strong> <?php echo e($order->phone); ?> <br>
             
-           <strong>Address:</strong> {{ $order->address }} <br>
+           <strong>Address:</strong> <?php echo e($order->address); ?> <br>
            
          </p>
         </td>
         <td>
           <p class="font">
-            <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no }}</h3>
-            Order Date: {{ $order->order_data }} <br>
+            <h3><span style="color: green;">Invoice:</span> #<?php echo e($order->invoice_no); ?></h3>
+            Order Date: <?php echo e($order->order_data); ?> <br>
 
-            Payment Type : {{ $order->payment_method }} </span>
+            Payment Type : <?php echo e($order->payment_method); ?> </span>
          </p>
         </td>
     </tr>
@@ -105,21 +105,21 @@
     </thead>
     <tbody>
 
-    @foreach ( $orderItem as $item )
+    <?php $__currentLoopData = $orderItem; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      
 
       <tr class="font">
         <td align="center">
-            <img src="{{ public_path($item->product->image) }} " height="60px;" width="60px;" alt="">
+            <img src="<?php echo e(public_path($item->product->image)); ?> " height="60px;" width="60px;" alt="">
         </td>
-        <td align="center">{{ $item->product->name }}</td>
-        <td align="center">{{ $item->product->code }}</td>
-        <td align="center">{{ $item->qty }}</td>
-        <td align="center">{{ $item->product->client->name }}</td>
-        <td align="center">{{ $item->price }}</td>
+        <td align="center"><?php echo e($item->product->name); ?></td>
+        <td align="center"><?php echo e($item->product->code); ?></td>
+        <td align="center"><?php echo e($item->qty); ?></td>
+        <td align="center"><?php echo e($item->product->client->name); ?></td>
+        <td align="center"><?php echo e($item->price); ?></td>
       </tr>
       
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>
   </table>
   <br>
@@ -127,8 +127,8 @@
     <tr>
         <td align="right" >
             <h2><span style="color: green;">Subtotal:</span> Subtotal tk</h2>
-            <h2><span style="color: green;">Total:</span> {{ $totalPrice }}</h2>
-            {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
+            <h2><span style="color: green;">Total:</span> <?php echo e($totalPrice); ?></h2>
+            
         </td>
     </tr>
   </table>
@@ -140,4 +140,4 @@
       <h5>Authority Signature:</h5>
     </div>
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\frontend\dashboard\order\invoice_download.blade.php ENDPATH**/ ?>
