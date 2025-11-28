@@ -8,7 +8,7 @@
                         <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24">
                     </span>
                     <span class="logo-lg">
-                        <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24"> <span class="logo-txt">Client</span>
+                        <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24"> <span class="logo-txt">Admin</span>
                     </span>
                 </a>
 
@@ -17,7 +17,7 @@
                         <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24">
                     </span>
                     <span class="logo-lg">
-                        <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24"> <span class="logo-txt">Client</span>
+                        <img src="<?php echo e(asset('backend/assets/images/logo-sm.svg')); ?>" alt="" height="24"> <span class="logo-txt">Admin</span>
                     </span>
                 </a>
             </div>
@@ -163,8 +163,8 @@
             </div>
 
             <?php
-                $id = Auth::guard('client')->id();
-                $profileData = App\Models\Client::find($id);
+                $id = Auth::guard('admin')->id();
+                $profileData = App\Models\Admin::find($id);
 
 
             ?>
@@ -172,20 +172,20 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item bg-light-subtle border-start border-end" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="<?php echo e((!empty($profileData->photo)) ? url('upload/client_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>"
+                    <img class="rounded-circle header-profile-user" src="<?php echo e((!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')); ?>"
                         alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo e($profileData->name); ?></span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="<?php echo e(route('client.profile')); ?>"><i class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i> Profile</a>
-                    <a class="dropdown-item" href="<?php echo e(route('client.change.password')); ?>"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Change Password</a>
+                    <a class="dropdown-item" href="<?php echo e(route('admin.profile')); ?>"><i class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i> Profile</a>
+                    <a class="dropdown-item" href="<?php echo e(route('admin.change.password')); ?>"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i> Change Password</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo e(route('client.logout')); ?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                    <a class="dropdown-item" href="<?php echo e(route('admin.logout')); ?>"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                 </div>
             </div>
 
         </div>
     </div>
-</header><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/body/header.blade.php ENDPATH**/ ?>
+</header><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/header.blade.php ENDPATH**/ ?>

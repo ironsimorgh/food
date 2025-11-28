@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ManageController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Admin\ReportController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -151,6 +152,12 @@ Route ::middleware('admin')->group(function(){
         Route::get('/pending_to_confirm/{id}','PendingToConfirm')->name('pending_to_confirm');
         Route::get('/confirm_to_processing/{id}','ConfirmToProcessing')->name('confirm_to_processing');
         Route::get('/processing_to_deliverd/{id}','ProcessingToDeliverd')->name('processing_to_deliverd');
+
+       
+    });
+
+        Route::controller(ReportController::class)->group(function(){
+        Route::get('/admin/all/reports','AdminAllReports')->name('admin.all.reports');
 
        
     });

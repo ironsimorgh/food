@@ -22,13 +22,13 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.category')}}">
+                            <a href="<?php echo e(route('all.category')); ?>">
                                 <span data-key="t-calendar">All Category</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('add.category')}}">
+                            <a href="<?php echo e(route('add.category')); ?>">
                                 <span data-key="t-chat">Add Category</span>
                             </a>
                         </li>
@@ -43,7 +43,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.city')}}">
+                            <a href="<?php echo e(route('all.city')); ?>">
                                 <span data-key="t-calendar">All City</span>
                             </a>
                         </li>
@@ -57,13 +57,13 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('admin.all.product')}}">
+                            <a href="<?php echo e(route('admin.all.product')); ?>">
                                 <span data-key="t-calendar">All Product</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('admin.add.product')}}">
+                            <a href="<?php echo e(route('admin.add.product')); ?>">
                                 <span data-key="t-chat">Add Product</span>
                             </a>
                         </li>
@@ -78,13 +78,13 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('pending.restaurant')}}">
+                            <a href="<?php echo e(route('pending.restaurant')); ?>">
                                 <span data-key="t-calendar">Pending Restaurant</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('approve.restaurant')}}">
+                            <a href="<?php echo e(route('approve.restaurant')); ?>">
                                 <span data-key="t-chat">Approve Restaurant</span>
                             </a>
                         </li>
@@ -99,7 +99,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('all.banner')}}">
+                            <a href="<?php echo e(route('all.banner')); ?>">
                                 <span data-key="t-calendar">All Banner</span>
                             </a>
                         </li>
@@ -114,22 +114,22 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('pending.order')}}">
+                            <a href="<?php echo e(route('pending.order')); ?>">
                                 <span data-key="t-calendar">Pending Orders</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('confirm.order')}}">
+                            <a href="<?php echo e(route('confirm.order')); ?>">
                                 <span data-key="t-calendar">Confirm Orders</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('processing.order')}}">
+                            <a href="<?php echo e(route('processing.order')); ?>">
                                 <span data-key="t-calendar">Processing Orders</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('deliverd.order')}}">
+                            <a href="<?php echo e(route('deliverd.order')); ?>">
                                 <span data-key="t-calendar">Deliverd Orders</span>
                             </a>
                         </li>
@@ -145,7 +145,7 @@
                         <span data-key="t-components">Manage Reports</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('admin.all.reports') }}" data-key="t-alerts">All Reports</a></li>
+                        <li><a href="<?php echo e(route('admin.all.reports')); ?>" data-key="t-alerts">All Reports</a></li>
                     </ul>
                 </li>
 
@@ -179,4 +179,4 @@
         </div>
         <!-- Sidebar -->
     </div>
-</div>
+</div><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/body/sidebar.blade.php ENDPATH**/ ?>
