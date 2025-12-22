@@ -57,7 +57,7 @@
 
                                             <div class="col-sm-4">
                                                 <div class="card">
-                                                <form id="myForm" action="<?php echo e(route('admin.search.bymonth')); ?>" method="post" enctype="multipart/form-data">
+                                                <form id="myForm" action="<?php echo e(route('client.search.bymonth')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
 
                                         <div class="row">
@@ -107,7 +107,7 @@
 
                                             <div class="col-sm-4">
                                                 <div class="card">
-                                                <form id="myForm" action="<?php echo e(route('admin.search.byyear')); ?>" method="post" enctype="multipart/form-data">
+                                                <form id="myForm" action="<?php echo e(route('client.search.byyear')); ?>" method="post" enctype="multipart/form-data">
                                  <?php echo csrf_field(); ?>
 
                                         <div class="row">

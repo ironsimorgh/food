@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">All Search By Date Order</h4>
+                                    <h4 class="mb-sm-0 font-size-18">All Search By Year Order</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                         </ol>
@@ -27,7 +27,7 @@
                                 <div class="card">
                                     
                                     <div class="card-body">
-        <h3 class="text-danger">Search By Date: <?php echo e($formatDate); ?></h3>
+        <h3 class="text-danger">Search By Year: <?php echo e($years); ?></h3>
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             <thead>
                                             <tr>
@@ -81,4 +81,4 @@
                 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/report/search_by_date.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/report/search_by_year.blade.php ENDPATH**/ ?>
