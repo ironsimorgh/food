@@ -123,6 +123,22 @@ $status = $client->status;
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="grid"></i>
+                        <span data-key="t-apps">Manage Reports</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo e(route('client.all.report')); ?>">
+                                <span data-key="t-calendar">All Reports</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
                 
 <?php else: ?>
 <?php endif; ?>
