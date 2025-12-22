@@ -46,8 +46,28 @@ class ReportController extends Controller
         return view('admin.backend.report.search_by_year',compact('orderYear','years'));
     }
     //End Method
+    //////////////////client report hear
     public function ClientAllReports(){
         return view('client.backend.report.all_report');
+    }
+    //End Method
+
+    public function ClientSearchByDate(Request $request){
+        $date = new DateTime($request->date);
+        $formatDate = $date->format('d F Y');
+        $cid = Auth::guard('client')->id();
+        $orders = Order::where('order_data',$formatDate)
+        ->whereHas('OrderItems',function($query) use ($cid){
+            $query->where('client_id',$cid);
+        })->latest()->get();
+
+        $orderItemGroupData = OrderItem::with(['order','product'])
+        ->where('order_id',$orders->pluck('id'))
+        ->where('client_id',$cid)
+        ->orderBy('order_id','desc')
+        ->get()
+        ->groupBy('order_id');
+        return view('client.backend.report.search_by_date',compact('orderItemGroupData','formatDate'));
     }
     //End Method
 
