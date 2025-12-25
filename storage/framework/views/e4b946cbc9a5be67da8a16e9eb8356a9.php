@@ -1,32 +1,33 @@
-@extends('frontend.dashboard.dashboard')
-@section('dashboard')
+
+<?php $__env->startSection('dashboard'); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 
-@php
+<?php
 $products = App\Models\Product::where('client_id',$client->id )->limit(3)->get();
 $menuNames = $products->map(function($product){
    return $product->menu->menu_name;
 })->toArray();
 $menuNamesString = implode(' . ',$menuNames);
 $coupons = App\Models\Coupon::where('client_id',$client->id )->where('status','1')->first();
-@endphp
+?>
 
 <section class="restaurant-detailed-banner">
          <div class="text-center">
-            <img class="img-fluid cover" src="{{asset('upload/client_images/' . $client->cover_photo )}}">
+            <img class="img-fluid cover" src="<?php echo e(asset('upload/client_images/' . $client->cover_photo )); ?>">
          </div>
          <div class="restaurant-detailed-header">
             <div class="container">
                <div class="row d-flex align-items-end">
                   <div class="col-md-8">
                      <div class="restaurant-detailed-header-left">
-                        <img class="img-fluid mr-3 float-left" alt="osahan" src="{{asset('upload/client_images/' . $client->photo )}}">
-                        <h2 class="text-white">{{$client->name}}</h2>
-                        <p class="text-white mb-1"><i class="icofont-location-pin"></i>{{ $client->address }}<span class="badge badge-success">OPEN</span>
+                        <img class="img-fluid mr-3 float-left" alt="osahan" src="<?php echo e(asset('upload/client_images/' . $client->photo )); ?>">
+                        <h2 class="text-white"><?php echo e($client->name); ?></h2>
+                        <p class="text-white mb-1"><i class="icofont-location-pin"></i><?php echo e($client->address); ?><span class="badge badge-success">OPEN</span>
                         </p>
-                        <p class="text-white mb-0"><i class="icofont-food-cart"></i>{{ $menuNamesString }}
+                        <p class="text-white mb-0"><i class="icofont-food-cart"></i><?php echo e($menuNamesString); ?>
+
                         </p>
                      </div>
                   </div>
@@ -79,42 +80,44 @@ $coupons = App\Models\Coupon::where('client_id',$client->id )->where('status','1
                   <div class="offer-dedicated-body-left">
                      <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-order-online" role="tabpanel" aria-labelledby="pills-order-online-tab">
-@php
+<?php
 $populers = App\Models\Product::where('status',1)->where('client_id',$client->id)->where('most_populer',1)->orderBy('id','desc')->limit(5)->get();
-@endphp                           
+?>                           
                            
                            
                            <div id="#menu" class="bg-white rounded shadow-sm p-4 mb-4 explore-outlets">
                               <h6 class="mb-3">Most Popular  <span class="badge badge-success"><i class="icofont-tags"></i> 15% Off All Items </span></h6>
                               <div class="owl-carousel owl-theme owl-carousel-five offers-interested-carousel mb-3">
-@foreach ($populers as $populer)            
+<?php $__currentLoopData = $populers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $populer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>            
                                  <div class="item">
                                     <div class="mall-category-item">
                                        <a href="#">
-                                          <img class="img-fluid" src="{{asset($populer->image)}}">
-                                          <h6>{{$populer->name}}</h6>
-                                          @if ($populer->discount_price == NULL)
-                                             ${{$populer->price}}
-                                          @else
-                                             $<del>{{$populer->price}}</del> ${{$populer->discount_price}}
-                                          @endif
+                                          <img class="img-fluid" src="<?php echo e(asset($populer->image)); ?>">
+                                          <h6><?php echo e($populer->name); ?></h6>
+                                          <?php if($populer->discount_price == NULL): ?>
+                                             $<?php echo e($populer->price); ?>
+
+                                          <?php else: ?>
+                                             $<del><?php echo e($populer->price); ?></del> $<?php echo e($populer->discount_price); ?>
+
+                                          <?php endif; ?>
                                           <span class="float-right">
-                                          <a class="btn btn-outline-secondary btn-sm" href="{{route ('add_to_cart',$populer->id)}}">ADD</a>
+                                          <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$populer->id)); ?>">ADD</a>
                                           </span>
                                        </a>
                                     </div>
                                  </div>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </div>
                            </div>
 
-@php
+<?php
 $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client->id)->where('best_seller',1)->orderBy('id','desc')->limit(3)->get();
-@endphp  
+?>  
 
                            <div class="row">
                               <h5 class="mb-4 mt-3 col-md-12">Best Sellers</h5>
-@foreach ($bestsellers as $bestseller)
+<?php $__currentLoopData = $bestsellers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bestseller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 
                               <div class="col-md-4 col-sm-6 mb-4">
@@ -124,60 +127,60 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="icofont-heart"></i></a></div>
                                        <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                        <a href="#">
-                                       <img src="{{asset($bestseller->image)}}" class="img-fluid item-img">
+                                       <img src="<?php echo e(asset($bestseller->image)); ?>" class="img-fluid item-img">
                                        </a>
                                     </div>
                                     <div class="p-3 position-relative">
                                        <div class="list-card-body">
-                                          <h6 class="mb-1"><a href="#" class="text-black">{{$bestseller->name}}</a></h6>
-                                          <p class="text-gray mb-2">{{$bestseller['city']['city_name']}}</p>
+                                          <h6 class="mb-1"><a href="#" class="text-black"><?php echo e($bestseller->name); ?></a></h6>
+                                          <p class="text-gray mb-2"><?php echo e($bestseller['city']['city_name']); ?></p>
                                           <p class="text-gray time mb-0">
-                                             @if ($bestseller->discount_price == NULL)
-                                             <a class="btn btn-link btn-sm text-black" href="#">${{$bestseller->price}} </a>
+                                             <?php if($bestseller->discount_price == NULL): ?>
+                                             <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->price); ?> </a>
                                              
-                                          @else
-                                             $<del>{{$bestseller->price}}</del>
-                                             <a class="btn btn-link btn-sm text-black" href="#">${{$bestseller->discount_price}} </a>
-                                          @endif
+                                          <?php else: ?>
+                                             $<del><?php echo e($bestseller->price); ?></del>
+                                             <a class="btn btn-link btn-sm text-black" href="#">$<?php echo e($bestseller->discount_price); ?> </a>
+                                          <?php endif; ?>
                                            <span class="float-right"> 
-                                             <a class="btn btn-outline-secondary btn-sm" href="{{route ('add_to_cart',$bestseller->id)}}">ADD</a>
+                                             <a class="btn btn-outline-secondary btn-sm" href="<?php echo e(route ('add_to_cart',$bestseller->id)); ?>">ADD</a>
                                              </span>
                                           </p>
                                        </div>
                                     </div>
                                  </div>
                               </div>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                            </div>
-@foreach ($menus as $menu )
+<?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                           
                            <div class="row">
-                              <h5 class="mb-4 mt-3 col-md-12">{{$menu->menu_name}} <small class="h6 text-black-50">{{$menu->products->count()}} ITEM</small></h5>
+                              <h5 class="mb-4 mt-3 col-md-12"><?php echo e($menu->menu_name); ?> <small class="h6 text-black-50"><?php echo e($menu->products->count()); ?> ITEM</small></h5>
                               <div class="col-md-12">
                                  <div class="bg-white rounded border shadow-sm mb-4">
-                                    @foreach ($menu->products as $product )
+                                    <?php $__currentLoopData = $menu->products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="menu-list p-3 border-bottom">
                                        
-                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="{{route ('add_to_cart',$product->id)}}">ADD</a>
+                                       <a class="btn btn-outline-secondary btn-sm  float-right" href="<?php echo e(route ('add_to_cart',$product->id)); ?>">ADD</a>
                                        
                                        <div class="media">
-                                          <img class="mr-3 rounded-pill" src="{{asset($product->image)}}" alt="Generic placeholder image">
+                                          <img class="mr-3 rounded-pill" src="<?php echo e(asset($product->image)); ?>" alt="Generic placeholder image">
                                           <div class="media-body">
-                                             <h6 class="mb-1">{{$product->name}}</h6>
-                                             <p class="text-gray mb-0">${{$product->price}} ({{$product->size ?? '' }} cm)</p>
+                                             <h6 class="mb-1"><?php echo e($product->name); ?></h6>
+                                             <p class="text-gray mb-0">$<?php echo e($product->price); ?> (<?php echo e($product->size ?? ''); ?> cm)</p>
                                              
                                              
                                           </div>
                                        </div>
                                     </div>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     
                                     
                                  </div>
                               </div>
                            </div>
- @endforeach                           
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                           
                         </div>
 
 
@@ -186,12 +189,12 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                            <div id="gallery" class="bg-white rounded shadow-sm p-4 mb-4">
                               <div class="restaurant-slider-main position-relative homepage-great-deals-carousel">
                                  <div class="owl-carousel owl-theme homepage-ad">
-@foreach ($gallerys as $index => $gallery)
+<?php $__currentLoopData = $gallerys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $gallery): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="item">
-                                       <img class="img-fluid" src="{{asset($gallery->gallery_img)}}">
-                                       <div class="position-absolute restaurant-slider-pics bg-dark text-white">{{$index+1}} of {{$gallerys->count()}} Photos</div>
+                                       <img class="img-fluid" src="<?php echo e(asset($gallery->gallery_img)); ?>">
+                                       <div class="position-absolute restaurant-slider-pics bg-dark text-white"><?php echo e($index+1); ?> of <?php echo e($gallerys->count()); ?> Photos</div>
                                     </div>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                  </div>
                                  
                               </div>
@@ -207,12 +210,14 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                  </div>
                               </div>
                               <h5 class="mb-4">Restaurant Info</h5>
-                              <p class="mb-3">{{$client->address}}
+                              <p class="mb-3"><?php echo e($client->address); ?>
+
                                  
                               </p>
-                              <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i>{{$client->phone}}</p>
-                              <p class="mb-2 text-black"><i class="icofont-email text-primary mr-2"></i>{{$client->email}}</p>
-                              <p class="mb-2 text-black"><i class="icofont-clock-time text-primary mr-2"></i>{{$client->shop_info}}
+                              <p class="mb-2 text-black"><i class="icofont-phone-circle text-primary mr-2"></i><?php echo e($client->phone); ?></p>
+                              <p class="mb-2 text-black"><i class="icofont-email text-primary mr-2"></i><?php echo e($client->email); ?></p>
+                              <p class="mb-2 text-black"><i class="icofont-clock-time text-primary mr-2"></i><?php echo e($client->shop_info); ?>
+
                                  <span class="badge badge-success"> OPEN NOW </span>
                               </p>
                               <hr class="clearfix">
@@ -385,9 +390,9 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                            </div>
 
                            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
-                              @guest
-                              <p><b>For Add Restaurant Review. You need to login first <a href="{{ route('login') }}">Login Here</a></b></p>
-                                 @else
+                              <?php if(auth()->guard()->guest()): ?>
+                              <p><b>For Add Restaurant Review. You need to login first <a href="<?php echo e(route('login')); ?>">Login Here</a></b></p>
+                                 <?php else: ?>
                               <style>
                                  .star-rating label {
                                     display: inline-flex;
@@ -404,9 +409,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               
                               <h5 class="mb-4">Leave Comment</h5>
                               <p class="mb-2">Rate the Place</p>
-                              <form method="" action="">
-                                 @csrf
-                                 
+                              <form>
                               <div class="mb-4">
                                  <span class="star-rating">
                                     <label for="rating-1">
@@ -414,7 +417,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-2">
-                                    <input type="radio" name="rating" id="rating-2" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-2" value="2" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-3">
@@ -444,29 +447,29 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                  </div>
                               </form>
 
-                              @endguest
+                              <?php endif; ?>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-@php
+<?php
    use Carbon\Carbon;
    $coupon = App\Models\Coupon::where('client_id',$client->id)->where('validity','>=',Carbon::now()->format('Y-m-d'))->latest()->first();
-@endphp
+?>
 
 
                <div class="col-md-4">
                   <div class="pb-2">
 				  <div class="bg-white rounded shadow-sm text-white mb-4 p-4 clearfix restaurant-detailed-earn-pts card-icon-overlap">
-                     <img class="img-fluid float-left mr-3" src="{{asset('frontend/img/earn-score-icon.png')}}">
+                     <img class="img-fluid float-left mr-3" src="<?php echo e(asset('frontend/img/earn-score-icon.png')); ?>">
                      <h6 class="pt-0 text-primary mb-1 font-weight-bold">OFFER</h6>
-{{--  <pre>{{ print_r(Session::get('coupon'),true) }}</pre>  --}}
-                     @if ($coupon == NULL)
+
+                     <?php if($coupon == NULL): ?>
                         <p class="mb-0">No Coupon is Available </p>
-                        @else
-                        <p class="mb-0">{{$coupon->discount}}% off on orders above $99 | Use coupon <span class="text-danger font-weight-bold">{{ $coupon->coupon_name }}</span></p>
-                     @endif
+                        <?php else: ?>
+                        <p class="mb-0"><?php echo e($coupon->discount); ?>% off on orders above $99 | Use coupon <span class="text-danger font-weight-bold"><?php echo e($coupon->coupon_name); ?></span></p>
+                     <?php endif; ?>
                      <div class="icon-overlap">
                         <i class="icofont-sale-discount"></i>
                      </div>
@@ -474,66 +477,68 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 				  </div>
                   <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
                      <h5 class="mb-1 text-white">Your Order</h5>
-                     <p class="mb-4 text-white">{{count((array) session('cart'))}} ITEMS</p>
+                     <p class="mb-4 text-white"><?php echo e(count((array) session('cart'))); ?> ITEMS</p>
                      <div class="bg-white rounded shadow-sm mb-2">
-                        @php
+                        <?php
                         $total = 0
-                        @endphp
-                        @if (session('cart'))
-                           @foreach (session('cart') as $id=>$details )
-                           @php
+                        ?>
+                        <?php if(session('cart')): ?>
+                           <?php $__currentLoopData = session('cart'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id=>$details): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                           <?php
                            $total += $details['price'] * $details['quantity']
-                           @endphp
+                           ?>
                         
                         <div class="gold-members p-2 border-bottom">
-                           <p class="text-gray mb-0 float-right ml-2">${{$details['price'] * $details['quantity']}}</p>
+                           <p class="text-gray mb-0 float-right ml-2">$<?php echo e($details['price'] * $details['quantity']); ?></p>
                            <span class="count-number float-right">
-                           <button class="btn btn-outline-secondary  btn-sm left dec" data-id="{{$id}}"> <i class="icofont-minus"></i> </button>
-                           <input class="count-number-input" type="text" value="{{$details['quantity']}}" readonly="">
-                           <button class="btn btn-outline-secondary btn-sm right inc" data-id="{{$id}}"> <i class="icofont-plus"></i> </button>
-                           <button class="btn btn-outline-danger btn-sm right remove" data-id="{{$id}}"> <i class="icofont-trash"></i> </button>
+                           <button class="btn btn-outline-secondary  btn-sm left dec" data-id="<?php echo e($id); ?>"> <i class="icofont-minus"></i> </button>
+                           <input class="count-number-input" type="text" value="<?php echo e($details['quantity']); ?>" readonly="">
+                           <button class="btn btn-outline-secondary btn-sm right inc" data-id="<?php echo e($id); ?>"> <i class="icofont-plus"></i> </button>
+                           <button class="btn btn-outline-danger btn-sm right remove" data-id="<?php echo e($id); ?>"> <i class="icofont-trash"></i> </button>
                            </span>
                            <div class="media">
-                              <div class="mr-2"><img src="{{asset($details['image'])}}" alt="" width="25px"></div>
+                              <div class="mr-2"><img src="<?php echo e(asset($details['image'])); ?>" alt="" width="25px"></div>
                               <div class="media-body">
-                                 <p class="mt-1 mb-0 text-black">{{$details['name']}}</p>
+                                 <p class="mt-1 mb-0 text-black"><?php echo e($details['name']); ?></p>
                               </div>
                            </div>
                         </div>
                         
-                           @endforeach
-                        @endif
+                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
                      
                      </div>
 
-@if (Session::has('coupon'))
+<?php if(Session::has('coupon')): ?>
 <div class="mb-2 bg-white rounded p-2 clearfix">
-                        <p class="mb-1">Item Total <span class="float-right text-dark">{{ count((array) session('cart')) }}</span></p>
-                        <p class="mb-1">Coupon Name <span class="float-right text-dark">{{ (session()->get('coupon')['coupon_name']) }} ( {{ (session()->get('coupon')['discount']) }} %)</span>
+                        <p class="mb-1">Item Total <span class="float-right text-dark"><?php echo e(count((array) session('cart'))); ?></span></p>
+                        <p class="mb-1">Coupon Name <span class="float-right text-dark"><?php echo e((session()->get('coupon')['coupon_name'])); ?> ( <?php echo e((session()->get('coupon')['discount'])); ?> %)</span>
                         <a type="submit" onclick="couponRemove()"><i class="icofont-ui-delete float-right" style="color: red"></i></a>
                         </p>
                         
                         <p class="mb-1 text-success">Total Discount 
                            <span class="float-right text-success">
                               
-                              @if (Session::has('coupon'))
-                                 ${{ $total - Session()->get('coupon')['discount_amount'] }}
-                              @else
-                              ${{ $total }}   
-                              @endif
+                              <?php if(Session::has('coupon')): ?>
+                                 $<?php echo e($total - Session()->get('coupon')['discount_amount']); ?>
+
+                              <?php else: ?>
+                              $<?php echo e($total); ?>   
+                              <?php endif; ?>
                               
                               </span>
                         </p>
                         <hr />
                         <h6 class="font-weight-bold mb-0">TO PAY  <span class="float-right">
-                           @if (Session::has('coupon'))
-                                 ${{ Session()->get('coupon')['discount_amount'] }}
-                              @else
-                              ${{ $total }}   
-                              @endif
+                           <?php if(Session::has('coupon')): ?>
+                                 $<?php echo e(Session()->get('coupon')['discount_amount']); ?>
+
+                              <?php else: ?>
+                              $<?php echo e($total); ?>   
+                              <?php endif; ?>
                            </span></h6>
                      </div>
-@else
+<?php else: ?>
 
 
 <div class="mb-2 bg-white rounded p-2 clearfix">
@@ -546,21 +551,22 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                         
                      </div>
                      
-@endif
+<?php endif; ?>
 
 
                      <div class="mb-2 bg-white rounded p-2 clearfix">
-                        <img class="img-fluid float-left" src="{{asset('frontend/img/wallet-icon.png')}}">
+                        <img class="img-fluid float-left" src="<?php echo e(asset('frontend/img/wallet-icon.png')); ?>">
                         <h6 class="font-weight-bold text-right mb-2">Subtotal : <span class="text-danger">
-                           @if (Session::has('coupon'))
-                                 ${{ Session()->get('coupon')['discount_amount'] }}
-                              @else
-                              ${{ $total }}   
-                              @endif
+                           <?php if(Session::has('coupon')): ?>
+                                 $<?php echo e(Session()->get('coupon')['discount_amount']); ?>
+
+                              <?php else: ?>
+                              $<?php echo e($total); ?>   
+                              <?php endif; ?>
                            </span></h6>
                         <p class="seven-color mb-1 text-right">Extra charges may apply</p>
                      </div>
-                     <a href="{{ route('checkout') }}" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
+                     <a href="<?php echo e(route('checkout')); ?>" class="btn btn-success btn-block btn-lg">Checkout <i class="icofont-long-arrow-right"></i></a>
                   </div>
 				  
 				  <div class="text-center pt-2 mb-4">
@@ -613,10 +619,10 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 
       function updateQuantity(id,quantity){
          $.ajax({
-            url:'{{route("cart.updateQuantity")}}',
+            url:'<?php echo e(route("cart.updateQuantity")); ?>',
             method:'POST',
             data:{
-               _token:'{{ csrf_token() }}',
+               _token:'<?php echo e(csrf_token()); ?>',
                id: id,
                quantity: quantity
             },
@@ -635,10 +641,10 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 
       function removeFromCart(id){
          $.ajax({
-            url:'{{route("cart.remove")}}',
+            url:'<?php echo e(route("cart.remove")); ?>',
             method:'POST',
             data:{
-               _token:'{{csrf_token()}}',
+               _token:'<?php echo e(csrf_token()); ?>',
                id: id,
             },
             success: function(response){
@@ -658,4 +664,5 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.dashboard.dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/frontend/details_page.blade.php ENDPATH**/ ?>
