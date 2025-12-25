@@ -404,9 +404,10 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               
                               <h5 class="mb-4">Leave Comment</h5>
                               <p class="mb-2">Rate the Place</p>
-                              <form method="" action="">
+                              <form method="post" action="{{ route('store.review') }}">
                                  @csrf
-                                 
+                                 <input type="hidden" name="client_id" value="{{ $client->id }}">
+
                               <div class="mb-4">
                                  <span class="star-rating">
                                     <label for="rating-1">
@@ -414,19 +415,19 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-2">
-                                    <input type="radio" name="rating" id="rating-2" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-2" value="2" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-3">
-                                    <input type="radio" name="rating" id="rating-3" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-3" value="3" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-4">
-                                    <input type="radio" name="rating" id="rating-4" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-4" value="4" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-5">
-                                    <input type="radio" name="rating" id="rating-5" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-5" value="5" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                  
@@ -440,7 +441,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <textarea class="form-control" name="comment" id="comment"></textarea>
                                  </div>
                                  <div class="form-group">
-                                    <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
+                                    <button class="btn btn-primary btn-sm" type="submit"> Submit Comment </button>
                                  </div>
                               </form>
 

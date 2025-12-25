@@ -388,27 +388,69 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               <hr>
                               <a class="text-center w-100 d-block mt-4 font-weight-bold" href="#">See All Reviews</a>
                            </div>
+
                            <div class="bg-white rounded shadow-sm p-4 mb-5 rating-review-select-page">
+                              <?php if(auth()->guard()->guest()): ?>
+                              <p><b>For Add Restaurant Review. You need to login first <a href="<?php echo e(route('login')); ?>">Login Here</a></b></p>
+                                 <?php else: ?>
+                              <style>
+                                 .star-rating label {
+                                    display: inline-flex;
+                                    margin-right: 5px;
+                                    cursor: pointer;
+                                 }
+                                 .star-rating input[type="radio"]{
+                                    display: none;
+                                 }
+                                 .star-rating input[type="radio"]:checked + .star-icon{
+                                    color: #dd646e;
+                                 }
+                              </style>
+                              
                               <h5 class="mb-4">Leave Comment</h5>
                               <p class="mb-2">Rate the Place</p>
+                              <form method="post" action="<?php echo e(route('store.review')); ?>">
+                                 <?php echo csrf_field(); ?>
+                                 <input type="hidden" name="client_id" value="<?php echo e($client->id); ?>">
+
                               <div class="mb-4">
                                  <span class="star-rating">
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
+                                    <label for="rating-1">
+                                    <input type="radio" name="rating" id="rating-1" value="1" hidden>
+                                    <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+                                    <label for="rating-2">
+                                    <input type="radio" name="rating" id="rating-2" value="1" hidden>
+                                    <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+                                    <label for="rating-3">
+                                    <input type="radio" name="rating" id="rating-3" value="1" hidden>
+                                    <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+                                    <label for="rating-4">
+                                    <input type="radio" name="rating" id="rating-4" value="1" hidden>
+                                    <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+                                    <label for="rating-5">
+                                    <input type="radio" name="rating" id="rating-5" value="1" hidden>
+                                    <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
+
+                                 
+                                 
+                                 
                                  </span>
                               </div>
-                              <form>
+                              
                                  <div class="form-group">
                                     <label>Your Comment</label>
-                                    <textarea class="form-control"></textarea>
+                                    <textarea class="form-control" name="comment" id="comment"></textarea>
                                  </div>
                                  <div class="form-group">
                                     <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
                                  </div>
                               </form>
+
+                              <?php endif; ?>
                            </div>
                         </div>
                      </div>
