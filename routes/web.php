@@ -235,6 +235,12 @@ Route ::middleware(['client','status'])->group(function(){
 
        
     });
+
+    Route::controller(ReviewController::class)->group(function(){
+        Route::get('/client/all/reviews','ClientAllReviews')->name('client.all.reviews');
+        
+        
+    });
     
 });
 

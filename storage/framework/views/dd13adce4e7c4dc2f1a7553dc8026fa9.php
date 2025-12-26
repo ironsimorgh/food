@@ -1,5 +1,5 @@
 
-<?php $__env->startSection('admin'); ?>
+<?php $__env->startSection('client'); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Approve Review</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Pending Review</h4>
                                     
 
                                 </div>
@@ -34,14 +34,14 @@
                                                 <th>Comment</th>
                                                 <th>Rating</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                
                                                 
                                             </tr>
                                             </thead>
         
         
                                             <tbody>
-                                                <?php $__currentLoopData = $approveReview; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php $__currentLoopData = $allreviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 
                                                 
                                             <tr>
@@ -63,9 +63,7 @@
 
                                                 </td>
                                                 
-                                                <td>
-                                                <input data-id="<?php echo e($item->id); ?>" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive" <?php echo e($item->status ? 'checked' : ''); ?>>
-                                                    </td>
+                                                
                                             </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </tbody>
@@ -81,53 +79,8 @@
                 </div>
                 <!-- End Page-content -->
 
-<script type="text/javascript">
-  $(function() {
-    $('.toggle-class').change(function() {
-        var status = $(this).prop('checked') == true ? 1 : 0; 
-        var review_id = $(this).data('id'); 
-         
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: '/reviewchangeStatus',
-            data: {'status': status, 'review_id': review_id},
-            success: function(data){
-              // console.log(data.success)
 
-                // Start Message 
-
-            const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  icon: 'success', 
-                  showConfirmButton: false,
-                  timer: 3000 
-            })
-            if ($.isEmptyObject(data.error)) {
-                    
-                    Toast.fire({
-                    type: 'success',
-                    title: data.success, 
-                    })
-
-            }else{
-               
-           Toast.fire({
-                    type: 'error',
-                    title: data.error, 
-                    })
-                }
-
-              // End Message   
-
-
-            }
-        });
-    })
-  })
-</script>
 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/backend/review/approve_review.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/backend/review/view_all_review.blade.php ENDPATH**/ ?>
