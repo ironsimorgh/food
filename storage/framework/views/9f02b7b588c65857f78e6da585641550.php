@@ -289,67 +289,33 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                               <h5 class="mb-4">Ratings and Reviews</h5>
                               <div class="graph-star-rating-header">
                                  <div class="star-rating">
-                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                    <a href="#"><i class="icofont-ui-rating"></i></a>  <b class="text-black ml-2">334</b>
+                                    <?php for($i = 1; $i <= 5; $i++): ?>
+                                    <a href="#"><i class="icofont-ui-rating <?php echo e($i <= round($roundedAverageRating) ?
+                                    'active' : ''); ?>"></i></a>
+                                    <?php endfor; ?>
+                                      <b class="text-black ml-2"><?php echo e($totalReviews); ?></b>
                                  </div>
-                                 <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
+                                 <p class="text-black mb-4 mt-2">Rated <?php echo e($roundedAverageRating); ?> out of 5</p>
                               </div>
                               <div class="graph-star-rating-body">
+                                 
+                                 <?php $__currentLoopData = $ratingCounts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $star => $count): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                 
                                  <div class="rating-list">
                                     <div class="rating-list-left text-black">
-                                       5 Star
+                                       <?php echo e($star); ?> Star
                                     </div>
                                     <div class="rating-list-center">
                                        <div class="progress">
-                                          <div style="width: 56%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                             <span class="sr-only">80% Complete (danger)</span>
+                                          <div style="width: <?php echo e($ratingPercentages[$star]); ?>%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
+                                             <span class="sr-only"><?php echo e($ratingPercentages[$star]); ?>% Complete (danger)</span>
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="rating-list-right text-black">56%</div>
+                                    <div class="rating-list-right text-black"><?php echo e(number_format ($ratingPercentages[$star],2)); ?>%</div>
                                  </div>
-                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black">
-                                       4 Star
-                                    </div>
-                                    <div class="rating-list-center">
-                                       <div class="progress">
-                                          <div style="width: 23%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                             <span class="sr-only">80% Complete (danger)</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="rating-list-right text-black">23%</div>
-                                 </div>
-                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black">
-                                       3 Star
-                                    </div>
-                                    <div class="rating-list-center">
-                                       <div class="progress">
-                                          <div style="width: 11%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                             <span class="sr-only">80% Complete (danger)</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="rating-list-right text-black">11%</div>
-                                 </div>
-                                 <div class="rating-list">
-                                    <div class="rating-list-left text-black">
-                                       2 Star
-                                    </div>
-                                    <div class="rating-list-center">
-                                       <div class="progress">
-                                          <div style="width: 2%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                             <span class="sr-only">80% Complete (danger)</span>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="rating-list-right text-black">02%</div>
-                                 </div>
+                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                 
                               </div>
                               <div class="graph-star-rating-footer text-center mt-3 mb-3">
                                  <button type="button" class="btn btn-outline-primary btn-sm">Rate and Review</button>
@@ -358,23 +324,47 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                            <div class="bg-white rounded shadow-sm p-4 mb-4 restaurant-detailed-ratings-and-reviews">
                               <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a>
                               <h5 class="mb-1">All Ratings and Reviews</h5>
+                              <style>
+                                 .icofont-ui-rating {
+                                    color: #ccc;
+                                 }
+                                 .icofont-ui-rating.active {
+                                    color: #dd646e;
+                                 }
+                              </style>
+
+                              <?php
+                              $reviews = App\Models\Review::where('client_id',$client->id)
+                              ->where('status',1)->latest()->limit(5)->get();
+                              ?>
+
+                              <?php $__currentLoopData = $reviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $review): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              
+                              
                               <div class="reviews-members pt-4 pb-4">
                                  <div class="media">
-                                    <a href="#"><img alt="Generic placeholder image" src="img/user/1.png" class="mr-3 rounded-pill"></a>
+                                    <a href="#"><img alt="Generic placeholder image" src="<?php echo e((!empty($review->user->photo)) ? 
+                                    url('upload/user_images/'.$review->user->photo) : 
+                                    url('upload/no_image.jpg')); ?>" class="mr-3 rounded-pill"></a>
                                     <div class="media-body">
                                        <div class="reviews-members-header">
                                           <span class="star-rating float-right">
-                                          <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                          <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                          <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                          <a href="#"><i class="icofont-ui-rating active"></i></a>
-                                          <a href="#"><i class="icofont-ui-rating"></i></a>
+                                             <?php
+                                             $rating = $review->rating ?? 0;
+                                             ?>
+                                             <?php for($i = 1; $i <= 5; $i++): ?>
+                                                <?php if($i <= $rating): ?>
+                                             <a href="#"><i class="icofont-ui-rating active"></i></a>
+                                             <?php else: ?>
+                                                 <a href="#"><i class="icofont-ui-rating"></i></a>
+                                             <?php endif; ?>
+                                             <?php endfor; ?>
                                           </span>
-                                          <h6 class="mb-1"><a class="text-black" href="#">Singh Osahan</a></h6>
-                                          <p class="text-gray">Tue, 20 Mar 2020</p>
+                                          <h6 class="mb-1"><a class="text-black" href="#"><?php echo e($review->user->name); ?></a></h6>
+                                          <p class="text-gray"><?php echo e(Carbon\Carbon::parse($review->created_at)->diffForHumans()); ?></p>
                                        </div>
                                        <div class="reviews-members-body">
-                                          <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections </p>
+                                          <p><?php echo e($review->comment); ?></p>
                                        </div>
                                        <div class="reviews-members-footer">
                                           <a class="total-like" href="#"><i class="icofont-thumbs-up"></i> 856M</a> <a class="total-like" href="#"><i class="icofont-thumbs-down"></i> 158K</a> 
@@ -383,6 +373,9 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     </div>
                                  </div>
                               </div>
+
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                               <hr>
                               
                               <hr>
@@ -420,19 +413,19 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-2">
-                                    <input type="radio" name="rating" id="rating-2" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-2" value="2" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-3">
-                                    <input type="radio" name="rating" id="rating-3" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-3" value="3" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-4">
-                                    <input type="radio" name="rating" id="rating-4" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-4" value="4" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                     <label for="rating-5">
-                                    <input type="radio" name="rating" id="rating-5" value="1" hidden>
+                                    <input type="radio" name="rating" id="rating-5" value="5" hidden>
                                     <i class="icofont-ui-rating icofont-2x star-icon"></i></label>
 
                                  
@@ -446,7 +439,7 @@ $bestsellers = App\Models\Product::where('status',1)->where('client_id',$client-
                                     <textarea class="form-control" name="comment" id="comment"></textarea>
                                  </div>
                                  <div class="form-group">
-                                    <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
+                                    <button class="btn btn-primary btn-sm" type="submit"> Submit Comment </button>
                                  </div>
                               </form>
 
