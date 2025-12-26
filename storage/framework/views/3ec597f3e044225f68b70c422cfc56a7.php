@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Pending Review</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Approve Review</h4>
                                     
 
                                 </div>
@@ -41,7 +41,7 @@
         
         
                                             <tbody>
-                                                <?php $__currentLoopData = $pendingReview; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php $__currentLoopData = $approveReview; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 
                                                 
                                             <tr>
@@ -85,13 +85,13 @@
   $(function() {
     $('.toggle-class').change(function() {
         var status = $(this).prop('checked') == true ? 1 : 0; 
-        var review_id = $(this).data('id'); 
+        var client_id = $(this).data('id'); 
          
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: '/reviewchangeStatus',
-            data: {'status': status, 'review_id': review_id},
+            url: '/clientchangeStatus',
+            data: {'status': status, 'client_id': client_id},
             success: function(data){
               // console.log(data.success)
 
@@ -130,4 +130,4 @@
 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\backend\review\pending_review.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views\admin\backend\review\approve_review.blade.php ENDPATH**/ ?>

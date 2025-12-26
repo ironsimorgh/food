@@ -55,6 +55,15 @@ class ReviewController extends Controller
     }
     //End Method
 
+    public function ReviewChangeStatus(Request $request){
+        $review = Review::find($request->review_id);
+        $review->status = $request->status;
+        $review->save();
+        return response()->json(['success'=>'Status Change Successfully']);
+    }
+//end method
+
+
 
 
 

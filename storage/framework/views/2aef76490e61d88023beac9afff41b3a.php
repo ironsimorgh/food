@@ -1,8 +1,18 @@
-<?php $__env->startSection('admin'); ?>
 
+<?php $__env->startSection('client'); ?>
+<?php
+$id=Auth::guard('client')->id();
+$client = App\Models\Client::find($id);
+$status = $client->status;
+?>
 <div class="page-content">
     <div class="container-fluid">
-
+<?php if($status==='1'): ?>
+<h4>Restaurant Account is <span class="text-success">Active</span></h4>
+<?php else: ?>
+<h4>Restaurant Account is <span class="text-danger">InActive</span></h4>
+<P class="text-danger"><b>Plz wait admin will check and approve your account</b></P>
+<?php endif; ?>
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -317,4 +327,4 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('admin.admin_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/admin/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('client.client_dashboard', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\xampp\htdocs\Pro3\food\resources\views/client/index.blade.php ENDPATH**/ ?>
