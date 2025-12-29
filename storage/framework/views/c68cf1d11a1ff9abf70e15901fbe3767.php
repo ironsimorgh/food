@@ -24,11 +24,17 @@ $menuNamesString = implode(' . ',$menuNames);
 $coupons = App\Models\Coupon::where('client_id',$client->id )->where('status','1')->first();
 ?>
 
+<?php
+   $reviewcount = App\Models\Review::where('client_id',$client->id)
+   ->where('status',1)->latest()->get();
+   $avarage = App\Models\Review::where('client_id',$client->id)
+   ->where('status',1)->avg('rating');
+?>
                <div class="col-md-3">
                     <div class="item pd-3">
                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                            <div class="list-card-image">
-                              <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
+                              <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> <?php echo e(number_format($avarage,1)); ?> (<?php echo e(count($reviewcount)); ?>+)</span></div>
                               <div class="favourite-heart text-danger position-absolute"><a aria-label="Add to Wishlist" onclick="addWishList(<?php echo e($client->id); ?>)"><i class="icofont-heart"></i></a></div>
                               <?php if($coupons): ?>
                               <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
